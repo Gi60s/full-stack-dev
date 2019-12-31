@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@gi60s/markdown-docs": "0.0.10"
+    "@gi60s/markdown-docs": "^0.1.1"
   }
 }
