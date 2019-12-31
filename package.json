@@ -1,0 +1,16 @@
+{
+  "name": "it410-2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:build": "markdown-docs build docs-src docs",
+    "docs:dev": "markdown-docs dev docs-src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@gi60s/markdown-docs": "0.0.10"
+  }
+}
