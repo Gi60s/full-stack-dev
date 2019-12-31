@@ -1,0 +1,55 @@
+
+.site-title {
+  background-image: url('../icons/logo-50.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 45px;
+  background-size: 36px 36px;
+}
+
+.page-content .wrapper article .post-content > h1 {
+  color: #FFF;
+}
+
+.page-content .question-answer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #EFC9AF;
+}
+
+.page-content .question-answer  .question {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.page-content .question-answer  .question:before {
+  content: 'Question: ';
+  font-weight: bold;
+}
+
+.page-content .question-answer .question:after {
+  display: block;
+  margin-top: 10px;
+  content: 'Click to show answer';
+  font-style: italic;
+  font-size: 90%;
+ }
+
+.page-content .question-answer.show .question:after {
+  display: none;
+}
+
+.page-content .question-answer .answer {
+  display: none;
+}
+
+.page-content .question-answer .answer:before {
+  content: 'Answer: ';
+  font-weight: bold;
+}
+
+.page-content .question-answer.show .answer {
+  display: block;
+  padding: 10px;
+}

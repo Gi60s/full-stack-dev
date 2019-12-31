@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Domain Driven Design</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/intro">Full Stack Web Development</a><ul></ul></li><li><a href="/full-stack-dev/domain-driven-design" class="current-page">Domain Driven Design</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Domain Driven Design</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#scenario">Scenario</a></li><li><a href="#ddd-steps">DDD Steps</a><ul><li><a href="#define-events">Define Events</a></li><li><a href="#define-commands">Define Commands</a></li><li><a href="#define-entities-and-value-objects">Define Entities and Value Objects</a></li></ul></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="introduction">Introduction</h1>
+<blockquote>
+<p>We fail more often because we solve the wrong problem than because we get the wrong solution to the right problem.</p>
+<p>-- Russell L. Ackoff</p>
+</blockquote>
+<p>This page will take you through an example of discovering a domain following <a href="https://vaughnvernon.co/">Vaughn Vernon&#39;s DDD</a> principles. The example will be a messaging application that is very similar to Slack, but with a lot less features.</p>
+<p>As you will be building your own web application as the final project for the class you will want to understand and implement these same practices before you even begin to write any code at all.</p>
+<h1 id="scenario">Scenario</h1>
+<p>The examples outlined in this page will follow a specific scenario, as if we were actually trying to build a working API.</p>
+<p>We are building a very lightweight alternative of Slack for internal messaging. We want channels, messages, and comments. We do not care about emoji&#39;s, file uploads, voice chat, videos, etc.</p>
+<h1 id="ddd-steps">DDD Steps</h1>
+<p>Proper domain driven design requires the input of the domain expert. The domain expert is most often the business for which the API is being created. The business understands the processes and procedures their business operates under, and creating a definition of their domain requires their knowledge. Use the domain expert (the business partner) to help you define events, commands, entities, and aggregates.</p>
+<h2 id="define-events">Define Events</h2>
+<p>The first step to defining your domain is to list the events that occur. An event is something that has happened in the past, is finite, and completed.</p>
+<h3 id="exercise">Exercise</h3>
+<p>Enumerate all the events that the domain would raise. Typically, events contain a noun coupled with a past intransitive verb phrase.</p>
+<p>&lt;--</p>
+<p>What are the events that you can think of for our Splack application?</p>
+<p>--</p>
+<p>For our messaging app here are some of our events:</p>
+<ul>
+<li>channel created</li>
+<li>user joined channel</li>
+<li>user left channel</li>
+<li>channel basic info updated</li>
+<li>channel deleted</li>
+<li>message posted</li>
+<li>message updated</li>
+<li>message deleted</li>
+<li>comment made on message</li>
+<li>comment updated</li>
+<li>comment deleted</li>
+</ul>
+<p>--&gt;</p>
+<h2 id="define-commands">Define Commands</h2>
+<p>The next step in defining your domain is identifying and defining the commands. Commands enact state changes. Those state changes are represented in the events you&#39;ve already defined.</p>
+<p>According to the principles in Domain Driven Design, these commands should not be &quot;anemic&quot;. Name your commands according to real business processes or actions that would be expressed by your business domain experts. Martin Fowler describes more on an Anemic Domain Model here.</p>
+<h3 id="exercise-1">Exercise:</h3>
+<p>After you&#39;ve listed all the domain&#39;s events, list the commands that would produce the events.</p>
+<p>&lt;--</p>
+<p>What are the commands that our Splack app should have?</p>
+<p>--</p>
+<p>Our messaging API could have these commands:</p>
+<ul>
+<li>create a channel</li>
+<li>add user to a channel</li>
+<li>remove user from a channel</li>
+<li>update channel&#39;s basic info</li>
+<li>delete channel</li>
+<li>post a message</li>
+<li>update a message</li>
+<li>delete a message</li>
+<li>comment on a message</li>
+<li>update a comment</li>
+<li>delete a comment</li>
+</ul>
+<p>--&gt;</p>
+<h2 id="define-entities-and-value-objects">Define Entities and Value Objects</h2>
+<p>After you&#39;ve listed the possible events and described the commands to produce them you can now identify what Eric Evans describes in his book on <a href="https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215">Domain Driven Design</a> as &quot;entities&quot; and &quot;value objects&quot;.</p>
+<p>Entities and value objects are used to represent groups of data. The difference between these two concepts has to do with identity, lifespan, and mutability:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Entity</th>
+<th>Value Object</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identity</td>
+<td>Has a unique identifier.</td>
+<td>Can be identified by structure.</td>
+</tr>
+<tr>
+<td>Lifespan</td>
+<td>Has a history (even if not stored) of its creation and changes.</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>Mutability</td>
+<td>Can change over time.</td>
+<td>Unchangeable.</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>A person.</td>
+<td>A circle.</td>
+</tr>
+</tbody></table>
+<h3 id="exercise-2">Exercise</h3>
+<p>Using the list of commands you&#39;ve already come up with:</p>
+<ul>
+<li>Identify the entities and value objects for your domain.</li>
+<li>Identify the properties that make up the entities and domain objects.</li>
+<li>Identify the type of data for each property</li>
+</ul>
+<p>&lt;--</p>
+<p>What are the entities and value objects we should have for our Splack app?</p>
+<p>--</p>
+<p><strong>Entities</strong></p>
+<ul>
+<li>Channel</li>
+<li>Message</li>
+<li>Comment</li>
+<li>User</li>
+</ul>
+<p><strong>Value Objects</strong></p>
+<ul>
+<li>Avatar</li>
+</ul>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>What are the properties and types associated with our Splack app&#39;s entities and value objects?</p>
+<p>--</p>
+<p>Channel (entity)</p>
+<ul>
+<li>id (string)</li>
+<li>title (string)</li>
+<li>description (string)</li>
+<li>messages (array of message entities)</li>
+<li>members (user value object)</li>
+</ul>
+<p>Message (entity)</p>
+<ul>
+<li>id (string)</li>
+<li>body (string)</li>
+<li>posted by (user ID)</li>
+<li>posted date (ISO 8601 string)</li>
+<li>updated date (ISO 8601 string)</li>
+<li>comments (array of comment entities)</li>
+</ul>
+<p>Comments (entity)</p>
+<ul>
+<li>id (string)</li>
+<li>body (string)</li>
+<li>posted by (user ID)</li>
+<li>posted date (ISO 8601 string)</li>
+<li>updated date (ISO 8601 string)</li>
+</ul>
+<p>User (entity)</p>
+<ul>
+<li>id (string)</li>
+<li>name (string)</li>
+<li>avatar (picture)</li>
+</ul>
+<p>Avatar (value object)</p>
+<ul>
+<li>file name (string)</li>
+<li>file type (string)</li>
+<li>file upload date (ISO 8601 string)</li>
+</ul>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>Think of a scenario where something that might be considered an entity would actually be a value object. How could this be?</p>
+<p>--</p>
+<p>Consider a <code>User</code> in our system.</p>
+<ul>
+<li>Identity - yes, our user has a unique ID</li>
+<li>Lifespan - yes, we track a user&#39;s name changes</li>
+<li>Mutability - yes, our user changes</li>
+</ul>
+<p>It is possible to use an external user management system. For example, many apps allow you to authenticate with Google, Facebook, etc. If our system did not manage users here, instead authenticating with a third party provider, a <code>User</code> object could still have the same properties but would only be read from the provider.</p>
+<p>As a value object:</p>
+<ul>
+<li>Identity - yes, we know the foreign identity of the user, as defined by the third party.</li>
+<li>Lifespan - no, we don&#39;t track changes. The values that the provider gives us may change over time, but we don&#39;t care and we don&#39;t keep track.</li>
+<li>Mutability - no, we use the foreign identity and that does not change. Changes to the user&#39;s name or avatar are not considered changes, but rather a replacement of data.</li>
+</ul>
+<p>--&gt;</p>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/domain-driven-design.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
