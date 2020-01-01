@@ -243,8 +243,7 @@ You give the computer very specific instructions on how to do something. In this
 ## For Loop
 
 ```js
-var i;
-for (i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 ```
@@ -252,7 +251,7 @@ for (i = 0; i < 10; i++) {
 ## While Loop
 
 ```js
-var i;
+let i = 0;
 while (i < 10) {
     console.log(i);
     i++;
@@ -264,7 +263,7 @@ while (i < 10) {
 Will execute at least once.
 
 ```js
-var i = 0;
+let i = 0;
 do {
     console.log(i);
     i++;
@@ -354,7 +353,7 @@ Option 2 uses `let` that has a closure scoped to the nearest block, in this case
 You've already seen this one, a single `=`.
 
 ```js
-var x = 5;
+let x = 5;
 x = 6;
 ```
 
@@ -373,7 +372,7 @@ x = 6;
 - **Increment:**
 
     ```js
-    var a = 1;
+    let a = 1;
     a++;        // increment after expression evaluation
     ++a;        // increment before expression evaluation
     a += 5;     // add 5 to a
@@ -382,7 +381,7 @@ x = 6;
 - **Decrement:**
 
     ```js
-    var a = 5;
+    let a = 5;
     a--;        // decrement after expression evaluation
     --a;        // decrement before expression evaluation
     a -= 5;     // remove 5 from a
@@ -582,13 +581,13 @@ console.log(a, b, x);   // 1, 2, undefined
     foo();                          // call foo
 
     function bar() {}               // define function and make assignment
-    var y = bar;
+    const y = bar;
     ```
 
 - You can create *anonymous* functions that you assign to variables.
 
     ```js
-    var x = function() {}   // the name is undefined
+    const x = function() {}   // the name is undefined
     x();                    // call the anonymous function
     ```
 
@@ -603,7 +602,7 @@ function add(a, b) {
     console.log(a + b);             // output the result of a + b to the console
 }
 
-var multiply = function(a, b) {
+const multiply = function(a, b) {
     console.log(a * b);             // output the result of a * b to the console
 }
 ```
@@ -1115,15 +1114,15 @@ You can also use `Object.defineProperty` to define getters and setters with addi
 **Non-Inherited Check**
 
 ```js
-var obj = { name: 'Bob' };
-var hasNameProperty = obj.hasOwnProperty('name');
+const obj = { name: 'Bob' };
+const hasNameProperty = obj.hasOwnProperty('name');
 ```
 
 **Inherited or Non-Inherited Check**
 
 ```js
-var obj = { name: 'Bob' };
-var hasNameProperty = 'name' in obj;
+const obj = { name: 'Bob' };
+const hasNameProperty = 'name' in obj;
 ```
 
 ### Questions About Objects
@@ -1165,7 +1164,7 @@ Can you make an object reference itself in a property? If so, then how?
 The object needs to be created first, then you can add a property that references it.
 
 ```js
-var o = {
+const o = {
     name: 'Bob'
 };
 o.me = o;
@@ -1783,7 +1782,7 @@ If you catch an error but cannot recover from it safely then you need to rethrow
 
 ```js
 try {
-    var num = Math.random() * 3;
+    const num = Math.random() * 3;
     if (num < 1) throw Error('Too low');
     if (num < 2) throw Error('Recoverable');
 } catch (err) {
@@ -1828,7 +1827,7 @@ Error: Number is not positive: 0
 There are many ways to create an Array, but here is the simplest:
 
 ```js
-var ar = [];
+const ar = [];
 ```
 
 --
@@ -1878,7 +1877,7 @@ What is dangerous about the following function? How could we fix it?
 
 ```js
 function joinStrings(ar) {
-    var result = '';
+    let result = '';
     while (ar.length > 0) result += ar.shift();
     return result;
 }
@@ -1890,7 +1889,7 @@ The developer who is calling the function may not know that the array passed in 
 
 ```js
 function joinStrings(ar) {
-    var result = '';
+    let result = '';
     const copy = ar.slice(0);
     while (copy.length > 0) result += copy.shift();
     return result;

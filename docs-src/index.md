@@ -12,6 +12,8 @@ As technology continues to evolve at an ever quickening pace it is becoming incr
 
 Through this class we will develop a full stack application, but how much we cover and what will be determined based on what you want to learn and how much we can tackle together.
 
+Each class will consist of time spent in instruction followed by time spent for lab work. Lab work is an opportunity to work through assignments in class and to talk through assignments submitted in class.
+
 # You are Qualified
 
 We each have different backgrounds, different educations, and different levels of experiences in all aspects of life.
@@ -20,7 +22,7 @@ Your range of experiences uniquely qualify you to see solutions that others may 
 
 You are not an impostor here. You belong.
 
-# Tentative Study Plan
+# Tentative Schedule
 
 - Domain Driven Design - Discovering the parts of your application
 - API Design and Documentation using the OpenAPI specification
@@ -50,15 +52,24 @@ This class will cover how to:
 - **Name:** James Speirs
 
 - **Education:**
+
     - Bachelors of Science at BYU in Information Technology with an emphasis in User Interface Design.
+    
     - Masters of Science at BYU in Information Technology with an emphasis in User Experience.
 
 - **Work:**
+
     - Currently working for BYU's Office of Information Technology as an architect and engineering manager.
 
 - **Office Hours**
+
     - I don't have an office or set hours, but if you need some one on one time we can set up a time to meet.
+    
     - I plan to have free time at the end of every class to answer questions too.
+    
+# Homework
+
+Homework assignments will be posted to [Learning Suite](learningsuite.byu.edu).
 
 # Final Project
 
@@ -69,6 +80,25 @@ This class will cover how to:
 - Worth about 25% of your final grade.
 
 ## Requirements
+
+- Build a full stack (client and server) web application using [JavaScript](javascript.md) and [NodeJS](nodejs.md).
+
+    - Client application must be built on [Vue](vue.md). Using [Nuxt](nuxt.md) is acceptable because it is built on Vue.
+    
+    - Server application must be built on [NodeJS](nodejs.md).
+
+- The entire application must be [containerized with Docker](containers.md).
+
+    - Must be easily moved from one environment (computer) to another.
+    
+    - Container must be self initializing for first start up.
+    
+    - The objective here is that I should be able to download your project from Git and have it running in less than one minute.
+    
+- Must access it's own containerized database.
+
+
+
 
 **Client (browser)**
 
@@ -131,3 +161,19 @@ The presentation should include a demonstration of the web application as well a
 - **Container Management (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities.
 
 - **Reward and Challenge (5%)** - Share with the class what the most rewarding part of the project was as well as the most challenging.
+
+## Example Final Projects from the Past
+
+- A calendar application that helps multiple users schedule on their own calendars or on a shared calendar.
+
+- A recipe website where recipes can be submitted, categorized, searched by ingredients available, etc.
+
+- A D&D tracking website.
+
+- A puzzle video game.
+
+- A project management application that tracks tasks across users and allows for team communication (posts, comments).
+
+- An app to help manage a church calling.
+
+- A photography application for uploading, categorizing, and searching photos.
