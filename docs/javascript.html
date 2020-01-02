@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/intro">Full Stack Web Development</a><ul></ul></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/javascript" class="current-page">JavaScript Fundamentals</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/javascript" class="current-page">JavaScript Fundamentals</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -303,19 +303,18 @@ This is a comment.
 <p>You give the computer very specific instructions on how to do something. In this case we&#39;ll be explicitly telling the computer how to loop.</p>
 <p>--&gt;</p>
 <h2 id="for-loop">For Loop</h2>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> i;
-<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
     <span class="hljs-built_in">console</span>.log(i);
 }</code></pre>
 <h2 id="while-loop">While Loop</h2>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> i;
+<pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">10</span>) {
     <span class="hljs-built_in">console</span>.log(i);
     i++;
 }</code></pre>
 <h2 id="do-loop">Do Loop</h2>
 <p>Will execute at least once.</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+<pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">do</span> {
     <span class="hljs-built_in">console</span>.log(i);
     i++;
@@ -366,7 +365,7 @@ This is a comment.
 <h1 id="operators">Operators</h1>
 <h2 id="assignment-operator">Assignment Operator</h2>
 <p>You&#39;ve already seen this one, a single <code>=</code>.</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+<pre><code class="language-js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;
 x = <span class="hljs-number">6</span>;</code></pre>
 <h2 id="math-operators">Math Operators</h2>
 <ul>
@@ -381,13 +380,13 @@ x = <span class="hljs-number">6</span>;</code></pre>
 <li><p><strong>Modulus:</strong> <code>5 % 3</code>  (remainder of dividing 5 / 3 )</p>
 </li>
 <li><p><strong>Increment:</strong></p>
-<pre><code class="language-js">  <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<pre><code class="language-js">  <span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
   a++;        <span class="hljs-comment">// increment after expression evaluation</span>
   ++a;        <span class="hljs-comment">// increment before expression evaluation</span>
   a += <span class="hljs-number">5</span>;     <span class="hljs-comment">// add 5 to a</span></code></pre>
 </li>
 <li><p><strong>Decrement:</strong></p>
-<pre><code class="language-js">  <span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>;
+<pre><code class="language-js">  <span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>;
   a--;        <span class="hljs-comment">// decrement after expression evaluation</span>
   --a;        <span class="hljs-comment">// decrement before expression evaluation</span>
   a -= <span class="hljs-number">5</span>;     <span class="hljs-comment">// remove 5 from a</span></code></pre>
@@ -538,10 +537,10 @@ foo();                    <span class="hljs-comment">//call the function</span>
   foo();                          <span class="hljs-comment">// call foo</span>
 
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>{}               <span class="hljs-comment">// define function and make assignment</span>
-  <span class="hljs-keyword">var</span> y = bar;</code></pre>
+  <span class="hljs-keyword">const</span> y = bar;</code></pre>
 </li>
 <li><p>You can create <em>anonymous</em> functions that you assign to variables.</p>
-<pre><code class="language-js">  <span class="hljs-keyword">var</span> x = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}   <span class="hljs-comment">// the name is undefined</span>
+<pre><code class="language-js">  <span class="hljs-keyword">const</span> x = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}   <span class="hljs-comment">// the name is undefined</span>
   x();                    <span class="hljs-comment">// call the anonymous function</span></code></pre>
 </li>
 </ul>
@@ -556,7 +555,7 @@ foo();                    <span class="hljs-comment">//call the function</span>
     <span class="hljs-built_in">console</span>.log(a + b);             <span class="hljs-comment">// output the result of a + b to the console</span>
 }
 
-<span class="hljs-keyword">var</span> multiply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+<span class="hljs-keyword">const</span> multiply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
     <span class="hljs-built_in">console</span>.log(a * b);             <span class="hljs-comment">// output the result of a * b to the console</span>
 }</code></pre>
 <p>&lt;--</p>
@@ -923,11 +922,11 @@ Yes. As an example, it often makes sense to create a getter that calculates a va
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN Object.defineProperty</a></p>
 <h3 id="detecting-if-an-object-has-a-specific-property">Detecting if an Object has a Specific Property</h3>
 <p><strong>Non-Inherited Check</strong></p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> obj = { <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span> };
-<span class="hljs-keyword">var</span> hasNameProperty = obj.hasOwnProperty(<span class="hljs-string">'name'</span>);</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span> };
+<span class="hljs-keyword">const</span> hasNameProperty = obj.hasOwnProperty(<span class="hljs-string">'name'</span>);</code></pre>
 <p><strong>Inherited or Non-Inherited Check</strong></p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> obj = { <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span> };
-<span class="hljs-keyword">var</span> hasNameProperty = <span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> obj;</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span> };
+<span class="hljs-keyword">const</span> hasNameProperty = <span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> obj;</code></pre>
 <h3 id="questions-about-objects">Questions About Objects</h3>
 <p>&lt;--</p>
 <p>Are objects mutable or immutable? What&#39;s the difference?</p>
@@ -947,7 +946,7 @@ b.email = <span class="hljs-string">'foo@email.com'</span>;</code></pre>
 <p>Can you make an object reference itself in a property? If so, then how?</p>
 <p>--</p>
 <p>The object needs to be created first, then you can add a property that references it.</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> o = {
+<pre><code class="language-js"><span class="hljs-keyword">const</span> o = {
     <span class="hljs-attr">name</span>: <span class="hljs-string">'Bob'</span>
 };
 o.me = o;
@@ -1435,7 +1434,7 @@ err.code = <span class="hljs-string">'MY_ERROR'</span>;
 <p>Sometimes you can recover from an error safely if the error was not entirely unexpected. For example, you may attempt to use AJAX and have the contingency that if it fails you&#39;ll try a different URL.</p>
 <p>If you catch an error but cannot recover from it safely then you need to rethrow the error.</p>
 <pre><code class="language-js"><span class="hljs-keyword">try</span> {
-    <span class="hljs-keyword">var</span> num = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">const</span> num = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">3</span>;
     <span class="hljs-keyword">if</span> (num &lt; <span class="hljs-number">1</span>) <span class="hljs-keyword">throw</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Too low'</span>);
     <span class="hljs-keyword">if</span> (num &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">throw</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Recoverable'</span>);
 } <span class="hljs-keyword">catch</span> (err) {
@@ -1471,7 +1470,7 @@ Error: Number is not positive: 0
 */</span></code></pre>
 <h1 id="arrays">Arrays</h1>
 <p>There are many ways to create an Array, but here is the simplest:</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> ar = [];</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> ar = [];</code></pre>
 <p>--</p>
 <ul>
 <li><p>Each item in the array can store any data type.</p>
@@ -1505,14 +1504,14 @@ ar[<span class="hljs-number">0</span>] = <span class="hljs-string">'First'</span
 <p>&lt;--</p>
 <p>What is dangerous about the following function? How could we fix it?</p>
 <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">joinStrings</span>(<span class="hljs-params">ar</span>) </span>{
-    <span class="hljs-keyword">var</span> result = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">let</span> result = <span class="hljs-string">''</span>;
     <span class="hljs-keyword">while</span> (ar.length &gt; <span class="hljs-number">0</span>) result += ar.shift();
     <span class="hljs-keyword">return</span> result;
 }</code></pre>
 <p>--</p>
 <p>The developer who is calling the function may not know that the array passed in is being manipulated. It would be better to not manipulate the passed in array.</p>
 <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">joinStrings</span>(<span class="hljs-params">ar</span>) </span>{
-    <span class="hljs-keyword">var</span> result = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">let</span> result = <span class="hljs-string">''</span>;
     <span class="hljs-keyword">const</span> copy = ar.slice(<span class="hljs-number">0</span>);
     <span class="hljs-keyword">while</span> (copy.length &gt; <span class="hljs-number">0</span>) result += copy.shift();
     <span class="hljs-keyword">return</span> result;

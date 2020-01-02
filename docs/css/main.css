@@ -1,4 +1,3 @@
-
 .site-title {
   background-image: url('../icons/logo-50.png');
   background-repeat: no-repeat;
@@ -9,6 +8,10 @@
 
 .page-content .wrapper article .post-content > h1 {
   color: #FFF;
+}
+
+.page-content .wrapper article .post-content li {
+  margin-top: 10px;
 }
 
 .page-content .question-answer {

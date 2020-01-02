@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev" class="current-page">Home</a></li><li><a href="/full-stack-dev/intro">Full Stack Web Development</a><ul></ul></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev" class="current-page">Home</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -60,7 +60,7 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#you-are-qualified">You are Qualified</a></li><li><a href="#tentative-study-plan">Tentative Study Plan</a></li><li><a href="#about-this-class">About this Class</a></li><li><a href="#final-project">Final Project</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#you-are-qualified">You are Qualified</a></li><li><a href="#tentative-schedule">Tentative Schedule</a></li><li><a href="#about-this-class">About this Class</a></li><li><a href="#homework">Homework</a></li><li><a href="#final-project">Final Project</a></li></ul></div>
         </div>
         
 
@@ -68,11 +68,12 @@
 <p>In this class we will learn how to do full stack development.</p>
 <p>As technology continues to evolve at an ever quickening pace it is becoming increasingly more difficult to be a full stack developer.</p>
 <p>Through this class we will develop a full stack application, but how much we cover and what will be determined based on what you want to learn and how much we can tackle together.</p>
+<p>Each class will consist of time spent in instruction followed by time spent for lab work. Lab work is an opportunity to work through assignments in class and to talk through assignments submitted in class.</p>
 <h1 id="you-are-qualified">You are Qualified</h1>
 <p>We each have different backgrounds, different educations, and different levels of experiences in all aspects of life.</p>
 <p>Your range of experiences uniquely qualify you to see solutions that others may not.</p>
 <p>You are not an impostor here. You belong.</p>
-<h1 id="tentative-study-plan">Tentative Study Plan</h1>
+<h1 id="tentative-schedule">Tentative Schedule</h1>
 <ul>
 <li>Domain Driven Design - Discovering the parts of your application</li>
 <li>API Design and Documentation using the OpenAPI specification</li>
@@ -100,8 +101,10 @@
 </li>
 <li><p><strong>Education:</strong></p>
 <ul>
-<li>Bachelors of Science at BYU in Information Technology with an emphasis in User Interface Design.</li>
-<li>Masters of Science at BYU in Information Technology with an emphasis in User Experience.</li>
+<li><p>Bachelors of Science at BYU in Information Technology with an emphasis in User Interface Design.</p>
+</li>
+<li><p>Masters of Science at BYU in Information Technology with an emphasis in User Experience.</p>
+</li>
 </ul>
 </li>
 <li><p><strong>Work:</strong></p>
@@ -111,11 +114,15 @@
 </li>
 <li><p><strong>Office Hours</strong></p>
 <ul>
-<li>I don&#39;t have an office or set hours, but if you need some one on one time we can set up a time to meet.</li>
-<li>I plan to have free time at the end of every class to answer questions too.</li>
+<li><p>I don&#39;t have an office or set hours, but if you need some one on one time we can set up a time to meet.</p>
+</li>
+<li><p>I plan to have free time at the end of every class to answer questions too.</p>
+</li>
 </ul>
 </li>
 </ul>
+<h1 id="homework">Homework</h1>
+<p>Homework assignments will be posted to <a href="/full-stack-dev/learningsuite.byu.edu">Learning Suite</a>.</p>
 <h1 id="final-project">Final Project</h1>
 <ul>
 <li><p>You will also build throughout the semester a final project of your choosing.</p>
@@ -126,6 +133,28 @@
 </li>
 </ul>
 <h2 id="requirements">Requirements</h2>
+<ul>
+<li><p>Build a full stack (client and server) web application using <a href="/full-stack-dev/javascript">JavaScript</a> and <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
+<ul>
+<li><p>Client application must be built on <a href="/full-stack-dev/vue">Vue</a>. Using <a href="/full-stack-dev/nuxt">Nuxt</a> is acceptable because it is built on Vue.</p>
+</li>
+<li><p>Server application must be built on <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
+</li>
+</ul>
+</li>
+<li><p>The entire application must be <a href="/full-stack-dev/containers">containerized with Docker</a>.</p>
+<ul>
+<li><p>Must be easily moved from one environment (computer) to another.</p>
+</li>
+<li><p>Container must be self initializing for first start up.</p>
+</li>
+<li><p>The objective here is that I should be able to download your project from Git and have it running in less than one minute.</p>
+</li>
+</ul>
+</li>
+<li><p>Must access it&#39;s own containerized database.</p>
+</li>
+</ul>
 <p><strong>Client (browser)</strong></p>
 <ul>
 <li><p>A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.</p>
@@ -188,6 +217,23 @@
 <li><p><strong>Container Management (15%)</strong> - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities.</p>
 </li>
 <li><p><strong>Reward and Challenge (5%)</strong> - Share with the class what the most rewarding part of the project was as well as the most challenging.</p>
+</li>
+</ul>
+<h2 id="example-final-projects-from-the-past">Example Final Projects from the Past</h2>
+<ul>
+<li><p>A calendar application that helps multiple users schedule on their own calendars or on a shared calendar.</p>
+</li>
+<li><p>A recipe website where recipes can be submitted, categorized, searched by ingredients available, etc.</p>
+</li>
+<li><p>A D&amp;D tracking website.</p>
+</li>
+<li><p>A puzzle video game.</p>
+</li>
+<li><p>A project management application that tracks tasks across users and allows for team communication (posts, comments).</p>
+</li>
+<li><p>An app to help manage a church calling.</p>
+</li>
+<li><p>A photography application for uploading, categorizing, and searching photos.</p>
 </li>
 </ul>
 </div>
