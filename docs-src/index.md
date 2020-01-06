@@ -22,18 +22,6 @@ Your range of experiences uniquely qualify you to see solutions that others may 
 
 You are not an impostor here. You belong.
 
-# Tentative Schedule
-
-- Domain Driven Design - Discovering the parts of your application
-- API Design and Documentation using the OpenAPI specification
-- JavaScript fundamentals
-- NodeJS Introduction, packages
-- Express server and routes
-- Implementing a mock API with OpenAPI Enforcer middleware
-- HTML and DOM manipulation with JavaScript
-- CSS and SASS with build tools
-
-
 # About this Class
 
 ## What will this class cover?
@@ -67,40 +55,35 @@ This class will cover how to:
     
     - I plan to have free time at the end of every class to answer questions too.
     
+    - I am also available on the IT&C Slack (byuitcrowd.slack.com) and can answer questions there.
+    
 # Homework
 
 Homework assignments will be posted to [Learning Suite](learningsuite.byu.edu).
 
+Homework will be due in class and by the end of class (6:50 PM).
+
+When it comes to answering questions about homework vs passing off assignments, those who need a pass off will take first priority.
+
+Late assignments will loose 5% per class late (not per day late) up to 50%.
+
+Most homework assignments will be toward building the final project and will build one upon another. Falling behind will compound difficulties.
+
 # Final Project
 
-- You will also build throughout the semester a final project of your choosing.
+- You will build throughout the semester a final project of your choosing.
 
-- You may choose to build your Final Project while we work in class on our in class application.
+- You may choose to build your Final Project while we work in class on our in class application. The two will use a lot of the same technology.
 
 - Worth about 25% of your final grade.
 
 ## Requirements
 
-- Build a full stack (client and server) web application using [JavaScript](javascript.md) and [NodeJS](nodejs.md).
-
-    - Client application must be built on [Vue](vue.md). Using [Nuxt](nuxt.md) is acceptable because it is built on Vue.
-    
-    - Server application must be built on [NodeJS](nodejs.md).
-
-- The entire application must be [containerized with Docker](containers.md).
-
-    - Must be easily moved from one environment (computer) to another.
-    
-    - Container must be self initializing for first start up.
-    
-    - The objective here is that I should be able to download your project from Git and have it running in less than one minute.
-    
-- Must access it's own containerized database.
-
-
-
+Build a full stack (client and server) web application using [JavaScript](javascript.md) and [NodeJS](nodejs.md).
 
 **Client (browser)**
+
+- Client application must be built on [Vue](vue.md). Using [Nuxt](nuxt.md) is acceptable because it is built on Vue.
 
 - A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.
 
@@ -109,12 +92,12 @@ Homework assignments will be posted to [Learning Suite](learningsuite.byu.edu).
 - Allow the user to provide input to your application.
 
 - Content must be catered to the user.
-
+    
 **Server**
 
-- Write a custom server using NodeJS.
+- Write a custom server using [NodeJS](nodejs.md).
 
-- Use either a NoSQL or SQL database (or both).
+- Use either a [NoSQL](nosql.md) or [SQL](sql.md) database (or both).
 
 - Users must be able to create and use a login.
 
@@ -122,21 +105,17 @@ Homework assignments will be posted to [Learning Suite](learningsuite.byu.edu).
 
 - Users must be able to provide input and have a dynamic experience.
 
-- The final project should be polished. It must look and act like a finished web application.
+**Environment**
+
+- Must use docker containers for local development, including it's own containerized database. It must be easy to transfer your app from one computer to another for development work.
+
+- It must provide a way via environment variables or other configuration settings to let your app run in multiple environments. For example, develop locally but deploy to the cloud.
 
 ## Alone or with a Group
 
-- You can work alone or in groups of two or three people.
+- You can work alone or in pairs.
 
-- If you have more people working on the project then more will be expected of your final project.
-
-## Project Proposal
-
-Within the first few weeks of class we'll take time to discuss the project you'd like to work on. The purpose of this is two fold:
-
-1. To help you create a project that is not too large and not too small.
-
-2. To answer any questions you have about your project.
+- If you have two people working on the project then more will be expected of your final project. I will also expect and look for an equal amount of contribution from each person.
 
 ## Grading Criteria
 
@@ -158,7 +137,7 @@ The presentation should include a demonstration of the web application as well a
 
 - **Project Scope (15%)** - Don't make your project too small. If you have questions about what is too small be sure to ask me. (Show through demonstration.)
 
-- **Container Management (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities.
+- **Environment (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities. It also must accept a configuration to enable it to be deployed to other servers or even the cloud.
 
 - **Reward and Challenge (5%)** - Share with the class what the most rewarding part of the project was as well as the most challenging.
 

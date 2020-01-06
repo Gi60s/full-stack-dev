@@ -60,7 +60,7 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#you-are-qualified">You are Qualified</a></li><li><a href="#tentative-schedule">Tentative Schedule</a></li><li><a href="#about-this-class">About this Class</a></li><li><a href="#homework">Homework</a></li><li><a href="#final-project">Final Project</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#you-are-qualified">You are Qualified</a></li><li><a href="#about-this-class">About this Class</a></li><li><a href="#homework">Homework</a></li><li><a href="#final-project">Final Project</a></li></ul></div>
         </div>
         
 
@@ -73,17 +73,6 @@
 <p>We each have different backgrounds, different educations, and different levels of experiences in all aspects of life.</p>
 <p>Your range of experiences uniquely qualify you to see solutions that others may not.</p>
 <p>You are not an impostor here. You belong.</p>
-<h1 id="tentative-schedule">Tentative Schedule</h1>
-<ul>
-<li>Domain Driven Design - Discovering the parts of your application</li>
-<li>API Design and Documentation using the OpenAPI specification</li>
-<li>JavaScript fundamentals</li>
-<li>NodeJS Introduction, packages</li>
-<li>Express server and routes</li>
-<li>Implementing a mock API with OpenAPI Enforcer middleware</li>
-<li>HTML and DOM manipulation with JavaScript</li>
-<li>CSS and SASS with build tools</li>
-</ul>
 <h1 id="about-this-class">About this Class</h1>
 <h2 id="what-will-this-class-cover">What will this class cover?</h2>
 <p>This class will cover how to:</p>
@@ -118,45 +107,32 @@
 </li>
 <li><p>I plan to have free time at the end of every class to answer questions too.</p>
 </li>
+<li><p>I am also available on the IT&amp;C Slack (byuitcrowd.slack.com) and can answer questions there.</p>
+</li>
 </ul>
 </li>
 </ul>
 <h1 id="homework">Homework</h1>
 <p>Homework assignments will be posted to <a href="/full-stack-dev/learningsuite.byu.edu">Learning Suite</a>.</p>
+<p>Homework will be due in class and by the end of class (6:50 PM).</p>
+<p>When it comes to answering questions about homework vs passing off assignments, those who need a pass off will take first priority.</p>
+<p>Late assignments will loose 5% per class late (not per day late) up to 50%.</p>
+<p>Most homework assignments will be toward building the final project and will build one upon another. Falling behind will compound difficulties.</p>
 <h1 id="final-project">Final Project</h1>
 <ul>
-<li><p>You will also build throughout the semester a final project of your choosing.</p>
+<li><p>You will build throughout the semester a final project of your choosing.</p>
 </li>
-<li><p>You may choose to build your Final Project while we work in class on our in class application.</p>
+<li><p>You may choose to build your Final Project while we work in class on our in class application. The two will use a lot of the same technology.</p>
 </li>
 <li><p>Worth about 25% of your final grade.</p>
 </li>
 </ul>
 <h2 id="requirements">Requirements</h2>
-<ul>
-<li><p>Build a full stack (client and server) web application using <a href="/full-stack-dev/javascript">JavaScript</a> and <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
+<p>Build a full stack (client and server) web application using <a href="/full-stack-dev/javascript">JavaScript</a> and <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
+<p><strong>Client (browser)</strong></p>
 <ul>
 <li><p>Client application must be built on <a href="/full-stack-dev/vue">Vue</a>. Using <a href="/full-stack-dev/nuxt">Nuxt</a> is acceptable because it is built on Vue.</p>
 </li>
-<li><p>Server application must be built on <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
-</li>
-</ul>
-</li>
-<li><p>The entire application must be <a href="/full-stack-dev/containers">containerized with Docker</a>.</p>
-<ul>
-<li><p>Must be easily moved from one environment (computer) to another.</p>
-</li>
-<li><p>Container must be self initializing for first start up.</p>
-</li>
-<li><p>The objective here is that I should be able to download your project from Git and have it running in less than one minute.</p>
-</li>
-</ul>
-</li>
-<li><p>Must access it&#39;s own containerized database.</p>
-</li>
-</ul>
-<p><strong>Client (browser)</strong></p>
-<ul>
 <li><p>A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.</p>
 </li>
 <li><p>Use Vue/Nuxt.</p>
@@ -168,9 +144,9 @@
 </ul>
 <p><strong>Server</strong></p>
 <ul>
-<li><p>Write a custom server using NodeJS.</p>
+<li><p>Write a custom server using <a href="/full-stack-dev/nodejs">NodeJS</a>.</p>
 </li>
-<li><p>Use either a NoSQL or SQL database (or both).</p>
+<li><p>Use either a <a href="/full-stack-dev/nosql">NoSQL</a> or <a href="/full-stack-dev/sql">SQL</a> database (or both).</p>
 </li>
 <li><p>Users must be able to create and use a login.</p>
 </li>
@@ -178,24 +154,21 @@
 </li>
 <li><p>Users must be able to provide input and have a dynamic experience.</p>
 </li>
-<li><p>The final project should be polished. It must look and act like a finished web application.</p>
+</ul>
+<p><strong>Environment</strong></p>
+<ul>
+<li><p>Must use docker containers for local development, including it&#39;s own containerized database. It must be easy to transfer your app from one computer to another for development work.</p>
+</li>
+<li><p>It must provide a way via environment variables or other configuration settings to let your app run in multiple environments. For example, develop locally but deploy to the cloud.</p>
 </li>
 </ul>
 <h2 id="alone-or-with-a-group">Alone or with a Group</h2>
 <ul>
-<li><p>You can work alone or in groups of two or three people.</p>
+<li><p>You can work alone or in pairs.</p>
 </li>
-<li><p>If you have more people working on the project then more will be expected of your final project.</p>
+<li><p>If you have two people working on the project then more will be expected of your final project. I will also expect and look for an equal amount of contribution from each person.</p>
 </li>
 </ul>
-<h2 id="project-proposal">Project Proposal</h2>
-<p>Within the first few weeks of class we&#39;ll take time to discuss the project you&#39;d like to work on. The purpose of this is two fold:</p>
-<ol>
-<li><p>To help you create a project that is not too large and not too small.</p>
-</li>
-<li><p>To answer any questions you have about your project.</p>
-</li>
-</ol>
 <h2 id="grading-criteria">Grading Criteria</h2>
 <p>The grade for your final project is based on a presentation that will occur on one of the last two days of class. There is no extra credit for presenting the first day. If any team fails to present they will receive a 0% on their final project.</p>
 <p>The presentation should include a demonstration of the web application as well as some code examples. The following criteria will be used to grade your final project.</p>
@@ -214,7 +187,7 @@
 </li>
 <li><p><strong>Project Scope (15%)</strong> - Don&#39;t make your project too small. If you have questions about what is too small be sure to ask me. (Show through demonstration.)</p>
 </li>
-<li><p><strong>Container Management (15%)</strong> - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities.</p>
+<li><p><strong>Environment (15%)</strong> - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities. It also must accept a configuration to enable it to be deployed to other servers or even the cloud.</p>
 </li>
 <li><p><strong>Reward and Challenge (5%)</strong> - Share with the class what the most rewarding part of the project was as well as the most challenging.</p>
 </li>
