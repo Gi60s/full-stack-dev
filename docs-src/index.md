@@ -1,6 +1,6 @@
 ---
 title: Home 
-navOrder: intro
+navOrder: history domain-driven-design git rest javascript node-and-npm
 toc: 1
 ---
 
