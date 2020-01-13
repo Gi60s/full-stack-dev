@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Express</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express" class="current-page">Express</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Express</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#directory-structure">Directory Structure</a></li><li><a href="#express">Express</a></li><li><a href="#http-request-and-response">HTTP Request and Response</a></li><li><a href="#implementing-http-methods">Implementing HTTP Methods</a></li><li><a href="#static-middleware">Static Middleware</a></li><li><a href="#routing">Routing</a></li><li><a href="#template-engines">Template Engines</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="directory-structure">Directory Structure</h1>
+<p>You want to organize your server in a way that makes sense:</p>
+<ul>
+<li><p>The structure in the example below is not set in stone, it&#39;s more like a guideline.</p>
+</li>
+<li><p>Some good practices:</p>
+<ul>
+<li><p>Put files to be served to the browser under one directory. In this case: <code>www</code></p>
+</li>
+<li><p>Put files to be run only on the server in another directory. In this case: <code>server</code></p>
+</li>
+<li><p>Have a single <code>index.html</code> at the root of your <code>www</code> directory. This is a minimal footprint file and serves as the entry point for starting your web application.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<ul>
+<li><strong>node_modules</strong></li>
+<li><strong>server</strong><ul>
+<li><strong>controllers</strong><ul>
+<li>foo-controller.js</li>
+<li>bar-controller.js</li>
+</ul>
+</li>
+<li><strong>routes</strong><ul>
+<li>foo-routes.js</li>
+<li>bar-routes.js</li>
+</ul>
+</li>
+<li>server.js</li>
+</ul>
+</li>
+<li><strong>www</strong><ul>
+<li><strong>css</strong><ul>
+<li>main.css</li>
+</ul>
+</li>
+<li><strong>js</strong><ul>
+<li>main.js</li>
+</ul>
+</li>
+<li>index.html</li>
+</ul>
+</li>
+<li>package.json</li>
+<li>package-lock.json</li>
+</ul>
+<h1 id="express">Express</h1>
+<ul>
+<li><p>A NodeJS package that uses the core http modules to create a web server.</p>
+</li>
+<li><p>From <a href="http://expressjs.com">expressjs.com</a>: Fast, unopinionated, minimalist web framework for Node.js</p>
+</li>
+<li><p>It doesn&#39;t serve anything unless you tell it what and how to serve content.</p>
+</li>
+</ul>
+<p><strong>Exercise</strong></p>
+<ol>
+<li><p>Install the express package in your project: <code>npm install express</code></p>
+</li>
+<li><p>Create file named: <code>server.js</code>.</p>
+</li>
+<li><p>Within that file start up an express server with a simple <code>get</code> route. <a href="http://expressjs.com/en/starter/hello-world.html">Check out the Hello World Example</a>.</p>
+</li>
+<li><p>Use a web browser to hit the route.</p>
+</li>
+</ol>
+<h1 id="http-request-and-response">HTTP Request and Response</h1>
+<h2 id="the-http-request">The HTTP Request</h2>
+<ol>
+<li><p>The URL</p>
+<pre><code> http://someplace.com:3000/the/path?param1=foo&amp;param2&amp;param3=bar#hash</code></pre><ul>
+<li><p><code>http</code> - the protocol</p>
+</li>
+<li><p><code>3000</code> - the port number. If the protocol is <code>http</code> then the default port is <code>80</code>. If the protocol is <code>https</code> then the default port is <code>443</code>.</p>
+</li>
+<li><p><code>someplace.com</code> - the domain</p>
+</li>
+<li><p><code>/the/path</code> - the path</p>
+</li>
+<li><p><code>param1=foo&amp;param2&amp;param3=bar</code> - the query parameters, follow the <code>?</code>, each parameter is separated by <code>&amp;</code> and can be assigned a value with <code>=</code>.</p>
+</li>
+</ul>
+</li>
+<li><p>The headers</p>
+<ul>
+<li><p>Formatted like <code>Header-Name: header-value</code> per header.</p>
+</li>
+<li><p>Includes cookies and other metadata (content types, user agent, etc).</p>
+</li>
+<li><p>Sometimes the server cares about the incoming headers and sometimes it doesn&#39;t.</p>
+</li>
+</ul>
+</li>
+<li><p>The body: a payload of information. Most commonly sent as UTF-8 strings, sometimes sent as binary.</p>
+</li>
+</ol>
+<h2 id="the-http-response">The HTTP Response</h2>
+<ol>
+<li><p>The status code: gives state information about the response. <a href="http://www.restapitutorial.com/httpstatuscodes.html">Status Code Reference</a></p>
+</li>
+<li><p>The body: a payload of information that can be of any format.</p>
+</li>
+<li><p>The headers:</p>
+<ul>
+<li><p>Formatted the same as the request headers.</p>
+</li>
+<li><p>Contains cookies to set or clear and metadata.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="http-request-methods">HTTP Request Methods</h2>
+<ul>
+<li><p>There are several different methods that your server can listen for and respond to.</p>
+</li>
+<li><p>Each method has guidelines, but not restrictions.</p>
+</li>
+</ul>
+<p>The most commonly used methods are:</p>
+<ul>
+<li><p>GET</p>
+</li>
+<li><p>POST</p>
+</li>
+<li><p>PUT</p>
+</li>
+<li><p>DELETE</p>
+</li>
+</ul>
+<h2 id="postman">Postman</h2>
+<p>Before we talk about these HTTP methods and play with them:</p>
+<ul>
+<li><p>It is easy to make a GET request because when you use a browser&#39;s URL input, that is a GET request.</p>
+</li>
+<li><p>It is more difficult to use the other methods because you have to use JavaScript code or a tool of some sort.</p>
+</li>
+<li><p><a href="https://www.getpostman.com/downloads/">Postman</a> is free tool that allows you to easily send requests using any HTTP method, URL, headers, and body.</p>
+</li>
+</ul>
+<p>==</p>
+<h1 id="implementing-http-methods">Implementing HTTP Methods</h1>
+<h2 id="get">GET</h2>
+<ul>
+<li><p>Probably the most commonly used method.</p>
+</li>
+<li><p>Shouldn&#39;t be used to save data.</p>
+</li>
+<li><p>Should not include a body.</p>
+</li>
+<li><p>Should be idempotent.</p>
+</li>
+</ul>
+<p>--</p>
+<p><strong>Question:</strong> What does <em>idempotent</em> mean?</p>
+<p>--</p>
+<p><strong>Answer:</strong> No matter how many times to do an operation the result is the same.</p>
+<p>--</p>
+<p><strong>Question:</strong> How could you send data with a GET request without using the body?</p>
+<p>--</p>
+<p><strong>Answer:</strong> You could send information using query parameters, but it&#39;s not a good idea to send information with GET.</p>
+<p>--</p>
+<p><strong>Exercise</strong></p>
+<p>Use the Postman extension to make a GET request to your only route so far (from the previous exercise).</p>
+<p>--</p>
+<h2 id="post">POST</h2>
+<ul>
+<li><p>With a POST you can send information in the body of the request.</p>
+</li>
+<li><p>Should not be idempotent - each time it&#39;s used it should make a change.</p>
+</li>
+<li><p>Is not the CRUD equivalent of <em>create</em>, although it is often similar.</p>
+</li>
+</ul>
+<p>--</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li><p>In your <code>server.js</code> file create a POST endpoint to <code>/</code> (same as GET, but with POST).</p>
+</li>
+<li><p>Have the response body be &quot;POST&quot;.</p>
+</li>
+<li><p>Restart your server.</p>
+</li>
+<li><p>Use Postman to hit your POST endpoint.</p>
+</li>
+</ol>
+<p>--</p>
+<h3 id="send-a-body">Send a Body</h3>
+<ul>
+<li><p>Can be of any format.</p>
+</li>
+<li><p>Is sent as binary stream.</p>
+</li>
+<li><p>The server uses the <code>Content-Type</code> header in the request to determine the body format.</p>
+</li>
+<li><p>The server needs a parser to parse the content.</p>
+</li>
+<li><p>We can implement the body-parser that comes with express.</p>
+</li>
+</ul>
+<p>--</p>
+<h3 id="connect-middleware">Connect Middleware</h3>
+<ul>
+<li><p>A function that looks like this:</p>
+<pre><code class="language-js">  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>{
+      <span class="hljs-comment">// do something</span>
+  }</code></pre>
+</li>
+<li><p>The parameters for that function are:</p>
+<ul>
+<li><p><code>req</code> - An object that represents the request object.</p>
+</li>
+<li><p><code>res</code> - An object that represents the response API.</p>
+</li>
+<li><p><code>next</code> - A function that can be called to execute the next middleware in line. Can also be called with an Error passed in as a parameter.</p>
+</li>
+</ul>
+</li>
+<li><p>Used in servers to 1) add or modifiy function on the request and response objects or 2) to fulfill the request.</p>
+</li>
+<li><p>You implement the middlware using the <code>use</code> function.</p>
+<pre><code class="language-js">  <span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+  <span class="hljs-keyword">const</span> app = express();
+
+  <span class="hljs-comment">// middleware that adds an id property to the request object</span>
+  app.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>{
+      req.id = <span class="hljs-built_in">Math</span>.random();
+      next();
+  });
+
+  app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Request ID: '</span> + req.id)
+  });
+
+  app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port 3000!'</span>)
+  });</code></pre>
+</li>
+<li><p>You probably wont create custom middleware so much as you&#39;ll use other people&#39;s created middleware.</p>
+</li>
+</ul>
+<p>--</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li><p>Use the express body-parser to capture the body of the POST request.</p>
+</li>
+<li><p>Send that content back with <code>res.send()</code>.</p>
+</li>
+</ol>
+<p>--</p>
+<h2 id="put">PUT</h2>
+<ul>
+<li><p>With a PUT you can send information in the body of the request.</p>
+</li>
+<li><p>Should be idempotent - no matter how many times you call it, the result is the same.</p>
+</li>
+<li><p>Is not the CRUD equivalent of <em>update</em>. It can also be used to create. Example: Put the data to this state. If it doesn&#39;t exist then it creates it into that state.</p>
+</li>
+</ul>
+<p>--</p>
+<h2 id="delete">DELETE</h2>
+<ul>
+<li><p>With a DELETE you should not send information with the body.</p>
+</li>
+<li><p>Should be idempotent - no matter how many times you call it, the result is the same.</p>
+</li>
+<li><p>If is is already deleted it shouldn&#39;t complain because the job is done.</p>
+</li>
+</ul>
+<p>==</p>
+<h1 id="static-middleware">Static Middleware</h1>
+<ul>
+<li><p>Express comes bundled with the static middleware: static</p>
+</li>
+<li><p>The middleware is used for serving static files (files that are in the local file system) to the browser.</p>
+</li>
+<li><p><a href="http://expressjs.com/en/starter/static-files.html">Express Static Documentation</a></p>
+</li>
+<li><p>Using the directory structure that we specified at the start of this lesson, you&#39;d do something like this:</p>
+<pre><code class="language-js">  <span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+  <span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+  <span class="hljs-keyword">const</span> app = express();
+
+  <span class="hljs-comment">// middleware that serves files from www directory</span>
+  <span class="hljs-keyword">const</span> wwwPath = path.resolve(__dirname, <span class="hljs-string">'../www'</span>)
+  app.use(express.static(wwwPath));
+
+  app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port 3000!'</span>)
+  });</code></pre>
+</li>
+</ul>
+<p>==</p>
+<h1 id="routing">Routing</h1>
+<ul>
+<li><p>Express comes with built in routing for all of the HTTP methods we&#39;ve seen so far.</p>
+</li>
+<li><p>It also has an <code>all</code> routes function that gets called for any route.</p>
+</li>
+<li><p>You can specify routes directly onto the server instance or through a routing middleware.</p>
+</li>
+</ul>
+<p><strong>Example: Routing via Server Instance</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> app = express();
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'You used GET'</span>);
+});
+
+app.post(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'You used POST'</span>);
+});
+
+app.put(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'You used PUT'</span>);
+});
+
+app.delete(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'You used DELETE'</span>);
+});
+
+app.all(<span class="hljs-string">'/oneOf'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'You used '</span> + req.method);
+});
+
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port 3000!'</span>)
+});</code></pre>
+<p>--</p>
+<h2 id="route-parameters">Route Parameters</h2>
+<ul>
+<li><p>It is also possible to specify parameters in your routing.</p>
+</li>
+<li><p>Any path parameters specified can be read from the <code>req.params</code> object.</p>
+</li>
+</ul>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> app = express();
+
+app.get(<span class="hljs-string">'/foo/:myParam'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Path parameter: '</span> + req.params.myParam);
+});
+
+app.get(<span class="hljs-string">'/bar/:optionalParam?'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Path parameter: '</span> + req.params.optionalParam);
+});
+
+app.get(<span class="hljs-string">'/bar/:multiPath*'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+    res.send(<span class="hljs-string">'Path parameter: '</span> + req.params.multiPath);
+});
+
+app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port 3000!'</span>)
+});</code></pre>
+<p>--</p>
+<p>You can also read query parameters (ex: <code>req.query.paramName</code>) and headers (ex: <code>req.headers[&#39;header-name&#39;]</code>).</p>
+<p>-- </p>
+<h3 id="express-router">Express Router</h3>
+<p>You can create an express router instance that allows you define routes that are more modular.</p>
+<ul>
+<li><p>Better separation of routes.</p>
+</li>
+<li><p>Within a module just define the sub-routes.</p>
+</li>
+<li><p>Define in a parent module the base route.</p>
+</li>
+</ul>
+<p><strong>my-router.js</strong></p>
+<pre><code>const Router = require(&#39;express&#39;).Router;
+const router = new Router();
+
+module.exports = router;
+
+router.get(&#39;/subPath&#39;, (req, res) =&gt; {
+    res.send(&#39;You reached the subpath.&#39;);
+});</code></pre><p><strong>server.js</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> myRouter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'my-router'</span>);
+
+<span class="hljs-keyword">const</span> app = express();
+
+app.use(<span class="hljs-string">'/base/path'</span>, myRouter);
+
+app.listen(<span class="hljs-number">3000</span>);</code></pre>
+<p>Hitting the URL <code>http://localhost:3000/base/path/subPath</code> will return <code>&quot;Your reached the subpath&quot;</code>.</p>
+<p>==</p>
+<h1 id="template-engines">Template Engines</h1>
+<p>A template engine allows you to write HTML pages that are dynamically built on the server with each request, similar to PHP.</p>
+<p>Express allows for <a href="https://expressjs.com/en/resources/template-engines.html">multiple template engines</a></p>
+<p><a href="https://expressjs.com/en/guide/using-template-engines.html">Template engine guide</a></p>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/express.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
