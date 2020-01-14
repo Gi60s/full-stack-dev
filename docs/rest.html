@@ -60,7 +60,7 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#web-services">Web Services</a></li><li><a href="#rest">REST</a></li><li><a href="#open-api-specification">Open API Specification</a></li><li><a href="#exercise">Exercise</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#web-services">Web Services</a></li><li><a href="#rest">REST</a></li><li><a href="#open-api-specification">Open API Specification</a></li><li><a href="#http-methods">HTTP Methods</a></li><li><a href="#from-domain-driven-design-to-rest">From Domain Driven Design to REST</a></li><li><a href="#http-status-codes">HTTP Status Codes</a></li><li><a href="#exercise">Exercise</a></li></ul></div>
         </div>
         
 
@@ -173,6 +173,219 @@ A function is an API. That API may not be accessible outside of the application,
               <span class="hljs-attr">schema:</span>
                 <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
                 <span class="hljs-attr">format:</span> <span class="hljs-string">date-time</span></code></pre>
+<h1 id="http-methods">HTTP Methods</h1>
+<p>The most commonly used HTTP methods are these four:</p>
+<p>| HTTP Method | Meaning / Usage | Idempotent |
+| GET | Retrieve the resource or resource collection. | Yes |
+| POST | Create a new resource or resource collection. | No |
+| PUT | Put a resource or resource collection into the specified state. | Yes |
+| DELETE | Delete a resource or resource collection. | Yes |</p>
+<p>&lt;--</p>
+<p>What does idempotent mean?</p>
+<p>--</p>
+<p>Idempotent operations are those that can be called more than once with the same inputs without having any additional side effects beyond what happened with the first call.</p>
+<p>It’s safe to retry when the state is indeterminate.</p>
+<p>The internet is unreliable. If a web service call fails mid operation then the client does not know the new state (whether the operation was successful). Idempotent methods allow the client to make the request again without having to check to state first. Non idempotent methods must have the state checked before possibly retrying an operation.</p>
+<p>--&gt;</p>
+<h1 id="from-domain-driven-design-to-rest">From Domain Driven Design to REST</h1>
+<p>After you have defined your <a href="/full-stack-dev/domain-driven-design">domain events, commands, entities, and value objects</a> it is easy to define the REST endpoints that provide access to either read the entities and value objects or to issue commands.</p>
+<p>Start by defining the API endpoints (URL and HTTP method) that retrieve your entities and value objects.</p>
+<p>From the lesson on <a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a> we defined the following entities for the Splack app.</p>
+<ul>
+<li>Channel</li>
+<li>Message</li>
+<li>Comment</li>
+<li>User</li>
+</ul>
+<h2 id="query-endpoints">Query Endpoints</h2>
+<p>These are the entities we want to be able to retrieve (as well as modify), so we define URL endpoints that allow us to retrieve them. Here are a few examples.</p>
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Url Fragment</th>
+<th>HTTP Method</th>
+<th>Path Parameters</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get a list of channels</td>
+<td><code>/channels</code></td>
+<td>GET</td>
+<td></td>
+</tr>
+<tr>
+<td>get a specific channel</td>
+<td><code>/channels/{channel_id}</code></td>
+<td>GET</td>
+<td><code>channel_id</code></td>
+</tr>
+<tr>
+<td>get a list of messages in a channel</td>
+<td><code>/channels/{channel_id}/messages</code></td>
+<td>GET</td>
+<td><code>channel_id</code></td>
+</tr>
+<tr>
+<td>get a specific message</td>
+<td><code>/channels/{channel_id}/messages/{message_id}</code> or <code>/messages/{message_id}</code></td>
+<td>GET</td>
+<td><code>channel_id</code> and <code>message_id</code> or just <code>message_id</code></td>
+</tr>
+</tbody></table>
+<p>The above examples are just one way to define these query endpoints.</p>
+<h2 id="command-endpoints">Command Endpoints</h2>
+<p>To define the command endpoints we take our <a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a> commands and associate them with the proper HTTP methods and URLs.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>URL Fragment</th>
+<th>HTTP Method</th>
+<th>Path Parameters</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create a channel</td>
+<td><code>/channels</code></td>
+<td>POST</td>
+<td></td>
+</tr>
+<tr>
+<td>add a user to a channel</td>
+<td><code>/channels/{channel_id}/users/{user_id}</code></td>
+<td>PUT</td>
+<td><code>channel_id</code> and <code>user_id</code></td>
+</tr>
+<tr>
+<td>remove a user from a channel</td>
+<td><code>/channels/{channel_id}/users/{user_id}</code></td>
+<td>DELETE</td>
+<td><code>channel_id</code> and <code>user_id</code></td>
+</tr>
+<tr>
+<td>post a message</td>
+<td><code>/channels/{channel_id}/messages</code></td>
+<td>POST</td>
+<td><code>channel_id</code></td>
+</tr>
+</tbody></table>
+<p>The above examples are just one way to define these command endpoints.</p>
+<h2 id="representations">Representations</h2>
+<p>Remember that REST is about Representational State Transfer. The representations it uses do not need to match the database or data structures on the back end. They should focus on representing the data in a format that fits the needs of the clients.</p>
+<p>To define our representations we use our <a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a> entities and value objects.</p>
+<p>This is an example of how we could create our Splack message representation:</p>
+<pre><code class="language-json">{
+   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"m1"</span>,
+   <span class="hljs-attr">"channelId"</span>: <span class="hljs-string">"ch123"</span>,
+   <span class="hljs-attr">"userId"</span>: <span class="hljs-string">"u1234"</span>,
+   <span class="hljs-attr">"body"</span>: <span class="hljs-string">"This is the message"</span>,
+   <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2020-01-01T08:00:00.000Z"</span>,
+   <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2020-01-01T08:00:00.000Z"</span>,
+   <span class="hljs-attr">"comments"</span>: []
+}</code></pre>
+<p>Alternatively you may be interested in organizing your representations using field sets. This gives the client greater control over what they retrieve by allowing the client to specify what data it cares about.</p>
+<pre><code class="language-json">{
+   <span class="hljs-attr">"basic"</span>: {   
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"m1"</span>,
+      <span class="hljs-attr">"channelId"</span>: <span class="hljs-string">"ch123"</span>,
+      <span class="hljs-attr">"userId"</span>: <span class="hljs-string">"u1234"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"This is the message"</span>,
+      <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2020-01-01T08:00:00.000Z"</span>,
+      <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2020-01-01T08:00:00.000Z"</span>
+   },
+   <span class="hljs-attr">"comments"</span>: []
+}</code></pre>
+<p>The client could then query this data multiple ways:</p>
+<ul>
+<li><code>/messages/{message_id}?fieldset=basic</code> // make this the default</li>
+<li><code>/messages/{message_id}?fieldset=comments</code></li>
+<li><code>/messages/{message_id}?fieldset=basic,comments</code></li>
+</ul>
+<h1 id="http-status-codes">HTTP Status Codes</h1>
+<p>To respond to client requests you also need to know about HTTP status codes.</p>
+<p>These codes tell the client how the request was processed.</p>
+<ul>
+<li><code>200</code> range status codes indicate success.</li>
+<li><code>400</code> range status codes indicate that the client made an error in their request. Details of the error should be shared with the client.</li>
+<li><code>500</code> range status codes indicate that the server had an error. Details of the error should be logged on the server by not shared with the client.</li>
+</ul>
+<h2 id="common-status-codes">Common Status Codes</h2>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>The request was processed successfully.</td>
+<td></td>
+</tr>
+<tr>
+<td>400</td>
+<td>There is something wrong with the request. The response body would ideally include a description of what was wrong with the request.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5">IETF rfc7231 Client Error 4xx</a> <a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">IETF rfc7231 400 Bad Request</a></td>
+</tr>
+<tr>
+<td>401</td>
+<td>The request requires authentication and the request did not have authentication information.</td>
+<td><a href="https://tools.ietf.org/html/rfc7235#section-3.1">IETF rfc7235 401 Unauthorized</a></td>
+</tr>
+<tr>
+<td>403</td>
+<td>The request provided authentication information but the authenticated user is not authorized to get the results.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.3">IETF rfc7231 403 Forbidden</a></td>
+</tr>
+<tr>
+<td>404</td>
+<td>This status code commonly indicates one of two things which may be distinguished using the response body. It could be that 1) the requested endpoint does not exist or 2) the requested resource does not exist. If the endpoint returns a collection then a <code>404</code> should not be used when the collection is empty, instead use a <code>200</code> and send back an empty array.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">IETF rfc7231 404 Not Found</a></td>
+</tr>
+</tbody></table>
+<h3 id="status-codes-meanings-for-specific-methods">Status Codes Meanings for Specific Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Method</th>
+<th>Meaning</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>200</td>
+<td>GET</td>
+<td>Resource or resources successfully retrieved.</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>POST</td>
+<td>The resource was created. If a response body is provided then it should represent the resource created. Additionally, a Location header should be set, specifying the endpoint for where the created resource can be retrieved.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-4.3.3">IETF rfc7231 POST</a></td>
+</tr>
+<tr>
+<td>200</td>
+<td>PUT</td>
+<td>The resource already existed and was set to the specified value. If a response body is provided then it should represent the resource that was PUT.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-4.3.4">IETF rfc7231 PUT</a></td>
+</tr>
+<tr>
+<td>201</td>
+<td>PUT</td>
+<td>The resource was created. If a response body is provided then it should represent the resource created.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-4.3.4">IETF rfc7231 PUT</a></td>
+</tr>
+<tr>
+<td>204</td>
+<td>DELETE</td>
+<td>The resource was deleted (i.e. now does not exist) and no response body is being sent.</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-4.3.5">IETF rfc7231 DELETE</a></td>
+</tr>
+</tbody></table>
 <h1 id="exercise">Exercise</h1>
 <p>Take the Domain Driven Design that you have already created and convert that design into OpenAPI documentation as appropriate.</p>
 <p>You can use the <a href="http://editor.swagger.io/">Online Swagger Editor</a> to get started. For larger projects you may be interested in the <a href="https://www.npmjs.com/package/openapi-enforcer-cli">OpenAPI Enforcer CLI&#39;s editor</a>.</p>

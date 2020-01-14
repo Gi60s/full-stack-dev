@@ -140,6 +140,141 @@ paths:
                 format: date-time
 ```
 
+# HTTP Methods
+
+The most commonly used HTTP methods are these four:
+
+| HTTP Method | Meaning / Usage | Idempotent |
+| GET | Retrieve the resource or resource collection. | Yes |
+| POST | Create a new resource or resource collection. | No |
+| PUT | Put a resource or resource collection into the specified state. | Yes |
+| DELETE | Delete a resource or resource collection. | Yes |
+
+<--
+
+What does idempotent mean?
+
+--
+
+Idempotent operations are those that can be called more than once with the same inputs without having any additional side effects beyond what happened with the first call.
+
+It’s safe to retry when the state is indeterminate.
+
+The internet is unreliable. If a web service call fails mid operation then the client does not know the new state (whether the operation was successful). Idempotent methods allow the client to make the request again without having to check to state first. Non idempotent methods must have the state checked before possibly retrying an operation.
+
+-->
+
+# From Domain Driven Design to REST
+
+After you have defined your [domain events, commands, entities, and value objects](domain-driven-design.md) it is easy to define the REST endpoints that provide access to either read the entities and value objects or to issue commands.
+
+Start by defining the API endpoints (URL and HTTP method) that retrieve your entities and value objects.
+
+From the lesson on [Domain Driven Design](domain-driven-design.md) we defined the following entities for the Splack app.
+
+- Channel
+- Message
+- Comment
+- User
+
+## Query Endpoints
+
+These are the entities we want to be able to retrieve (as well as modify), so we define URL endpoints that allow us to retrieve them. Here are a few examples.
+
+| Query | Url Fragment | HTTP Method | Path Parameters |
+| ----- | ------------ | ----------- | --------------- |
+| get a list of channels | `/channels` | GET | |
+| get a specific channel | `/channels/{channel_id}` | GET | `channel_id` |
+| get a list of messages in a channel | `/channels/{channel_id}/messages` | GET | `channel_id` |
+| get a specific message | `/channels/{channel_id}/messages/{message_id}` or `/messages/{message_id}` | GET | `channel_id` and `message_id` or just `message_id` | 
+
+The above examples are just one way to define these query endpoints.
+
+## Command Endpoints
+
+To define the command endpoints we take our [Domain Driven Design](domain-driven-design.md) commands and associate them with the proper HTTP methods and URLs.
+
+| Command | URL Fragment | HTTP Method | Path Parameters |
+| ------- | ------------ | ----------- | --------------- |
+| create a channel | `/channels` | POST | |
+| add a user to a channel | `/channels/{channel_id}/users/{user_id}` | PUT | `channel_id` and `user_id` |
+| remove a user from a channel | `/channels/{channel_id}/users/{user_id}` | DELETE | `channel_id` and `user_id` |
+| post a message | `/channels/{channel_id}/messages` | POST | `channel_id` |
+
+The above examples are just one way to define these command endpoints.
+
+## Representations
+
+Remember that REST is about Representational State Transfer. The representations it uses do not need to match the database or data structures on the back end. They should focus on representing the data in a format that fits the needs of the clients.
+
+To define our representations we use our [Domain Driven Design](domain-driven-design.md) entities and value objects.
+
+This is an example of how we could create our Splack message representation:
+
+```json
+{
+   "id": "m1",
+   "channelId": "ch123",
+   "userId": "u1234",
+   "body": "This is the message",
+   "created": "2020-01-01T08:00:00.000Z",
+   "updated": "2020-01-01T08:00:00.000Z",
+   "comments": []
+}
+```
+
+Alternatively you may be interested in organizing your representations using field sets. This gives the client greater control over what they retrieve by allowing the client to specify what data it cares about.
+
+```json
+{
+   "basic": {   
+      "id": "m1",
+      "channelId": "ch123",
+      "userId": "u1234",
+      "body": "This is the message",
+      "created": "2020-01-01T08:00:00.000Z",
+      "updated": "2020-01-01T08:00:00.000Z"
+   },
+   "comments": []
+}
+```
+
+The client could then query this data multiple ways:
+
+- `/messages/{message_id}?fieldset=basic` // make this the default
+- `/messages/{message_id}?fieldset=comments`
+- `/messages/{message_id}?fieldset=basic,comments`
+
+# HTTP Status Codes
+
+To respond to client requests you also need to know about HTTP status codes.
+
+These codes tell the client how the request was processed.
+
+- `200` range status codes indicate success.
+- `400` range status codes indicate that the client made an error in their request. Details of the error should be shared with the client.
+- `500` range status codes indicate that the server had an error. Details of the error should be logged on the server by not shared with the client.
+
+## Common Status Codes
+
+| Status Code | Meaning | Reference |
+| ----------- | ------- | --------- |
+| 200 | The request was processed successfully. | |
+| 400 | There is something wrong with the request. The response body would ideally include a description of what was wrong with the request. | [IETF rfc7231 Client Error 4xx](https://tools.ietf.org/html/rfc7231#section-6.5) [IETF rfc7231 400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
+| 401 | The request requires authentication and the request did not have authentication information. | [IETF rfc7235 401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1) |
+| 403 | The request provided authentication information but the authenticated user is not authorized to get the results. | [IETF rfc7231 403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
+| 404 | This status code commonly indicates one of two things which may be distinguished using the response body. It could be that 1) the requested endpoint does not exist or 2) the requested resource does not exist. If the endpoint returns a collection then a `404` should not be used when the collection is empty, instead use a `200` and send back an empty array. | [IETF rfc7231 404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
+
+### Status Codes Meanings for Specific Methods
+
+| Status Code | Method | Meaning | Reference |
+| ----------- | ------ | ------- | --------- |
+| 200 | GET | Resource or resources successfully retrieved. | |
+| 201 | POST | The resource was created. If a response body is provided then it should represent the resource created. Additionally, a Location header should be set, specifying the endpoint for where the created resource can be retrieved. | [IETF rfc7231 POST](https://tools.ietf.org/html/rfc7231#section-4.3.3) |
+| 200 | PUT | The resource already existed and was set to the specified value. If a response body is provided then it should represent the resource that was PUT. | [IETF rfc7231 PUT](https://tools.ietf.org/html/rfc7231#section-4.3.4) |
+| 201 | PUT | The resource was created. If a response body is provided then it should represent the resource created. | [IETF rfc7231 PUT](https://tools.ietf.org/html/rfc7231#section-4.3.4) |
+| 204 | DELETE | The resource was deleted (i.e. now does not exist) and no response body is being sent. | [IETF rfc7231 DELETE](https://tools.ietf.org/html/rfc7231#section-4.3.5) |
+
 # Exercise
 
 Take the Domain Driven Design that you have already created and convert that design into OpenAPI documentation as appropriate.
