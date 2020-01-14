@@ -59,7 +59,7 @@ This class will cover how to:
     
 # Homework
 
-Homework assignments will be posted to [Learning Suite](learningsuite.byu.edu).
+Homework assignments will be posted to [Learning Suite](https://learningsuite.byu.edu).
 
 Homework will be due in class and by the end of class (6:50 PM).
 
