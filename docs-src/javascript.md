@@ -68,7 +68,7 @@ There exist developer tools that allow you to easily see what is going on with y
 
 - Double quotes or single quotes are fine and have identical results. (I prefer single so that I don't have to hold the shift button.)
 
-- Semi-colons are placed at the end of the *Expression Statement*.
+- Semi-colons are placed at the end of the *Expression Statement* and are mostly optional.
 
 ## Console Logging
 
@@ -866,7 +866,7 @@ function foo(str, num) {
 }
 ```
 
-Note: We'll talk about Errors next class.
+Note: We'll talk about Errors later.
 
 -->
 
@@ -1829,8 +1829,6 @@ There are many ways to create an Array, but here is the simplest:
 ```js
 const ar = [];
 ```
-
---
 
 - Each item in the array can store any data type.
 
