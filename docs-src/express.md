@@ -3,40 +3,6 @@ title: Express
 toc: 1
 ---
 
-# Directory Structure
-
-You want to organize your server in a way that makes sense:
-
-- The structure in the example below is not set in stone, it's more like a guideline.
-
-- Some good practices:
-
-    - Put files to be served to the browser under one directory. In this case: `www`
-
-    - Put files to be run only on the server in another directory. In this case: `server`
-
-    - Have a single `index.html` at the root of your `www` directory. This is a minimal footprint file and serves as the entry point for starting your web application.
-
-**Example**
-
-- **node_modules**
-- **server**
-    - **controllers**
-        - foo-controller.js
-        - bar-controller.js
-    - **routes**
-        - foo-routes.js
-        - bar-routes.js
-    - server.js
-- **www**
-    - **css**
-        - main.css
-    - **js**
-        - main.js
-    - index.html
-- package.json
-- package-lock.json
-
 # Express
 
 - A NodeJS package that uses the core http modules to create a web server.
@@ -59,7 +25,9 @@ You want to organize your server in a way that makes sense:
 
 ## The HTTP Request
 
-1. The URL
+1 The method. The most common methods are `GET`, `POST`, `PUT`, and `DELETE`.
+
+2. The URL
 
     ```
     http://someplace.com:3000/the/path?param1=foo&param2&param3=bar#hash
@@ -75,7 +43,7 @@ You want to organize your server in a way that makes sense:
 
     - `param1=foo&param2&param3=bar` - the query parameters, follow the `?`, each parameter is separated by `&` and can be assigned a value with `=`.
 
-2. The headers
+3. The headers
 
     - Formatted like ```Header-Name: header-value``` per header.
 
@@ -83,7 +51,7 @@ You want to organize your server in a way that makes sense:
 
     - Sometimes the server cares about the incoming headers and sometimes it doesn't.
 
-3. The body: a payload of information. Most commonly sent as UTF-8 strings, sometimes sent as binary.
+4. The body: a payload of information. Most commonly sent as UTF-8 strings, sometimes sent as binary.
 
 ## The HTTP Response
 
@@ -97,21 +65,7 @@ You want to organize your server in a way that makes sense:
 
     - Contains cookies to set or clear and metadata.
 
-## HTTP Request Methods
-
-- There are several different methods that your server can listen for and respond to.
-
-- Each method has guidelines, but not restrictions.
-
-The most commonly used methods are:
-
-- GET
-
-- POST
-
-- PUT
-
-- DELETE
+# Implementing HTTP Methods
 
 ## Postman
 
@@ -123,10 +77,6 @@ Before we talk about these HTTP methods and play with them:
 
 - [Postman](https://www.getpostman.com/downloads/) is free tool that allows you to easily send requests using any HTTP method, URL, headers, and body.
 
-==
-
-# Implementing HTTP Methods
-
 ## GET
 
 - Probably the most commonly used method.
@@ -137,29 +87,19 @@ Before we talk about these HTTP methods and play with them:
 
 - Should be idempotent.
 
---
+<--
 
-**Question:** What does *idempotent* mean?
-
---
-
-**Answer:** No matter how many times to do an operation the result is the same.
+What does *idempotent* mean?
 
 --
 
-**Question:** How could you send data with a GET request without using the body?
+No matter how many times to do an operation the result is the same.
 
---
-
-**Answer:** You could send information using query parameters, but it's not a good idea to send information with GET.
-
---
+-->
 
 **Exercise**
 
-Use the Postman extension to make a GET request to your only route so far (from the previous exercise).
-
---
+Use Postman or another REST Client to make a GET request to your only route so far (from the previous exercise).
 
 ## POST
 
@@ -168,8 +108,6 @@ Use the Postman extension to make a GET request to your only route so far (from 
 - Should not be idempotent - each time it's used it should make a change.
 
 - Is not the CRUD equivalent of *create*, although it is often similar.
-
---
 
 **Exercise**
 
@@ -180,8 +118,6 @@ Use the Postman extension to make a GET request to your only route so far (from 
 3. Restart your server.
 
 4. Use Postman to hit your POST endpoint.
-
---
 
 ### Send a Body
 
@@ -195,15 +131,14 @@ Use the Postman extension to make a GET request to your only route so far (from 
 
 - We can implement the body-parser that comes with express.
 
---
+### Middleware
 
-### Connect Middleware
-
-- A function that looks like this:
+- Middleware is function that looks like this:
 
     ```js
-    function(req, res, next) {
-        // do something
+    function (req, res, next) {
+      // do something
+      next()
     }
     ```
 
@@ -215,7 +150,7 @@ Use the Postman extension to make a GET request to your only route so far (from 
 
     - `next` - A function that can be called to execute the next middleware in line. Can also be called with an Error passed in as a parameter.
 
-- Used in servers to 1) add or modifiy function on the request and response objects or 2) to fulfill the request.
+- Used in servers to 1) add or modify function on the request and response objects or 2) to fulfill the request.
 
 - You implement the middlware using the `use` function.
 
@@ -240,15 +175,13 @@ Use the Postman extension to make a GET request to your only route so far (from 
 
 - You probably wont create custom middleware so much as you'll use other people's created middleware.
 
---
-
 **Exercise**
 
-1. Use the express body-parser to capture the body of the POST request.
+1. Use the [Express JSON body-parser](http://expressjs.com/en/4x/api.html#express.json) to capture the body of the POST request.
 
 2. Send that content back with `res.send()`.
 
---
+3. Use your REST Client to post a body to the POST endpoint.
 
 ## PUT
 
@@ -258,8 +191,6 @@ Use the Postman extension to make a GET request to your only route so far (from 
 
 - Is not the CRUD equivalent of *update*. It can also be used to create. Example: Put the data to this state. If it doesn't exist then it creates it into that state.
 
---
-
 ## DELETE
 
 - With a DELETE you should not send information with the body.
@@ -267,8 +198,6 @@ Use the Postman extension to make a GET request to your only route so far (from 
 - Should be idempotent - no matter how many times you call it, the result is the same.
 
 - If is is already deleted it shouldn't complain because the job is done.
-
-==
 
 # Static Middleware
 
@@ -278,24 +207,11 @@ Use the Postman extension to make a GET request to your only route so far (from 
 
 - [Express Static Documentation](http://expressjs.com/en/starter/static-files.html)
 
-- Using the directory structure that we specified at the start of this lesson, you'd do something like this:
+**Exercise**
 
-    ```js
-    const express = require('express');
-    const path = require('path');
-  
-    const app = express();
+1. Create a directory and put a file (or files) into it that you'll serve as static content. This can be an HTML file, a text file, an image, etc. 
 
-    // middleware that serves files from www directory
-    const wwwPath = path.resolve(__dirname, '../www')
-    app.use(express.static(wwwPath));
-
-    app.listen(3000, function () {
-      console.log('Example app listening on port 3000!')
-    });
-    ```
-    
-==
+2. Add to your server code that serves the files from that directory.
 
 # Routing
 
@@ -336,9 +252,7 @@ app.listen(3000, function () {
 });
 ```
 
---
-
-## Route Parameters
+## Path Parameters
 
 - It is also possible to specify parameters in your routing.
 
@@ -369,9 +283,7 @@ app.listen(3000, function () {
 
 You can also read query parameters (ex: `req.query.paramName`) and headers (ex: `req.headers['header-name']`).
 
--- 
-
-### Express Router
+## Express Router
 
 You can create an express router instance that allows you define routes that are more modular.
 
@@ -408,8 +320,6 @@ app.listen(3000);
 ```
 
 Hitting the URL `http://localhost:3000/base/path/subPath` will return `"Your reached the subpath"`.
-
-==
 
 # Template Engines
 

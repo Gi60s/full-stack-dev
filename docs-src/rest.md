@@ -144,12 +144,12 @@ paths:
 
 The most commonly used HTTP methods are these four:
 
-| HTTP Method | Meaning / Usage | Idempotent |
-| ----------- | --------------- | ---------- |
-| GET | Retrieve the resource or resource collection. | Yes |
-| POST | Create a new resource or resource collection. | No |
-| PUT | Put a resource or resource collection into the specified state. | Yes |
-| DELETE | Delete a resource or resource collection. | Yes |
+| HTTP Method | Meaning / Usage | Idempotent | Body |
+| ----------- | --------------- | ---------- | ---- |
+| GET | Retrieve the resource or resource collection. | Yes | No |
+| POST | Create a new resource or resource collection. | No | Yes |
+| PUT | Put a resource or resource collection into the specified state. | Yes | Yes |
+| DELETE | Delete a resource or resource collection. | Yes | No |
 
 <--
 

@@ -170,6 +170,8 @@ console.log('String list factory created')
 
 ## Require a Module
 
+NodeJS currently uses the CommonJS `requires` model. In the future it will use the ES6 module model.
+
 **index.js**
 
 ```js
@@ -183,7 +185,7 @@ console.log(stringList.count) // 3
 console.log(stringList.list()) // ['one', 'two', 'three']
 ```
 
-### Modules Often Create APIs
+### Modules are Intended to Create APIs
 
 <--
 
