@@ -1189,7 +1189,7 @@ const obj = {
   },
 
   greet: function() {
-    return 'Hello, ' + this.name;
+    return 'Hello, ' + this.firstName;
   }
 }
 
