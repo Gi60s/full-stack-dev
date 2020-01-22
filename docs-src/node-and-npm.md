@@ -37,7 +37,7 @@ toc: 1
 
 **Exercise**
 
-Create a [factory function](javascript.md#factory-functions) that returns an object that does enables us to do the following:
+Create a [factory function](javascript.md#factory-functions) that returns an object that enables us to do the following:
 
 1. Add a string to the end of an array if it is unique.
 2. Remove existing strings from the array.
