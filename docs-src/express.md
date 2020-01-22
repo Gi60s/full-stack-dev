@@ -328,3 +328,15 @@ A template engine allows you to write HTML pages that are dynamically built on t
 Express allows for [multiple template engines](https://expressjs.com/en/resources/template-engines.html)
 
 [Template engine guide](https://expressjs.com/en/guide/using-template-engines.html)
+
+# Express API Server
+
+Express can serve static files, act as a server side render engine (using templates), and act as a REST server.
+
+Because we already have an OpenAPI document we can now use the [OpenAPI Enforcer](https://www.npmjs.com/package/openapi-enforcer) and the [OpenAPI Enforcer Middleware](https://www.npmjs.com/package/openapi-enforcer-middleware) to convert our OpenAPI document into a working API.
+
+Use the [OpenAPI Enforcer Middleware Getting Started Guide](https://byu-oit.github.io/openapi-enforcer-middleware/getting-started) to get started.
+
+**Exercise**
+
+Implement the [OpenAPI Enforcer Middleware](https://www.npmjs.com/package/openapi-enforcer-middleware) for your Express server.
