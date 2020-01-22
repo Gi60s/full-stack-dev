@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest" class="current-page">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest" class="current-page">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -181,27 +181,32 @@ A function is an API. That API may not be accessible outside of the application,
 <th>HTTP Method</th>
 <th>Meaning / Usage</th>
 <th>Idempotent</th>
+<th>Body</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>GET</td>
 <td>Retrieve the resource or resource collection.</td>
 <td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>POST</td>
 <td>Create a new resource or resource collection.</td>
 <td>No</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>PUT</td>
 <td>Put a resource or resource collection into the specified state.</td>
+<td>Yes</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>DELETE</td>
 <td>Delete a resource or resource collection.</td>
 <td>Yes</td>
+<td>No</td>
 </tr>
 </tbody></table>
 <p>&lt;--</p>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Asynchronous JavaScript</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/async-javascript" class="current-page">Asynchronous JavaScript</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Asynchronous JavaScript</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#processes-cpus-and-threads">Processes, CPU's, and Threads</a></li><li><a href="#the-event-loop">The Event Loop</a></li><li><a href="#an-introduction-to-the-nodejs-fs-core-module">An Introduction to the NodeJS FS Core Module</a></li><li><a href="#promises">Promises</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="processes-cpus-and-threads">Processes, CPU&#39;s, and Threads</h1>
+<ul>
+<li><p>Today&#39;s CPU&#39;s offer multiple cores.</p>
+</li>
+<li><p>Some CPU&#39;s only offer single threads. Some CPU&#39;s offer hyper threading (two threads per processor).</p>
+</li>
+<li><p>Each thread can run one process at a time.</p>
+</li>
+<li><p>CPU&#39;s are very good at swapping very quickly what process is being run. Instead of multi-tasking each thread runs one process for a few milliseconds, then another, etc.</p>
+</li>
+<li><p>Each thread offers a finite amount of processing power.</p>
+</li>
+</ul>
+<h1 id="the-event-loop">The Event Loop</h1>
+<p>JavaScript runs on a single process, but it assigns out work for other processes to do. This gives JavaScript the power of multi-threaded processing without dealing with the insane complexities of multi-threaded applications.</p>
+<p>Here is how JavaScript runs:</p>
+<ol>
+<li><p>Run current instructions (lines of code) until there are no more lines to run.</p>
+</li>
+<li><p>Check to see if there is anything ready on the event loop. If so run the next item on the loop (go back to step 1).</p>
+</li>
+<li><p>If there is something on the event loop but its not ready then wait until something is ready.</p>
+</li>
+</ol>
+<p><img src="/full-stack-dev/images/javascript-event-loop.png" alt="Event Loop Diagram"></p>
+<h1 id="an-introduction-to-the-nodejs-fs-core-module">An Introduction to the NodeJS FS Core Module</h1>
+<ul>
+<li><p>We are going to create a JavaScript file that reads a file.</p>
+</li>
+<li><p>First read a file using <a href="https://nodejs.org/api/fs.html#fs_fs_readfilesync_file_options">fs.readFileSync</a>. This is a synchronous blocking operation.</p>
+</li>
+<li><p>Next read a file using <a href="https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback">fs.readFile</a> that uses a callback. This is an asynchronous non-blocking operation.</p>
+</li>
+<li><p>Notice that the callback gets two parameters: error and data.</p>
+</li>
+</ul>
+<p>&lt;--</p>
+<p>We are passing a callback function to <code>fs.readFile</code>. How does our callback function get called?</p>
+<p>--</p>
+<p>The callback is being called by <code>fs.readFile</code> once it has read the file.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>What decides the parameters the callback function will be called with, the callback function itself or <code>fs.readFile</code>? Why?</p>
+<p>--</p>
+<p><code>fs.readFile</code> is the calling function so it gets to decide which parameters it will send to our callback function. Remember that the calling signature does not need to match the function definition&#39;s signature.</p>
+<p>--&gt;</p>
+<h2 id="examples">Examples</h2>
+<p>There are some examples files we can use to look more into the behaviour of synchronous vs asynchronous functions.</p>
+<ul>
+<li><p>Use git to clone the repository: <code>https://github.com/Gi60s/it410-resources.git</code></p>
+</li>
+<li><p>Navigate into the directory: <code>async</code></p>
+</li>
+<li><p>We need to initialize the files. Run the command: <code>node 0-make-files</code></p>
+</li>
+<li><p>This will generate three large files (<code>small.txt</code>, <code>medium.txt</code>, and <code>large.txt</code>) into the <code>async/files</code> directory.</p>
+</li>
+<li><p>You will probably want to delete these files when we&#39;re done with the examples.</p>
+</li>
+</ul>
+<h3 id="example-1">Example 1</h3>
+<ul>
+<li><p>File name: <code>1-sync.js</code></p>
+</li>
+<li><p>This will read each of the files using synchronous blocking functions.</p>
+</li>
+<li><p>The time to read each file will be output (in milliseconds) as well as the total time.</p>
+</li>
+<li><p>Run the example: <code>node 1-sync</code></p>
+</li>
+</ul>
+<h3 id="example-2">Example 2</h3>
+<ul>
+<li><p>File name: <code>2-async.js</code></p>
+</li>
+<li><p>This will read each of the files using asynchronous non-blocking functions.</p>
+</li>
+<li><p>The time to read each file will be output (in milliseconds) as well as the total time.</p>
+</li>
+<li><p>Run the example: <code>node 1-sync</code></p>
+</li>
+</ul>
+<p>&lt;--</p>
+<p>There is something wrong with the output. Can you tell what the code did wrong?</p>
+<p>--</p>
+<p>The event queue had not yet resolved the asynchronous requests when we logged the total time.</p>
+<p>--&gt;</p>
+<h3 id="example-3">Example 3</h3>
+<ul>
+<li><p>File name: <code>3-event-queue.js</code></p>
+</li>
+<li><p>This will add an event to the event queue that should run after 100 milliseconds, as soon as the process is idle.</p>
+</li>
+<li><p>The event will trigger a function call that will output the delay.</p>
+</li>
+<li><p>Run the example: <code>node 3-event-queue</code></p>
+</li>
+</ul>
+<h3 id="example-3-part-2">Example 3 Part 2</h3>
+<ul>
+<li><p>Now uncomment the synchronous blocking call to read the large file.</p>
+</li>
+<li><p>Run the example again and observe the change in time.</p>
+</li>
+<li><p>The event appeared on the event queue at 100 milliseconds but the process was busy for a while before it could fire the event&#39;s callback function.</p>
+</li>
+</ul>
+<h3 id="example-4">Example 4</h3>
+<ul>
+<li><p>File name: <code>4-async.js</code></p>
+</li>
+<li><p>Will load all three files asynchronously and output the time for each as well as the total time.</p>
+</li>
+<li><p>Run the example: <code>node 3-event-queue</code></p>
+</li>
+</ul>
+<p>&lt;--</p>
+<p>Why wasn&#39;t this any faster than the synchronous blocking code?</p>
+<p>--</p>
+<p>We didn&#39;t start to read the next file until the previous had finished. We didn&#39;t block the process so it could have done other things, but it waited on the previous file before loading the next file.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>How can we read all three files simultaneously and report their load times and the total read time?</p>
+<p>--</p>
+<p>Look at the example in <code>5-async.js</code>.</p>
+<p>--&gt;</p>
+<h1 id="promises">Promises</h1>
+<ul>
+<li><p>Callbacks provide a nice way to use asynchronous functions.</p>
+</li>
+<li><p>Unfortunately they can create the &quot;pyramid of doom&quot; a.k.a. &quot;callback hell&quot;.</p>
+</li>
+<li><p>Under complex conditional asynchronous programming they become difficult to manage flow.</p>
+</li>
+<li><p>Promises resolve these issues.</p>
+</li>
+</ul>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/async-javascript.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>

@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm" class="current-page">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm" class="current-page">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -99,7 +99,7 @@
 </ul>
 <h1 id="first-nodejs-file">First NodeJS File</h1>
 <p><strong>Exercise</strong></p>
-<p>Create a <a href="/full-stack-dev/javascript#factory-functions">factory function</a> that returns an object that does enables us to do the following:</p>
+<p>Create a <a href="/full-stack-dev/javascript#factory-functions">factory function</a> that returns an object that enables us to do the following:</p>
 <ol>
 <li>Add a string to the end of an array if it is unique.</li>
 <li>Remove existing strings from the array.</li>
@@ -207,6 +207,7 @@ It is constructed in such a way that it can be easily reused in a variety of way
 <span class="hljs-comment">// this still runs the first time we require counter.js</span>
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'String list factory created'</span>)</code></pre>
 <h2 id="require-a-module">Require a Module</h2>
+<p>NodeJS currently uses the CommonJS <code>requires</code> model. In the future it will use the ES6 module model.</p>
 <p><strong>index.js</strong></p>
 <pre><code class="language-js"><span class="hljs-keyword">const</span> myFactory = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./string-list'</span>)      <span class="hljs-comment">// get the counter.js module</span>
 
@@ -216,7 +217,7 @@ stringList.add(<span class="hljs-string">'two'</span>)
 stringList.add(<span class="hljs-string">'three'</span>)
 <span class="hljs-built_in">console</span>.log(stringList.count) <span class="hljs-comment">// 3</span>
 <span class="hljs-built_in">console</span>.log(stringList.list()) <span class="hljs-comment">// ['one', 'two', 'three']</span></code></pre>
-<h3 id="modules-often-create-apis">Modules Often Create APIs</h3>
+<h3 id="modules-are-intended-to-create-apis">Modules are Intended to Create APIs</h3>
 <p>&lt;--</p>
 <p>What is an API?</p>
 <p>--</p>
