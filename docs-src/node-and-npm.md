@@ -79,6 +79,8 @@ function StringList () {
       return store.length
     }
   })
+  
+  return factory;
 }
 
 const list = StringList()
