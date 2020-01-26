@@ -60,7 +60,7 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#processes-cpus-and-threads">Processes, CPU's, and Threads</a></li><li><a href="#the-event-loop">The Event Loop</a></li><li><a href="#an-introduction-to-the-nodejs-fs-core-module">An Introduction to the NodeJS FS Core Module</a></li><li><a href="#promises">Promises</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#processes-cpus-and-threads">Processes, CPU's, and Threads</a></li><li><a href="#the-event-loop">The Event Loop</a></li><li><a href="#an-introduction-to-the-nodejs-fs-core-module">An Introduction to the NodeJS FS Core Module</a></li><li><a href="#promises">Promises</a></li><li><a href="#generators">Generators</a></li><li><a href="#async-and-await">Async and Await</a></li></ul></div>
         </div>
         
 
@@ -177,7 +177,7 @@
 </li>
 <li><p>Will load all three files asynchronously and output the time for each as well as the total time.</p>
 </li>
-<li><p>Run the example: <code>node 3-event-queue</code></p>
+<li><p>Run the example: <code>node 4-async</code></p>
 </li>
 </ul>
 <p>&lt;--</p>
@@ -200,7 +200,221 @@
 </li>
 <li><p>Promises resolve these issues.</p>
 </li>
+<li><p>A Promise is a JavaScript object.</p>
+</li>
 </ul>
+<h2 id="terminology">Terminology</h2>
+<p>Here are some terms you should be familiar with and that you should use when talking about promises.</p>
+<ul>
+<li><p><strong>promise</strong> - An object with a <code>then</code> method whose behavior conforms to the <a href="https://promisesaplus.com/">A+ Promise specifications</a></p>
+</li>
+<li><p><strong>resolve</strong> - If a promise completes successfully then the promise has been <em>resolved</em> and it returns a <em>value</em>.</p>
+</li>
+<li><p><strong>reject</strong> - If a promise does not complete successfully then the promise has been <em>rejected</em> and it returns a <em>reason</em>.</p>
+</li>
+<li><p><strong>reason</strong> - The value that indicates why the promise was <em>rejected</em>.</p>
+</li>
+<li><p><strong>value</strong> - The value that was returned by a successful promise resolution.</p>
+</li>
+</ul>
+<h2 id="converting-from-asynchronous-callbacks-to-promises">Converting from Asynchronous Callbacks to Promises</h2>
+<p>Converting from asynchronous callbacks to promises is all about moving where the callback is called.</p>
+<p>In the following example we create a function that will read a file and call either the success callback (if the file is read successfully) or error callback (if an error occurred).</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myReadFile</span> (<span class="hljs-params">filePath, successCallback, errorCallback</span>) </span>{
+  fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, content</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) {
+      errorCallback(err)
+    } <span class="hljs-keyword">else</span> {
+      successCallback(content)
+    }
+  })
+}
+
+myReadFile(<span class="hljs-string">'/path/to/file.txt'</span>,
+  content =&gt; {
+    <span class="hljs-built_in">console</span>.log(content)
+  },
+  err =&gt; {
+    <span class="hljs-built_in">console</span>.error(err.stack)
+  })</code></pre>
+<p>In the below example we use the promise paradigm to do the same thing as above.</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myReadFile</span> (<span class="hljs-params">filePath</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>{
+    fs.readFile(filePath, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, content</span>) </span>{
+      <span class="hljs-keyword">if</span> (err) {
+        reject(err)
+      } <span class="hljs-keyword">else</span> {
+        resolve(content)
+      }
+    })
+  })
+}
+
+myReadFile(<span class="hljs-string">'/path/to/file.txt'</span>)
+  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">content</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(content)
+  })
+  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.error(err.stack)
+  })</code></pre>
+<p>&lt;--</p>
+<p>How would we convert the following asynchronous callback to a promise? How would we call it?</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delay</span> (<span class="hljs-params">duration, callback</span>) </span>{
+  <span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    callback(<span class="hljs-built_in">Date</span>.now() - start) <span class="hljs-comment">// send back actual delay duration</span>
+  }, duration)
+}
+
+delay(<span class="hljs-number">1000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">actualDuration</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello after '</span> + actualDuration + <span class="hljs-string">' milliseconds'</span>)
+})</code></pre>
+<p>--</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delay</span> (<span class="hljs-params">duration</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      resolve(<span class="hljs-built_in">Date</span>.now() - start) <span class="hljs-comment">// resolve to actual delay duration</span>
+    }, duration)
+  })
+}
+
+delay(<span class="hljs-number">1000</span>)
+  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">actualDuration</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello after '</span> + actualDuration + <span class="hljs-string">' milliseconds'</span>)
+  })</code></pre>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>How would we rewrite the following function to allow it to be used with a callback or a promise paradigm?</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delay</span> (<span class="hljs-params">duration, callback</span>) </span>{
+  <span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    callback(<span class="hljs-built_in">Date</span>.now() - start) <span class="hljs-comment">// send back actual delay duration</span>
+  }, duration)
+}</code></pre>
+<p>--</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delay</span> (<span class="hljs-params">duration, callback</span>) </span>{
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> start = <span class="hljs-built_in">Date</span>.now();
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      resolve(<span class="hljs-built_in">Date</span>.now() - start) <span class="hljs-comment">// resolve to actual delay duration</span>
+    }, duration)
+  })
+  <span class="hljs-keyword">if</span> (!callback) <span class="hljs-keyword">return</span> p
+  p.then(callback)
+}</code></pre>
+<p>--&gt;</p>
+<h2 id="chaining-promises">Chaining Promises</h2>
+<p>Each promise&#39;s <code>then</code> and <code>catch</code> function returns another promise, making it possible to chain multiple promises together.</p>
+<p>Using the promise version of delay function we created above, look at the following examples promise chaining.</p>
+<p><strong>Example 1</strong></p>
+<pre><code class="language-js">delay(<span class="hljs-number">500</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">actualDelay</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'The actual delay was '</span> + actualDelay
+  })
+  .then(<span class="hljs-function"><span class="hljs-params">message</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(message) <span class="hljs-comment">// The actual delay was 502</span>
+  })</code></pre>
+<p><strong>Example 2</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> totalDelay = <span class="hljs-number">0</span>
+delay(<span class="hljs-number">500</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">actualDelay</span> =&gt;</span> {
+    totalDelay += actualDelay
+    <span class="hljs-keyword">return</span> delay(<span class="hljs-number">500</span>)
+  })
+  .then(<span class="hljs-function"><span class="hljs-params">actualDelay</span> =&gt;</span> {
+    totalDelay += actualDelay
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Total delay: '</span> + totalDelay) <span class="hljs-comment">// Total delay: 1001</span>
+  })</code></pre>
+<h2 id="catching-rejected-promises">Catching Rejected Promises</h2>
+<p>You can catch rejected promises if you think it&#39;s possible to recover from them.</p>
+<p>&lt;--</p>
+<p>What is an example of an error that could possibly be recovered from?</p>
+<p>--</p>
+<p>Node&#39;s core <code>fs</code> module used to have a function that checked for the existence of a file. This became deprecated because people would 1) check to see if the file existed then 2) delete the file if it existed.</p>
+<p>The problem with this is that because the operations were asynchronous people would check if the file was there, it would say yes, then there was a possibility that before the file could have been deleted right before they then told it to be deleted.</p>
+<p>This behavior was discouraged to instead just attempt to delete the file and if the file didn&#39;t exist it would produce an error that could be handled.</p>
+<p>--&gt;</p>
+<p>Promises have two ways to catch promises:</p>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">success</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Success'</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">failure</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Failure'</span>)
+}
+
+<span class="hljs-comment">// Example 1</span>
+getPromise() <span class="hljs-comment">// a made up function that supposedly returns a promise</span>
+  .then(success, failure)
+
+<span class="hljs-comment">// Example 2</span>
+getPromise() <span class="hljs-comment">// a made up function that supposedly returns a promise</span>
+  .then(success)
+  .catch(failure)</code></pre>
+<!--
+
+How do these two examples act differently?
+
+--
+
+If the promise resolves then the success function gets called in both examples, but if the success function threw an error then only the second example would catch the error.
+
+-->
+
+<h2 id="promiseall">Promise.all</h2>
+<p>This is great for allowing multiple promises to run simultaneously but waiting until they are all finished to continue.</p>
+<p>Promise.all returns a promise that resolves to an array of the results if all promises resolve or rejects if one promise rejects.</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> p1 = delay(<span class="hljs-number">500</span>)
+<span class="hljs-keyword">const</span> p2 = delay(<span class="hljs-number">500</span>)
+<span class="hljs-keyword">const</span> p3 = delay(<span class="hljs-number">500</span>)
+
+<span class="hljs-built_in">Promise</span>.all([p1, p2, p3])
+  .then(<span class="hljs-function"><span class="hljs-params">results</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Actual delay 1: '</span> + results[<span class="hljs-number">0</span>])
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Actual delay 2: '</span> + results[<span class="hljs-number">1</span>])
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Actual delay 3: '</span> + results[<span class="hljs-number">2</span>])
+  })</code></pre>
+<h1 id="generators">Generators</h1>
+<p>A generator is a JavaScript function that can be paused mid operation, allowing other code that is on the event loop to run.</p>
+<p>You will probably never have to worry about the implementation details of generators, so this is mostly to give you a background.</p>
+<p>See example <code>6-generators.js</code>.</p>
+<h1 id="async-and-await">Async and Await</h1>
+<p>Async functions use generators and promises to make your code easier to write.</p>
+<ul>
+<li><p>You must use the <code>async</code> keyword so that you can use the <code>await</code> keyword in the function.</p>
+</li>
+<li><p>Functions that are <code>async</code> will always return a promise.</p>
+</li>
+<li><p>You can only <code>await</code> promises.</p>
+</li>
+</ul>
+<p><strong>Example 1</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> actual = <span class="hljs-keyword">await</span> delay(<span class="hljs-number">500</span>)
+  actual += <span class="hljs-keyword">await</span> delay(<span class="hljs-number">500</span>)
+  actual += <span class="hljs-keyword">await</span> delay(<span class="hljs-number">500</span>)
+  <span class="hljs-keyword">return</span> actual
+}
+
+foo()
+  .then(<span class="hljs-function"><span class="hljs-params">actual</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Actual: '</span> + actual) <span class="hljs-comment">// Actual 1502</span>
+  })</code></pre>
+<p><strong>Example 1</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> p1 = delay(<span class="hljs-number">500</span>)
+  <span class="hljs-keyword">const</span> p2 = delay(<span class="hljs-number">500</span>)
+  <span class="hljs-keyword">const</span> p3 = delay(<span class="hljs-number">500</span>)
+  <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([p1, p2, p3])
+  <span class="hljs-keyword">return</span> results[<span class="hljs-number">0</span>] + results[<span class="hljs-number">1</span>] + results[<span class="hljs-number">2</span>]
+}
+
+foo()
+  .then(<span class="hljs-function"><span class="hljs-params">actual</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Actual: '</span> + actual) <span class="hljs-comment">// Actual 501</span>
+  })</code></pre>
+<p>See also example <code>7-async-await.js</code>.</p>
 </div>
       </article>
 
