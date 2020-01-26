@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express" class="current-page">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express" class="current-page">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/docker-intro">Docker Introduction</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -66,7 +66,7 @@
 
         <div class="post-content"><h1 id="express">Express</h1>
 <ul>
-<li><p>A NodeJS package that uses the core http modules to create a web server.</p>
+<li><p>A NodeJS package that uses the core <a href="https://nodejs.org/dist/latest/docs/api/http.html">http module</a> to create a web server.</p>
 </li>
 <li><p>From <a href="http://expressjs.com">expressjs.com</a>: Fast, unopinionated, minimalist web framework for Node.js</p>
 </li>
@@ -74,6 +74,7 @@
 </li>
 </ul>
 <p><strong>Exercise</strong></p>
+<p>Open your final project and do the following:</p>
 <ol>
 <li><p>Install the express package in your project: <code>npm install express</code></p>
 </li>
@@ -86,8 +87,9 @@
 </ol>
 <h1 id="http-request-and-response">HTTP Request and Response</h1>
 <h2 id="the-http-request">The HTTP Request</h2>
-<p>1 The method. The most common methods are <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code>.</p>
-<ol start="2">
+<ol>
+<li><p>The method. The most common methods are <code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code>.</p>
+</li>
 <li><p>The URL</p>
 <pre><code> http://someplace.com:3000/the/path?param1=foo&amp;param2&amp;param3=bar#hash</code></pre><ul>
 <li><p><code>http</code> - the protocol</p>
@@ -337,7 +339,6 @@ app.get(<span class="hljs-string">'/bar/:multiPath*'</span>, <span class="hljs-f
 app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Example app listening on port 3000!'</span>)
 });</code></pre>
-<p>--</p>
 <p>You can also read query parameters (ex: <code>req.query.paramName</code>) and headers (ex: <code>req.headers[&#39;header-name&#39;]</code>).</p>
 <h2 id="express-router">Express Router</h2>
 <p>You can create an express router instance that allows you define routes that are more modular.</p>
