@@ -5,13 +5,15 @@ toc: 1
 
 # Express
 
-- A NodeJS package that uses the core http modules to create a web server.
+- A NodeJS package that uses the core [http module](https://nodejs.org/dist/latest/docs/api/http.html) to create a web server.
 
 - From [expressjs.com](http://expressjs.com): Fast, unopinionated, minimalist web framework for Node.js
 
 - It doesn't serve anything unless you tell it what and how to serve content.
 
 **Exercise**
+
+Open your final project and do the following:
 
 1. Install the express package in your project: `npm install express`
 
@@ -25,7 +27,7 @@ toc: 1
 
 ## The HTTP Request
 
-1 The method. The most common methods are `GET`, `POST`, `PUT`, and `DELETE`.
+1. The method. The most common methods are `GET`, `POST`, `PUT`, and `DELETE`.
 
 2. The URL
 
@@ -278,8 +280,6 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 });
 ```
-
---
 
 You can also read query parameters (ex: `req.query.paramName`) and headers (ex: `req.headers['header-name']`).
 
