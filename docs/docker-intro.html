@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Docker Introduction</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/docker-intro" class="current-page">Docker Introduction</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Docker Introduction</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#virtual-machines">Virtual Machines</a></li><li><a href="#containers-and-images">Containers and Images</a></li><li><a href="#docker">Docker</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="virtual-machines">Virtual Machines</h1>
+<ul>
+<li><p>A virtual machine is software that runs a guest operating system on top of your actual operating system.</p>
+</li>
+<li><p>You specify the amount of RAM, the number of CPUs, hard drive space, etc.</p>
+</li>
+<li><p>RAM and CPUs are reserved by the virtual machine so that the main operating system cannot use it.</p>
+</li>
+</ul>
+<p>&lt;--</p>
+<p>What is RAM?</p>
+<p>--</p>
+<p>It stands for Random Access Memory. It is the short term memory of your computer and is essential for fast processing. If you run low on RAM your computer slows down substantially.</p>
+<p>--&gt;</p>
+<h1 id="containers-and-images">Containers and Images</h1>
+<ul>
+<li><p>A container is a set of processes that are isolated from the rest of the system. Acts very similar to a virtual machine.</p>
+</li>
+<li><p>It uses as much RAM, CPU, and hard drive space as it needs to (no need to specify how much)</p>
+</li>
+<li><p>It has very little overhead (it&#39;s light weight).</p>
+</li>
+<li><p>Originally containers were only supported on Linux.</p>
+</li>
+<li><p>Windows and Mac now have container support built in.</p>
+</li>
+<li><p>An image is a static snapshot of a container.</p>
+</li>
+</ul>
+<h1 id="docker">Docker</h1>
+<ul>
+<li><p>A container management application.</p>
+</li>
+<li><p>Makes container management consistent across operating systems.</p>
+</li>
+<li><p>Does not run well on Windows if you have the Home edition. In this case you&#39;ll want to create a Linux VM.</p>
+</li>
+</ul>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><p><strong>Image</strong> - A set of resources packaged together and ready to run. Image an operating system, files, and applications all ready to run.</p>
+</li>
+<li><p><strong>Container</strong> - An instance of an image. You can have running or stopped containers. Each container will take up space on your hard drive.</p>
+</li>
+</ul>
+<p>In later lesson&#39;s we&#39;ll talk Docker in depth, but for now we just need to know how to run prebuilt images.</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li><p>Install Docker on your own machine: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p>
+</li>
+<li><p>Pull the <a href="https://hub.docker.com/_/hello-world">Docker Hub Hello World container</a>: <code>docker pull hello-world</code></p>
+</li>
+<li><p>Run the Hello World container: <code>docker run --rm -it hello-world</code></p>
+</li>
+</ol>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/docker-intro.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
