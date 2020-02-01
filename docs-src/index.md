@@ -1,6 +1,6 @@
 ---
 title: Home 
-navOrder: history domain-driven-design git rest javascript node-and-npm express async-javascript docker-intro sql nosql
+navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-intro sql nosql 
 toc: 1
 ---
 

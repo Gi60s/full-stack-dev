@@ -1,5 +1,5 @@
 ---
-title: NoSQL
+title: NoSQL Databases
 toc: 1
 ---
 

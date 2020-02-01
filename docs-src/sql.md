@@ -63,3 +63,25 @@ https://node-postgres.com/features/transactions
 # Docker Image
 
 There is a Docker image for Postgres SQL: https://hub.docker.com/_/postgres
+
+# Testing
+
+When it comes to testing your database interactions there are several things you can test for.
+
+- Test that you can successfully connect to the databases.
+
+- Test that your queries work for both reading and writing.
+
+<--
+
+How do you test that you can write to your databases without actually messing up your data?
+
+--
+
+You have a few options:
+
+1. Create a copy of your database, run tests against the copy.
+
+2. Set up mocks and stubs to simulate a connection to your database.
+
+-->
