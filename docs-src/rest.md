@@ -75,7 +75,7 @@ There had been several attempts to document REST APIs in the past. Most notably:
 
 - 2009 Sun Microsystems presented Web Application Description Language (WADL).
 
-- 2011 Tony Ham improved on the idea of WADL with [Swagger](https://swagger.io/).
+- 2011 Tony Tam improved on the idea of WADL with [Swagger](https://swagger.io/).
 
 - 2016 The Swagger specification was renamed to the OpenAPI specification and it's work now falls under the Linux Foundation.
 
