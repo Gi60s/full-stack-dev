@@ -47,7 +47,7 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/docker-intro">Docker Introduction</a></li><li><a href="/full-stack-dev/sql" class="current-page">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-intro">Docker Introduction</a></li><li><a href="/full-stack-dev/sql" class="current-page">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
@@ -60,7 +60,7 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#sql-databases">SQL Databases</a></li><li><a href="#postgres">Postgres</a></li><li><a href="#docker-image">Docker Image</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#sql-databases">SQL Databases</a></li><li><a href="#postgres">Postgres</a></li><li><a href="#docker-image">Docker Image</a></li><li><a href="#testing">Testing</a></li></ul></div>
         </div>
         
 
@@ -118,6 +118,25 @@
 <p><a href="https://node-postgres.com/features/transactions">https://node-postgres.com/features/transactions</a></p>
 <h1 id="docker-image">Docker Image</h1>
 <p>There is a Docker image for Postgres SQL: <a href="https://hub.docker.com/_/postgres">https://hub.docker.com/_/postgres</a></p>
+<h1 id="testing">Testing</h1>
+<p>When it comes to testing your database interactions there are several things you can test for.</p>
+<ul>
+<li><p>Test that you can successfully connect to the databases.</p>
+</li>
+<li><p>Test that your queries work for both reading and writing.</p>
+</li>
+</ul>
+<p>&lt;--</p>
+<p>How do you test that you can write to your databases without actually messing up your data?</p>
+<p>--</p>
+<p>You have a few options:</p>
+<ol>
+<li><p>Create a copy of your database, run tests against the copy.</p>
+</li>
+<li><p>Set up mocks and stubs to simulate a connection to your database.</p>
+</li>
+</ol>
+<p>--&gt;</p>
 </div>
       </article>
 

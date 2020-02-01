@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Testing Introduction</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro" class="current-page">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-intro">Docker Introduction</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Testing Introduction</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#development-cycle">Development Cycle</a></li><li><a href="#why-write-tests">Why Write Tests</a></li><li><a href="#types-of-tests">Types of Tests</a></li><li><a href="#testing-concepts-and-terminology">Testing Concepts and Terminology</a></li><li><a href="#how-to-write-tests">How to Write Tests</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="development-cycle">Development Cycle</h1>
+<p>These are the steps taken to develop a piece of software:</p>
+<ol>
+<li>Analysis</li>
+<li>Design</li>
+<li>Development</li>
+<li>Testing</li>
+<li>Integration</li>
+<li>Maintenance</li>
+</ol>
+<p>Steps 1 through 6 are repeated as the software evolves.</p>
+<h1 id="why-write-tests">Why Write Tests</h1>
+<h2 id="code-velocity">Code Velocity</h2>
+<ul>
+<li><p>You&#39;re boss wants you to get your code done quickly.</p>
+</li>
+<li><p>You want to get your code done quickly.</p>
+</li>
+<li><p>Developers are often excited to see their code working and focus on self testing.</p>
+</li>
+<li><p>Self testing is slow and exponentially gets slower.</p>
+</li>
+</ul>
+<h2 id="the-cost-of-development">The Cost of Development</h2>
+<p>Some parts of software development are cheaper than others. Here is the estimated breakdown:</p>
+<ol>
+<li>Analysis - 5%</li>
+<li>Design - 5%</li>
+<li>Development - 5%</li>
+<li>Testing - 10%</li>
+<li>Integration - 10%</li>
+<li>Maintenance - 65%</li>
+</ol>
+<h2 id="why-write-tests-1">Why Write Tests</h2>
+<ol>
+<li><p>To increase code confidence.</p>
+</li>
+<li><p>It stops code constipation. A complex problem can be broken down into tests and then the code written to make the tests pass.</p>
+</li>
+<li><p>You don&#39;t have to wait for dependencies to run before validating code.</p>
+</li>
+<li><p>Allows you to change code quickly and know it still works.</p>
+</li>
+<li><p>It documents how to use your code.</p>
+</li>
+<li><p>So you know when you&#39;re done coding.</p>
+</li>
+<li><p>Proper testing reduces development time and <strong>greatly</strong> reduces the cost of maintenance.</p>
+</li>
+</ol>
+<h1 id="types-of-tests">Types of Tests</h1>
+<ul>
+<li><p>Unit testing</p>
+<ul>
+<li>Test the units individual isolated functionality (testing functions).</li>
+<li>Tests must not affect stateful information.</li>
+<li>One test failing or succeeding must not affect other tests.</li>
+<li>Very fast.</li>
+</ul>
+</li>
+<li><p>Integration testing </p>
+<ul>
+<li>Tests the integration of units that interoperate with one another (testing databases, web APIs, etc).</li>
+<li>Ensures that units are working together.</li>
+<li>A bit slower.</li>
+</ul>
+</li>
+<li><p>Acceptance (UI) testing and End to End testing</p>
+<ul>
+<li>Test that the software behaves like the user expects (buttons, navigation, etc. all work).</li>
+<li>Customer satisfaction tests. </li>
+<li>This takes the longest and if unit and integration tests have not been performed can make this a slow and discouraging process.</li>
+</ul>
+</li>
+</ul>
+<h2 id="testing-styles">Testing Styles</h2>
+<ul>
+<li><p>Black box testing - we cannot observe inside the code, we can only provide tests and evaluate the responses. These tests are much less brittle, but if they have dependencies it can make it hard to get the test set up.</p>
+</li>
+<li><p>White box testing - No barrier between inside code. Can inject dependencies, allowing us to provide fake dependencies. Down side is that it&#39;s more brittle.</p>
+</li>
+</ul>
+<p>Any test style can be used with any test type.</p>
+<h1 id="testing-concepts-and-terminology">Testing Concepts and Terminology</h1>
+<ul>
+<li><p>There are many testing libraries (test runners).</p>
+</li>
+<li><p>Some test runners execute synchronously, some asynchronously, and others a mix of both. It&#39;s important to know how the test runner will run because it affects how you can write your tests.</p>
+</li>
+<li><p>Most test runners share many of the same features.</p>
+</li>
+</ul>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><p><strong>Testing Suites</strong></p>
+<ul>
+<li><p>Made up of multiple tests.</p>
+</li>
+<li><p>Can have before and after hooks. This is code that is run before or after each test within the suite.</p>
+</li>
+<li><p>Can also have before all and after all hooks that are run before or after any tests in the test suite.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Assertions</strong> assert that an expected behavior occurred. For example, if you call function A with inputs B and C then D is the expected output.</p>
+<ul>
+<li><p>There are positive assertions: If you call function A with inputs B and C then D is the expected output.</p>
+</li>
+<li><p>There are negative assertions: If you call function A with inputs B and C then D should not be the output.</p>
+</li>
+<li><p>Most things being tested will need multiple positive and negative assertions.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Reporters</strong> format the results of the test to be readable by people or applications.</p>
+</li>
+</ul>
+<h1 id="how-to-write-tests">How to Write Tests</h1>
+<p>Exactly how you write a test will vary depending on the coding language, the type of test, etc., but all testing basically follows these concepts:</p>
+<ol>
+<li><p>Write a test that fails</p>
+</li>
+<li><p>Write code to make the test pass</p>
+</li>
+<li><p>Repeat</p>
+</li>
+</ol>
+<h2 id="important-tips">Important Tips</h2>
+<p>Testing will save you exponential amounts of time.</p>
+<ul>
+<li><p>Write tests early. If you wait too long you may produce code that is hard to test.</p>
+</li>
+<li><p>If you find a bug, write a test that proves the bug&#39;s existence, then fix the code so that the test passes.</p>
+</li>
+<li><p>If you already have a lot of code written, just start writing tests for any new code (or changes to code) that you write.</p>
+</li>
+</ul>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/testing-intro.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
