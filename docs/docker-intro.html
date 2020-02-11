@@ -110,6 +110,39 @@
 </li>
 </ul>
 <p>In later lesson&#39;s we&#39;ll talk Docker in depth, but for now we just need to know how to run prebuilt images.</p>
+<h2 id="sample-dockerfile">Sample Dockerfile</h2>
+<pre><code class="language-dockerfile"><span class="hljs-comment"># Every Dockerfile must start with a "FROM" keyword and you have to specify a base image (local or pull/reference one from dockerhub)</span>
+<span class="hljs-keyword">FROM</span> base_image:version
+
+<span class="hljs-comment"># Use WORKDIR to specify that all subsequent actions should be taken from the directory</span>
+<span class="hljs-comment"># (e.g. /usr/src/app) in your image's filesystem (never the host’s filesystem).</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /the/workdir/path</span>
+
+<span class="hljs-comment"># Use COPY to copy files from your host to the present location (.) in your image </span>
+<span class="hljs-comment"># e.g. "COPY package.json ." and the "." would translate to your specified WORKDIR above (/usr/src/app/package.json) </span>
+<span class="hljs-comment"># e.g. "COPY . ." copies all of the source code from the host to the image's filesystem.</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> <span class="hljs-built_in">source</span> dest</span>
+
+<span class="hljs-comment"># Commands for this container/image to run</span>
+<span class="hljs-comment"># e.g.: </span>
+<span class="hljs-comment"># RUN apt update &amp;&amp; \</span>
+<span class="hljs-comment">#     apt install curl &amp;&amp; \</span>
+<span class="hljs-comment">#     apt install git</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">command</span></span>
+
+<span class="hljs-comment"># Use CMD to specify some metadata in the image that describes how to run the container based off of this image. </span>
+<span class="hljs-comment"># e.g. ["npm", "start"] would run "npm start"</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"executable"</span> ]</span>
+
+<span class="hljs-comment"># Use the ENV instruction if you want to set the environment variable &lt;key&gt; to the value &lt;value&gt;. </span>
+<span class="hljs-comment"># This value will be in the environment for all subsequent instructions in the build stage</span>
+<span class="hljs-comment"># and can be replaced inline in many as well.</span>
+<span class="hljs-keyword">ENV</span> key=value other_key=other_value another_key=another_value
+
+<span class="hljs-comment"># Use the ADD instruction if you want to copy new files, directories or remote file URLs from &lt;src&gt;</span>
+<span class="hljs-comment"># and add them to the filesystem of the image at the path &lt;dest&gt;.</span>
+<span class="hljs-comment"># The &lt;dest&gt; is an absolute path, or a path relative to WORKDIR, into which the source will be copied inside the destination container.</span>
+<span class="hljs-keyword">ADD</span><span class="bash"> <span class="hljs-built_in">source</span> dest</span></code></pre>
 <p><strong>Exercise</strong></p>
 <ol>
 <li><p>Install Docker on your own machine: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p>
