@@ -1,5 +1,5 @@
 ---
-title: Docker Introduction
+title: Docker (Part 1)
 toc: 1
 ---
 
@@ -51,11 +51,26 @@ It stands for Random Access Memory. It is the short term memory of your computer
 
 In later lesson's we'll talk Docker in depth, but for now we just need to know how to run prebuilt images.
 
+# Our First Container
+
 **Exercise**
 
 1. Install Docker on your own machine: https://docs.docker.com/install/
 
-2. Pull the [Docker Hub Hello World container](https://hub.docker.com/_/hello-world): `docker pull hello-world`
+2. Run the Hello World container: `docker run --rm -it hello-world`
 
-3. Run the Hello World container: `docker run --rm -it hello-world`
+<!--
 
+What happened?
+
+--
+
+1. It looked for the mongo image locally and did not find it.
+
+2. It downloaded the mongo image from https://hub.docker.com
+
+3. The download had multiple image layers. In docker, images are usually made up of multiple sub images. This helps reduce overall image download by encapsulating commonalities with sub images.
+
+4. Once all image layers are downloaded the docker image starts a new container.
+
+-->
