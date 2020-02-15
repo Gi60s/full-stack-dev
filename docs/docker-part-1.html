@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Full Stack Web Development | Docker Introduction</title>
+  <title>Full Stack Web Development | Docker (Part 1)</title>
   
 
   <link rel="icon" href="/full-stack-dev/favicon.png">
@@ -47,20 +47,20 @@
 
     
     <div class="nav-screen"></div>
-    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-intro" class="current-page">Docker Introduction</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/dockerfile">Dockerfile</a></li></ul></li></nav>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1" class="current-page">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li></ul></li></nav>
     
 
     <div class="page-content-main">
       <article class="post">
         <header class="post-header">
           
-          <h1 class="post-title">Docker Introduction</h1>
+          <h1 class="post-title">Docker (Part 1)</h1>
         </header>
 
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#virtual-machines">Virtual Machines</a></li><li><a href="#containers-and-images">Containers and Images</a></li><li><a href="#docker">Docker</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#virtual-machines">Virtual Machines</a></li><li><a href="#containers-and-images">Containers and Images</a></li><li><a href="#docker">Docker</a></li><li><a href="#our-first-container">Our First Container</a></li></ul></div>
         </div>
         
 
@@ -110,15 +110,29 @@
 </li>
 </ul>
 <p>In later lesson&#39;s we&#39;ll talk Docker in depth, but for now we just need to know how to run prebuilt images.</p>
+<h1 id="our-first-container">Our First Container</h1>
 <p><strong>Exercise</strong></p>
 <ol>
 <li><p>Install Docker on your own machine: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p>
 </li>
-<li><p>Pull the <a href="https://hub.docker.com/_/hello-world">Docker Hub Hello World container</a>: <code>docker pull hello-world</code></p>
-</li>
 <li><p>Run the Hello World container: <code>docker run --rm -it hello-world</code></p>
 </li>
 </ol>
+<!--
+
+What happened?
+
+--
+
+1. It looked for the mongo image locally and did not find it.
+
+2. It downloaded the mongo image from https://hub.docker.com
+
+3. The download had multiple image layers. In docker, images are usually made up of multiple sub images. This helps reduce overall image download by encapsulating commonalities with sub images.
+
+4. Once all image layers are downloaded the docker image starts a new container.
+
+-->
 </div>
       </article>
 
@@ -127,7 +141,7 @@
         
         <p>
           Caught a mistake or want to contribute to the documentation?
-          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/docker-intro.md" target="_blank" rel="noopener">Edit this page on Github</a>
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/docker-part-1.md" target="_blank" rel="noopener">Edit this page on Github</a>
         </p>
         
 
