@@ -111,7 +111,7 @@
 </li>
 <li><p>Create a <code>Dockerfile</code> with this content:</p>
 <pre><code class="language-bash"> <span class="hljs-comment"># Base the image off of the NodeJS image</span>
- FROM node:latest
+ FROM node
 
  <span class="hljs-comment"># Start the container with a bash terminal ready</span>
  ENTRYPOINT [<span class="hljs-string">"/bin/bash"</span>]</code></pre>
@@ -139,7 +139,7 @@
 </li>
 <li><p>Modify the <code>Dockerfile</code> to copy the file into the image.</p>
 <pre><code class="language-bash"> <span class="hljs-comment"># Base the image off of the NodeJS image</span>
- FROM node:latest
+ FROM node
 
  <span class="hljs-comment"># Set the working directory to be the HOME directory</span>
  WORKDIR /root
@@ -222,7 +222,7 @@
 <ol>
 <li><p>Create at the root directory a <code>Dockerfile</code> with this content:</p>
 <pre><code class="language-bash"> <span class="hljs-comment"># Base the image off of the NodeJS image</span>
- FROM node:latest
+ FROM node
 
  <span class="hljs-comment"># Set the working directory to be the HOME directory</span>
  WORKDIR /root
@@ -247,7 +247,7 @@
 <ol>
 <li><p>Update the <code>Dockerfile</code>:</p>
 <pre><code class="language-bash"> <span class="hljs-comment"># Base the image off of the NodeJS image</span>
- FROM node:latest
+ FROM node
 
  <span class="hljs-comment"># Set the working directory to be the HOME directory</span>
  WORKDIR /root
@@ -280,7 +280,7 @@
 <ol>
 <li><p>Update your <code>Dockerfile</code>:</p>
 <pre><code class="language-bash"> <span class="hljs-comment"># Base the image off of the NodeJS image</span>
- FROM node:latest
+ FROM node
 
  <span class="hljs-comment"># Set the working directory to be the HOME directory</span>
  WORKDIR /root
@@ -291,7 +291,7 @@
  RUN npm install
 
  <span class="hljs-comment"># Specify what port will be available - necessary for VPC network</span>
- PORT 3000
+ EXPOSE 3000
 
  <span class="hljs-comment"># Copy our application files to the image</span>
  COPY ./server /root/server

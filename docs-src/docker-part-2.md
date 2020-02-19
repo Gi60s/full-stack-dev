@@ -53,7 +53,7 @@ Services like [Kubernetes](https://kubernetes.io/) can take containers and deplo
 
     ```bash
     # Base the image off of the NodeJS image
-    FROM node:latest
+    FROM node
 
     # Start the container with a bash terminal ready
     ENTRYPOINT ["/bin/bash"]
@@ -85,7 +85,7 @@ Next we're going to add a file to our Docker container.
 
     ```bash
     # Base the image off of the NodeJS image
-    FROM node:latest
+    FROM node
     
     # Set the working directory to be the HOME directory
     WORKDIR /root
@@ -187,7 +187,7 @@ Below is a Dockerfile slightly modified from above to house our server. We're go
 
     ```bash
     # Base the image off of the NodeJS image
-    FROM node:latest
+    FROM node
     
     # Set the working directory to be the HOME directory
     WORKDIR /root
@@ -219,7 +219,7 @@ We also need to update our image to install the NPM dependencies.
 
     ```bash
     # Base the image off of the NodeJS image
-    FROM node:latest
+    FROM node
     
     # Set the working directory to be the HOME directory
     WORKDIR /root
@@ -262,7 +262,7 @@ If your container is running a server of some sort then to communicate with the 
 
     ```bash
     # Base the image off of the NodeJS image
-    FROM node:latest
+    FROM node
     
     # Set the working directory to be the HOME directory
     WORKDIR /root
@@ -273,7 +273,7 @@ If your container is running a server of some sort then to communicate with the 
     RUN npm install
    
     # Specify what port will be available - necessary for VPC network
-    PORT 3000
+    EXPOSE 3000
     
     # Copy our application files to the image
     COPY ./server /root/server
