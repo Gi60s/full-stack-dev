@@ -1,6 +1,6 @@
 ---
 title: Home 
-navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management
+navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management html-css vue-intro
 toc: 1
 ---
 
@@ -79,7 +79,7 @@ Most homework assignments will be toward building the final project and will bui
 
 ## Requirements
 
-Build a full stack (client and server) web application using [JavaScript](javascript.md) and [NodeJS](nodejs.md).
+Build a full stack (client and server) web application using [JavaScript](javascript.md) and [NodeJS](node-and-npm.md).
 
 **Client (browser)**
 
@@ -95,7 +95,7 @@ Build a full stack (client and server) web application using [JavaScript](javasc
     
 **Server**
 
-- Write a custom server using [NodeJS](nodejs.md).
+- Write a custom server using [NodeJS](node-and-npm.md).
 
 - Use either a [NoSQL](nosql.md) or [SQL](sql.md) database (or both).
 
