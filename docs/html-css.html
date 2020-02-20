@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | HTML and CSS</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css" class="current-page">HTML and CSS</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">HTML and CSS</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#html">HTML</a></li><li><a href="#html-forms">HTML Forms</a></li><li><a href="#developer-tools">Developer Tools</a></li><li><a href="#dom-navigation-and-manipulation">DOM Navigation and Manipulation</a></li><li><a href="#css">CSS</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="html">HTML</h1>
+<h2 id="an-html-template">An HTML Template</h2>
+<p>The below template was taken from <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document</a> and modified.</p>
+<ul>
+<li>CSS is generally included in the head of the file.</li>
+<li>JavaScript is generally included at the end of the body.</li>
+</ul>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/main.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Forest elephants<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Introduction<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>In this section, we discuss the lesser known forest elephants.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Habitat<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Forest elephants do not live in trees but among them.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>advertising block<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>(c) 2010 The Example company<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/main.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h2 id="tags">Tags</h2>
+<ul>
+<li>A tag is used to define an HTML element.</li>
+<li>A tag starts and ends with <code>&lt;</code> and <code>&gt;</code> respectively. For example, the paragraph tag: <code>&lt;p&gt;</code>.</li>
+<li>Many tags also expect a closing tag to match an opening tag, like the paragraph. Closing tags start with <code>&lt;\</code> and end with <code>&gt;</code>. For example: <code>&lt;p&gt;Content&lt;/p&gt;</code></li>
+<li>If a tag doesn&#39;t need a closing tag then you just put the opening tag. For example, the horizontal rule tag: <code>&lt;hr&gt;</code>.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Element Reference</a></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<ul>
+<li>All tags have attributes that can be used to further define how the tag looks or what it should do.</li>
+<li>Attributes exist within the opening tag, for example the image tag takes a source to define what image to display: <code>&lt;img src=&#39;image.png&#39;&gt;</code></li>
+<li>Two attributes that all elements can have are <code>class</code> and <code>id</code>.</li>
+</ul>
+<h2 id="id-attribute">ID Attribute</h2>
+<ul>
+<li>The <code>id</code> attribute defines a unique ID for an element. This id should be unique for the entire page. Example usage: <code>&lt;p id=&#39;Main&#39;&gt;&lt;/p&gt;</code>.</li>
+<li>This attribute is often used to find the element using JavaScript. It is also commonly used to link form inputs to form labels.</li>
+<li>CSS also uses the ID attribute to define styles.</li>
+</ul>
+<h2 id="the-dom">The DOM</h2>
+<ul>
+<li>The DOM is the document object model.</li>
+<li>A web browser produces the DOM after reading your HTML.</li>
+<li>The DOM is a tree structure made up of nodes. The tree structure mimics your HTML.</li>
+<li>There are <a href="http://www.w3schools.com/jsref/prop_node_nodetype.asp">12 node types</a>.</li>
+<li>An element is one type of node (represented in text by an HTML tag).</li>
+</ul>
+<p>&lt;--</p>
+<p>What is the relationship between HTML tags and the DOM?</p>
+<p>--</p>
+<p>HTML tags are text directions (essentially code) that gets interpreted by the browser and converted into DOM elements. Those DOM elements are what we see on the page, not the HTML.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>What is the relationship between the attributes on an HTML tag and properties in a DOM object?</p>
+<p>--</p>
+<p>Once again, HTML tag attributes are text directions. The browser interprets the instructions and creates DOM objects (JavaScript objects) that have those attributes as properties.</p>
+<p>--&gt;</p>
+<h2 id="element-nodes">Element Nodes</h2>
+<ul>
+<li>Each element has it&#39;s own attributes and display properties.</li>
+<li>The following code shows the difference between two very similar elements, the <code>div</code> and <code>span</code>.</li>
+</ul>
+<p><strong>Code</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<p><strong>Output</strong></p>
+<div>A</div>
+<div>B</div>
+<div>C</div>
+
+<p><span>A</span>
+<span>B</span>
+<span>C</span></p>
+<p>&lt;--</p>
+<p>What difference can you see between the <code>div</code> and <code>span</code>?</p>
+<p>--</p>
+<ul>
+<li>The <code>div</code> takes up the entire line while the <code>span</code> takes up just enough space for its content.</li>
+<li>The <code>div</code> is known as a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level</a> element where the <code>span</code> is an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements">inline</a> element.</li>
+</ul>
+<p>--&gt;</p>
+<p>Take a moment to look at:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level elements</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements">inline elements</a></li>
+<li>Also look at the list of inline and block elements on those pages.</li>
+</ul>
+<p>&lt;--</p>
+<p>If a span only take up as much width as needed, then why is there space between each letter?</p>
+<p>--</p>
+<p>The spaces are actually between the span tags. With HTML only the first space is recognized while the rest are ignored until the next non-space.</p>
+<p>--&gt;</p>
+<h1 id="html-forms">HTML Forms</h1>
+<ul>
+<li>A form is a common way to provide a user input interface.</li>
+<li>There are many elements that are used together to make up forms.</li>
+<li>Any form elements with a <code>name</code> attribute are distinguished by that name.</li>
+<li><a href="http://www.w3schools.com/html/html_forms.asp">Forms Reference</a></li>
+</ul>
+<p><strong>Code</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'color'</span>&gt;</span>Favorite Color:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'color'</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'food'</span>&gt;</span>Favorite Food:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"food"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"food"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"fruit"</span>&gt;</span>Fruit<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ice cream"</span>&gt;</span>Ice Cream<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"pizza"</span>&gt;</span>Pizza<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"vegetables"</span>&gt;</span>Vegetables<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Gender<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"gender"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"male"</span>&gt;</span> Male<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"gender"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"female"</span>&gt;</span> Female<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"alert('Hello')"</span>&gt;</span>Hello Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<p><strong>Output</strong></p>
+<form>
+    <p>
+        <label for='color'>Favorite Color:</label>
+        <input id='color'>
+    </p>
+    <p>
+        <label for='food'>Favorite Food:</label>
+        <select id="food" name="food">
+          <option value="fruit">Fruit</option>
+          <option value="ice cream">Ice Cream</option>
+          <option value="pizza">Pizza</option>
+          <option value="vegetables">Vegetables</option>
+        </select>
+    </p>
+    <p>
+        <label>Gender</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+    </p>
+    <p>
+        <button type="button" onclick="alert('Hello')">Hello Button</button>
+    </p>
+</form>
+
+<h1 id="developer-tools">Developer Tools</h1>
+<ul>
+<li>The latest browsers (IE, Edge, Firefox, Chrome, Safari) all have developer tools.</li>
+<li>You can look at how a webpage works using these tools.</li>
+<li>The tools are usually accessed through the browser menu.</li>
+</ul>
+<h2 id="try-it-out">Try it Out</h2>
+<ol>
+<li>Open a browser to <a href="http://www.byu.edu">http://www.byu.edu</a></li>
+<li>Open the developer tools.</li>
+<li>Click on the Elements tab (or equivalent).</li>
+<li>Click on elements in the developer console.</li>
+<li>Use the element selector to select an element on the page.</li>
+<li>Explore the properties of the element.</li>
+</ol>
+<h1 id="dom-navigation-and-manipulation">DOM Navigation and Manipulation</h1>
+<p>The content of a DOM can be modified via the browser DOM API.</p>
+<h2 id="selectors">Selectors</h2>
+<ul>
+<li>Used to select the elements of interest.</li>
+<li>Can use <code>document.querySelector</code> or <code>document.querySelectorAll</code> to get an array-like object.</li>
+<li>Select by tag, class, id, pseudo, etc.</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<p>Each DOM Node has properties that can be used to navigate the DOM. Here are some element properties:</p>
+<ul>
+<li><em>children</em> - Get child elements.</li>
+<li><em>nextElementSibling</em> - Get next sibling element.</li>
+<li><em>previousElementSibling</em> - Get previous sibling element.</li>
+<li><em>parent</em> - Get the element that is parent of this element.</li>
+</ul>
+<p>Here are some Node properties:</p>
+<ul>
+<li><em>childNodes</em> - Get all child nodes.</li>
+<li><em>nextSibling</em> - Get next sibling node.</li>
+<li><em>previousSibling</em> - Get previous sibling node.</li>
+</ul>
+<h2 id="manipulation">Manipulation</h2>
+<ul>
+<li><em>createElement</em></li>
+<li><em>getAttribute</em>, <em>setAttribute</em>, <em>removeAttribute</em></li>
+<li><em>appendChild</em>, <em>insertBefore</em></li>
+</ul>
+<h2 id="api-documentation">API Documentation</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node">Node API</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element">Element API</a></li>
+</ul>
+<h2 id="dom-manipulation-exercises">DOM Manipulation Exercises</h2>
+<ol>
+<li><p>Create a <code>div</code> on a page and set the attribute <code>id=&quot;time&quot;</code>.</p>
+</li>
+<li><p>Load the page in a browser, open the developer tools, and through the element explorer update the content of the div to look like the current time.</p>
+</li>
+<li><p>Use the JavaScript console to auto update that div with the current time every second.</p>
+<pre><code class="language-js"> <span class="hljs-keyword">const</span> timeEl = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'time'</span>)
+ setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+   timeEl.innerHTML = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toTimeString().substr(<span class="hljs-number">0</span>,<span class="hljs-number">8</span>)
+ }, <span class="hljs-number">100</span>)</code></pre>
+</li>
+<li><p>Within the JavaScript console, add an <code>h1</code> element to the body.</p>
+</li>
+</ol>
+<h1 id="css">CSS</h1>
+<p>&lt;--</p>
+<p>What is CSS used for?</p>
+<p>--</p>
+<p>It is the style portion of your web application. It controls the look.</p>
+<p>--&gt;</p>
+<p><strong>Regular Button vs Styled Button</strong></p>
+<p><button>My Button</button>
+<button style="border: 1px solid #09D; background-color: #0BF; border-radius: 4px; padding: 5px 10px; color: #FFF; font-weight: bold">My Button</button></p>
+<p>These styles were applied to second button:</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">border</span>: 1<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">solid</span> <span class="hljs-selector-id">#09D</span>;
+<span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-id">#0BF</span>;
+<span class="hljs-selector-tag">border-radius</span>: 4<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">padding</span>: 5<span class="hljs-selector-tag">px</span> 10<span class="hljs-selector-tag">px</span>;
+<span class="hljs-selector-tag">color</span>: <span class="hljs-selector-id">#FFF</span>;
+<span class="hljs-selector-tag">font-weight</span>: <span class="hljs-selector-tag">bold</span>;</code></pre>
+<p>&lt;--</p>
+<p>What does CSS stand for?</p>
+<p>--</p>
+<p>Cascading Style Sheets</p>
+<p>--&gt;</p>
+<h2 id="style-rules">Style Rules</h2>
+<p>There are a lot of CSS style rules to know, but you&#39;ll generally only use a small set of them.</p>
+<p><a href="http://www.w3schools.com/css/">W3Schools CSS Tutorial</a></p>
+<h2 id="css-selectors">CSS Selectors</h2>
+<p>A selector tells the CSS <em>where</em> styles should be applied. There are three main types of selectors:</p>
+<ul>
+<li><strong>Tag</strong> - A tag selector will match a given tag.</li>
+<li><strong>Class</strong> - A class selector will match elements that have the same class name.</li>
+<li><strong>ID</strong> - An ID selector will apply to the element with the specified ID.</li>
+</ul>
+<h2 id="tag-selector">Tag Selector</h2>
+<p>All tags that match the selector will have the defined style applied. The following rule will make all <code>&lt;p&gt;</code> tags have bold red content.</p>
+<p><strong>CSS</strong></p>
+<pre><code class="language-css"><span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">color</span>: red;
+}</code></pre>
+<p><strong>HTML</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<h2 id="class-selector">Class Selector</h2>
+<p>Class selectors start with a <code>.</code> (dot). For example:</p>
+<p><strong>CSS</strong></p>
+<pre><code class="language-css"><span class="hljs-selector-class">.my-class</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;
+}</code></pre>
+<p><strong>HTML</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"my-class"</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<h2 id="id-selector">ID Selector</h2>
+<p>ID selectors start with a <code>#</code>. For example:</p>
+<p><strong>CSS</strong></p>
+<pre><code class="language-css"><span class="hljs-selector-id">#my-id</span> {
+    <span class="hljs-attribute">text-align</span>: center;
+}</code></pre>
+<p><strong>HTML</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my-id"</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<h2 id="compound-selectors">Compound Selectors</h2>
+<p>It is possible to join multiple selectors together to create more specific selectors.</p>
+<p>This example shows how you can make all <code>&lt;p&gt;</code> tags with the <code>important</code> class have a specific style. In your html you&#39;d write <code>&lt;p class=&#39;important&#39;&gt; ... &lt;/p&gt;</code> to have this style apply to it.</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.important</span> {
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">color</span>: red;
+}</code></pre>
+<h2 id="nested-selectors">Nested Selectors</h2>
+<p>You can also specify how something should look when it is a child or descendant of another selector.</p>
+<ul>
+<li><code>div p { ... }</code> - This style rule would apply to all paragraph tags that are somewhere within a div tag.</li>
+<li><code>div &gt; p</code> { ... }` - This style would apply to all paragraph tags that are immediate children of a div tag.</li>
+<li><code>#my-id &gt; p &gt; em { ... }</code> - This style applies to <code>em</code> tags that are immediate children of <code>p</code> tags that are immediate children of the element with attribute ID of <code>my-id</code>.</li>
+</ul>
+<h2 id="pseudo-selectors">Pseudo Selectors</h2>
+<p>Pseudo selectors are applied for certain states, such as checked, hover, focus, first-child, etc. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">See a full list of pseudo selectors</a>. A common use for this is to modify the way links work in different states.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">a</span><span class="hljs-selector-id">#styled</span> {
+        <span class="hljs-attribute">display</span>: inline-block;
+        <span class="hljs-attribute">color</span>: <span class="hljs-number">#666</span>;
+        <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#CCC</span>;
+        <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span>;
+        <span class="hljs-attribute">text-decoration</span>: none;
+
+        <span class="hljs-attribute">transition</span>: background-color <span class="hljs-number">500ms</span>;
+    }
+    <span class="hljs-selector-tag">a</span><span class="hljs-selector-id">#styled</span><span class="hljs-selector-pseudo">:hover</span> {
+        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e7a61a</span>
+    }
+
+    <span class="hljs-selector-tag">a</span><span class="hljs-selector-id">#styled</span><span class="hljs-selector-pseudo">:active</span> {
+        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e7d816</span>;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript: void 0"</span>&gt;</span>Example Link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"styled"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript: void 0"</span>&gt;</span>Example Link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<style>
+    a#styled {
+        display: inline-block;
+        color: #666;
+        border: 1px solid #CCC;
+        padding: 5px 10px;
+        text-decoration: none;
+
+        transition: background-color 500ms;
+    }
+    a#styled:hover {
+        background-color: #e7a61a
+    }
+
+    a#styled:active {
+        background-color: #e7d816;
+    }
+</style>
+
+<p><a href="javascript: void 0">Example Link</a>
+<a id="styled" href="javascript: void 0">Example Link</a></p>
+<h2 id="multiple-selectors">Multiple Selectors</h2>
+<p>You can combine selectors so that more than one selector uses a specific style by separating selectors by commas.</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">div</span> &gt; <span class="hljs-selector-tag">p</span>,
+<span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> {
+    <span class="hljs-attribute">font-weight</span>: bold;
+}</code></pre>
+<h2 id="additional-selectors">Additional Selectors</h2>
+<p><a href="https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">Awesome Selectors Tutorial</a></p>
+<h2 id="selector-conflicts">Selector Conflicts</h2>
+<p>Sometimes two selectors will try to apply competing styles to an element.</p>
+<p>Rule of thumb: <strong>The more specific selector has precedence or, all things being equal the last selector has precedence.</strong></p>
+<p>&lt;--</p>
+<p>What is more specific, an ID or a tag? Why?</p>
+<p>--</p>
+<p>An ID. Each ID should be unique, but the same tag can be used many times. For example, the <code>&lt;p&gt;</code> tag is used to generate many paragraphs.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>What is more specific, a tag or a class?</p>
+<p>--</p>
+<p>According to CSS rules, a class is slightly more specific than a tag.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>Looking at the following code example, what will the <code>&lt;p&gt;</code> look like?</p>
+<p>CSS</p>
+<pre><code class="language-css"><span class="hljs-selector-id">#main</span> {
+    <span class="hljs-attribute">border-color</span>: blue;
+}
+<span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red;
+}
+<span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">2px</span>;
+}</code></pre>
+<p>HTML</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'main'</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<p>--</p>
+<p style='border: 1px solid blue; border-bottom-width: 2px;'>Hello, World!</p>
+
+<p>--&gt;</p>
+<h1 id="adding-css-to-your-html">Adding CSS to your HTML</h1>
+<p>There are three ways to add CSS to your HTML:</p>
+<h2 id="including-an-external-style-sheet">Including an External Style Sheet</h2>
+<ul>
+<li>Generally preferred.</li>
+<li>Can improve performance for subsequent loads.</li>
+<li>Better code reuse.</li>
+<li>Non-blocking, the page continues to load while the CSS is being fetched.</li>
+<li>Use the <code>&lt;link&gt;</code> element, generally in the <code>&lt;head&gt;</code> of your document.</li>
+</ul>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"my-styles.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h2 id="inline-styles">Inline Styles</h2>
+<ul>
+<li>Loads with the page; no style flicker.</li>
+<li>Can cause the page to load slower.</li>
+<li>Poor code reuse.</li>
+<li>Use the <code>&lt;style&gt;</code> element, generally in the <code>&lt;head&gt;</code> of your document.</li>
+</ul>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css">
+        <span class="hljs-selector-tag">body</span> {
+              <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h2 id="styles-on-element">Styles on Element</h2>
+<ul>
+<li>High priority, overwrites other rules (except with <code>!important</code>).</li>
+<li>Loads with the page; no style flicker.</li>
+<li>Can cause the page to load slower.</li>
+<li>Poor code reuse.</li>
+<li>Hard to update code.</li>
+<li>Should be avoided in most cases.</li>
+<li>Use the <code>style</code> attribute on an element. Separate style rules using the semi-colon.</li>
+</ul>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"font-family: Arial, Helvetica, sans-serif;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h1 id="css-media-queries">CSS Media Queries</h1>
+<p>Media queries allow you to specify what styles are defined under different conditions:</p>
+<ul>
+<li><em>Width</em> - Useful for responsive design.</li>
+<li><em>Screen</em> and <em>Print</em> - Simplify for print.</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Media Queries Reference</a></p>
+<h2 id="responsive-design">Responsive Design</h2>
+<p>The layout of the page changes to fit the device width. Great for large screens and small screens.</p>
+<p>Common breakpoints:</p>
+<pre><code class="language-css"><span class="hljs-comment">/* Smartphones */</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (max-width : <span class="hljs-number">767px</span>) {
+
+}
+
+<span class="hljs-comment">/* Tablets */</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (min-width : <span class="hljs-number">768px</span>) <span class="hljs-keyword">and</span> (max-width : <span class="hljs-number">991px</span>) {
+
+}
+
+<span class="hljs-comment">/* Desktop */</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (min-width : <span class="hljs-number">991px</span>) <span class="hljs-keyword">and</span> (max-width : <span class="hljs-number">1199px</span>) {
+
+}
+
+<span class="hljs-comment">/* Wide Screen Desktop */</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (min-width : <span class="hljs-number">1200px</span>) {
+
+}</code></pre>
+<h2 id="developer-tools-1">Developer Tools</h2>
+<p>You can use the browser&#39;s developer tools to interact with elements, explore their styles, and even manipulate their styles while looking at the web page.</p>
+<ol>
+<li><p>Open your browser&#39;s developer tools.</p>
+</li>
+<li><p>In the developer tools, select the element you&#39;d like to look at or manipulate.</p>
+</li>
+<li><p>Under the elements tab you&#39;ll see styles. This allows you to see an modify current styles.</p>
+</li>
+<li><p>You will also see a computed tab that allows you to see the computed styles. This is the final set of styles after all style rules have been applied. </p>
+</li>
+</ol>
+<h1 id="css-layouts">CSS Layouts</h1>
+<h2 id="flexbox">Flexbox</h2>
+<ul>
+<li>Advanced CSS layouts</li>
+<li>No need for tables to do layout</li>
+</ul>
+<p><strong>Resources:</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">Using Flexbox</a></li>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Quick Reference</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes#Holy_Grail_Layout_example">Holy Grail Layout</a></li>
+<li><a href="http://flexboxfroggy.com/">Flexbox Froggy</a></li>
+</ul>
+<h2 id="css-grid">CSS Grid</h2>
+<ul>
+<li>Really Advanced CSS layouts</li>
+<li>More control than Flexbox even</li>
+</ul>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">Using CSS Grid</a></li>
+<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Grid Guide</a></li>
+<li><a href="http://cssgridgarden.com/">CSS Grid Garden</a></li>
+</ul>
+<h1 id="css-transitions-and-animations">CSS Transitions and Animations</h1>
+<p>Perform transition between styles:</p>
+<ul>
+<li>Opacity</li>
+<li>Size</li>
+<li>Color</li>
+</ul>
+<p>Animations perform multiple transitions with specialized timing:</p>
+<p><strong>Demos:</strong></p>
+<ul>
+<li><a href="http://codepen.io/lbebber/pen/LELBEo">Gooey Menu</a></li>
+<li><a href="http://codepen.io/joshnh/full/paxbE">3D Boxes</a></li>
+<li><a href="https://tympanus.net/Tutorials/AnimatedButtons/index6.html">Animated Buttons</a></li>
+</ul>
+<p><strong>Resources:</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions">Transitions Guide</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations">Animations Guide</a></li>
+<li><a href="https://daneden.github.io/animate.css/">CSS Animation Library</a></li>
+</ul>
+<h2 id="exercise">Exercise</h2>
+<p>Create a simple <code>div</code> that changes it&#39;s transitions background color as its CSS class name changes. Use JavaScript to change the class name.</p>
+<h1 id="css-tricks-and-techniques">CSS Tricks and Techniques</h1>
+<h2 id="center-a-div-horizontally">Center a DIV Horizontally</h2>
+<p>Example URL: <a href="http://home.byu.edu/home/">http://home.byu.edu/home/</a></p>
+<ul>
+<li>Set the width to a specific value</li>
+<li>Set the left and right margin&#39;s to <code>auto</code>.</li>
+</ul>
+<p><strong>CSS</strong></p>
+<pre><code class="language-CSS"><span class="hljs-selector-class">.container</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1024px</span>;
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+}</code></pre>
+<p><strong>HTML</strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"my-style.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'container'</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- put content here --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h2 id="absolute-relative-position">Absolute Relative Position</h2>
+<p>You have an element on your page and you want to position another element into an exact location that is relative to the parent element.</p>
+<ul>
+<li>The parent element should be positioned as <code>relative</code>, <code>absolute</code>, <code>fixed</code>, or <code>sticky</code>.</li>
+<li>A descendant element should be positioned as <code>absolute</code> with one or more of <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></li>
+</ul>
+<p><strong>CSS</strong></p>
+<pre><code class="language-CSS"><span class="hljs-selector-class">.container</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1024px</span>;
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+    <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-id">#back-to-top</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+}</code></pre>
+<p><strong>HTML</strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"my-style.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'container'</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'#top'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'back-to-top'</span>&gt;</span>Back to Top<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- put content here --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/html-css.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
