@@ -83,4 +83,4 @@ const app = new Vue({
 
 - Live updates on price, based on how much text and quantity (computed value)
 
-- A checkbox to click if you are a VIP member that when checked will show a form to input your VIP number 
+- A checkbox to click if you are a VIP member that when checked will show a field to input your VIP number 
