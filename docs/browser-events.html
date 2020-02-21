@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Browser Events</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css">HTML and CSS</a></li><li><a href="/full-stack-dev/browser-events" class="current-page">Browser Events</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Browser Events</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#events">Events</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="events">Events</h1>
+<ul>
+<li><p>The browser is constantly producing events.</p>
+</li>
+<li><p>Some events have to do with changes that are occurring on the page while others have to do with user interactions with the page.</p>
+</li>
+<li><p>Events are often attached to DOM nodes.</p>
+</li>
+<li><p>You can subscribe (or unsubscribe) to events.</p>
+</li>
+<li><p>Some events can come from other sources: service workers, web sockets, etc.</p>
+</li>
+<li><p>Even though events are always being fired you need to listen for them to utilize them.</p>
+</li>
+</ul>
+<h2 id="subscribing-unsubscribing-and-dispatching">Subscribing, Unsubscribing, and Dispatching</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">https://developer.mozilla.org/en-US/docs/Web/API/EventTarget</a></p>
+<ul>
+<li><p><code>addEventListener(type, callbackHandler)</code> - Tell a node to start listening to a specific event and call the handler when it occurs.</p>
+</li>
+<li><p><code>removeEventListener(type, callbackHandler)</code> - Tell a node to stop listening to remove the callback handler that is listening to an event. You will need a reference to the original function where you started listening to the event.</p>
+</li>
+<li><p><code>dispatchEvent(eventObject)</code> - Emit a non-native event from the target object.</p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>The following example listens for a click event on just the <code>my-element</code> Node and then removes the listener once it has run once.</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> el = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'my-element'</span>)
+<span class="hljs-keyword">const</span> handler = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+  <span class="hljs-keyword">if</span> (event.target === el) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'You clicked my-element'</span>)
+      el.removeEventListener(<span class="hljs-string">'click'</span>, handler)
+  }
+}
+el.addEventListener(<span class="hljs-string">'click'</span>, handler)</code></pre>
+<h2 id="click-events">Click Events</h2>
+<ol>
+<li><p>Using Git, clone the repository: <code>https://github.com/Gi60s/it410-resources.git</code>.</p>
+</li>
+<li><p>Open the file for editing: <code>browser-events/click-bubble/index-starter.html</code>.</p>
+</li>
+<li><p>Open the file <code>browser-events/click-bubble/index-starter.html</code> in your browser of choice.</p>
+</li>
+<li><p>Add event listeners for the inner, middle, and outer <code>&lt;div&gt;</code> elements that log to the console when clicked.</p>
+</li>
+<li><p>Interact with the web page to observe behavior.</p>
+</li>
+</ol>
+<h2 id="dom-events">DOM Events</h2>
+<ul>
+<li><p>Events on elements in the DOM propagate upward from the element that emitted the event.</p>
+</li>
+<li><p>Once the event has gone as high as it can the event hit&#39;s the browser and the browser may take an action based on the event.</p>
+</li>
+<li><p>Event propagation can be stopped with <code>event.stopPropagation()</code> or the browser can be told not to handle the event with <code>event.preventDefault()</code>.</p>
+</li>
+</ul>
+<h2 id="stop-propagation">Stop Propagation</h2>
+<ol>
+<li><p>Open the file <code>/browser-events/click-bubble-stop/index-starter.html</code> in your editor and in your browser.</p>
+</li>
+<li><p>Add an <code>event.stopPropagation()</code> to one of the handlers.</p>
+</li>
+<li><p>Interact with the web page to observe behavior.</p>
+</li>
+</ol>
+<h2 id="prevent-default">Prevent Default</h2>
+<ol>
+<li><p>Open the file <code>/browser-events/reverse-scroll/index-starter.html</code> in your editor and in your browser.</p>
+</li>
+<li><p>Interact with the web page by hitting keys on the keyboard. You can see the key code for which key was pressed in the console.</p>
+</li>
+<li><p>Notice that using the up and down arrow keys has a default behavior of scrolling the window.</p>
+</li>
+<li><p>Add an <code>event.preventDefault()</code> to the keydown handler.</p>
+</li>
+<li><p>Interact with the web page to notice the scrolling no longer works. Using <code>event.preventDefault()</code> will stop the browser from taking any key down based actions.</p>
+</li>
+<li><p>Call <code>window.scrollBy</code> to enable scrolling in reverse: up arrow scrolls down, down arrow scrolls up.</p>
+</li>
+</ol>
+<p>&lt;--</p>
+<p>What are some ideas that you could use browser events for?</p>
+<p>--</p>
+<ul>
+<li><p>You can create a modal window that closes when the escape key is pressed.</p>
+</li>
+<li><p>You can create drag and drop functionality by using the events <code>mousedown</code>, <code>mouseup</code>, <code>mousemove</code>.</p>
+</li>
+<li><p>You can run a form through validation prior to submitting. If there is an error then <code>e.preventDefault()</code>.</p>
+</li>
+<li><p>Infinite possibilities.</p>
+</li>
+</ul>
+<p>--&gt;</p>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/browser-events.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
