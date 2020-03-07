@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Vue CLI</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css">HTML and CSS</a></li><li><a href="/full-stack-dev/browser-events">Browser Events</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li><li><a href="/full-stack-dev/vue-cli" class="current-page">Vue CLI</a></li><li><a href="/full-stack-dev/vue-router">Vue Router</a></li><li><a href="/full-stack-dev/vue-components">Vue Components</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Vue CLI</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#build-tools">Build Tools</a></li><li><a href="#vue-cli">Vue CLI</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="build-tools">Build Tools</h1>
+<p>Previously we created a simple Vue app that does not require build tools.</p>
+<p>&lt;--</p>
+<p>What are build tools?</p>
+<p>--</p>
+<p>Build tools perform tasks that are mundane, repetitive, and sometimes complex.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>Most big JavaScript libraries have a file with <code>.min</code> in its name. For example, jQuery has <code>jquery-3.3.1.js</code> and <code>jquery-3.3.1.min.js</code>. What is the difference and why?</p>
+<p>--</p>
+<p>The <code>.min</code> file is a minified version of the original JavaScript file.</p>
+<ul>
+<li><p>White space is reduced, variable names are shortened, etc.</p>
+</li>
+<li><p>The minified file is almost impossible to read</p>
+</li>
+<li><p>The minified file loads faster because of its smaller file size</p>
+</li>
+<li><p>The browser executes both files just</p>
+</li>
+</ul>
+<p><a href="https://code.jquery.com/jquery-3.3.1.min.js">jQuery 3.3.1 Minified</a> (30 KB)</p>
+<p><a href="https://code.jquery.com/jquery-3.3.1.js">jQuery 3.3.1 Normal</a> (78.9 KB)</p>
+<p>A build tool can convert your regular JavaScript file into a minified JavaScript file</p>
+<p>--&gt;</p>
+<h2 id="common-build-tool-processes">Common Build Tool Processes</h2>
+<ul>
+<li><p>Minifying JavaScript</p>
+</li>
+<li><p>Obfuscating JavaScript</p>
+</li>
+<li><p>Pre-processing for CSS</p>
+</li>
+<li><p>Converting TypeScript to JavaScript</p>
+</li>
+</ul>
+<p><a href="https://hackernoon.com/javascript-build-tools-and-automation-systems-9589c5c91ebe">A Good Article About JavaScript Build Tools</a></p>
+<h1 id="vue-cli">Vue CLI</h1>
+<p>The <a href="https://cli.vuejs.org/guide/">Vue CLI</a> consists of:</p>
+<ul>
+<li><p>The CLI, a command line interface tool that makes it easy to set up and manage Vue applications.</p>
+</li>
+<li><p>The CLI Service that makes it easy to run your app, build it, and test it.</p>
+</li>
+<li><p>CLI Plugins for extending the functionality of your build processes</p>
+</li>
+</ul>
+<h2 id="creating-an-app">Creating an App</h2>
+<p>This is how you create a front-end application. This type of application would communicate with your server via AJAX requests.</p>
+<ol>
+<li><p>Install the Vue CLI: <code>npm install -g @vue/cli</code></p>
+</li>
+<li><p>Create a project: <code>vue ui</code> (or alternatively <code>vue create &lt;your-app-name&gt;</code>)</p>
+</li>
+<li><p>After initializing a project, checkout the plugins, dependencies, and configuration.</p>
+</li>
+<li><p>Install the Vue Router and Vuex plugins.</p>
+</li>
+<li><p>Look at tasks, start the server, etc</p>
+</li>
+</ol>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/vue-cli.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
