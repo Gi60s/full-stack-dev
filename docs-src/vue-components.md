@@ -3,6 +3,8 @@ title: Vue Components
 toc: 1
 ---
 
+## About Vue Components
+
 - A Vue component is a reusable piece of HTML, CSS, and JavaScript.
 
 - Components can accept inputs via HTML attributes.
