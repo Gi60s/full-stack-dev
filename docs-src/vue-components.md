@@ -17,7 +17,7 @@ toc: 1
 
 - When you initialize a Vue app, you create a root component that nests all other components within it.
 
-## Documentation: 
+## Documentation
 
 The Vue documentation is good, especially the Guide. Use the documentation provided there to complete the exercise below.
 
