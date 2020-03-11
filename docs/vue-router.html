@@ -60,18 +60,26 @@
         
         <div>
           <p><strong>Page Content</strong></p>
-          <div class="section-nav"><ul class="toc"><li><a href="#exercise">Exercise</a></li></ul></div>
+          <div class="section-nav"><ul class="toc"><li><a href="#configuration">Configuration</a></li><li><a href="#exercise">Exercise</a></li><li><a href="#server-setup">Server Setup</a></li><li><a href="#some-other-routing-topics">Some Other Routing Topics</a></li></ul></div>
         </div>
         
 
         <div class="post-content"><p>The Vue Router is a simple library that allows you to tie routes (web URLs) to views (pages). This is the default tool for turning a multi-page web application into a single page app. </p>
 <p>(Remember that Vue is modular and does not restrict you to use this specific router.)</p>
 <p><a href="https://router.vuejs.org/">Vue Router documentation</a></p>
-<h2 id="exercise">Exercise</h2>
-<h3 id="create-views">Create Views</h3>
+<h1 id="configuration">Configuration</h1>
+<ul>
+<li><p>The Vue Router configuration is stored by default in <code>src/router/index.js</code>. This stores the actual routes and the Components that they are associated with.</p>
+</li>
+<li><p>The main JavaScript file (<code>src/main.js</code> ) attaches the Vue Router to the root component.</p>
+</li>
+</ul>
+<h1 id="exercise">Exercise</h1>
+<p>The remainder of this lesson is a series of exercises that build one upon another. Introductions proceed each exercise.</p>
+<h2 id="create-views">Create Views</h2>
 <p>We&#39;ll start by creating several views. Initially these pages will be very basic, containing just an <code>&lt;h1&gt;</code> tag with a unique title.</p>
 <ol>
-<li><p>Create these views (pages)</p>
+<li><p>Create these views (pages) in the <code>src/views</code> directory. Each view is a Vue component.</p>
 <ul>
 <li>Home</li>
 <li>Login</li>
@@ -82,31 +90,96 @@
 <li><p>Create a common navigation bar for all pages by adding it to <code>App.vue</code></p>
 </li>
 </ol>
-<h3 id="create-login-page">Create Login Page</h3>
-<p>On the login page we&#39;ll allow credentials to be entered but we&#39;ll store the information in the global window space for now until we learn about Vuex.</p>
+<h2 id="create-login-page">Create Login Page</h2>
+<p>On the login page we&#39;ll allow credentials to be entered but we&#39;ll store the information in the root component. This is OK for small apps but a state management engine is preferred for larger apps.</p>
 <ol>
-<li><p>Create login page with username and password fields.</p>
+<li><p>Add a form to the login page with username and password fields and a submit button.</p>
 </li>
-<li><p>Clicking login will verify that the fields are not empty, then store the username and password to <code>window.user = ...</code></p>
+<li><p>Clicking the login button will store the username field&#39;s data as the logged in user, using a method within that view that runs <code>this.$root.$data.user = this.username</code></p>
 </li>
 </ol>
-<h3 id="protect-routes">Protect Routes</h3>
+<h2 id="protect-routes">Protect Routes</h2>
 <p>Some routes should not be accessible without being logged in.</p>
-<ol>
-<li><p>Only show certain nav links based on logged in status</p>
-</li>
-<li><p>Use route meta and <strong>beforeEach</strong> navigation guards to restrict Profile and Contacts views to logged in users.</p>
+<p>To protect navigation routes we use route guards.</p>
 <ul>
-<li>Automatically redirect to login</li>
-<li>Store route to return to after login</li>
+<li><p>Route guards are not a security measure. Anything on the client can be overwritten by a developer with console knowledge.</p>
+</li>
+<li><p>Some route guards are <a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards">global guards</a>.</p>
+</li>
+<li><p>Some route guards are <a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard">route specific guards</a>.</p>
+</li>
+<li><p>Some route guards are <a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#in-component-guards">component specific guards</a>.</p>
+</li>
 </ul>
+<p>Set up a route specific guards on the <code>profile</code> and <code>contacts</code> pages.</p>
+<ul>
+<li><p>Trying to visit the <code>profile</code> or <code>contacts</code> pages without being logged in should redirect to the login page.</p>
+</li>
+<li><p>After login the user should redirect to the page they just came from.</p>
+</li>
+</ul>
+<h2 id="create-a-dynamic-route">Create a Dynamic Route</h2>
+<ul>
+<li><p><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html">Dynamic routes</a> allow you to define routes with path parameters. Example: <code>/greet/:name</code></p>
+</li>
+<li><p>Dynamic routes can have multiple path parameters.</p>
+</li>
+<li><p>Views can access the route path parameters using <code>this.$route.params.&lt;path_param_name&gt;</code> or <code>$route.params.&lt;path_param_name&gt;</code> if evaluated in the component&#39; HTML.</p>
+</li>
+</ul>
+<p>Use this information to:</p>
+<ol>
+<li><p>Create a view called <code>Greet.vue</code>.</p>
+</li>
+<li><p>Define a dynamic route that loads <code>Greet.vue</code> with this path: <code>/greet/:name</code></p>
+</li>
+<li><p>The <code>Greet.vue</code> file should display <code>&quot;Hello, &lt;name&gt;&quot;</code> with the name entered into the path.</p>
 </li>
 </ol>
-<h3 id="other-routing-topics-of-interest">Other Routing Topics of Interest</h3>
+<h2 id="create-a-404-route">Create a 404 Route</h2>
+<p>A 404 route is a page that users see if the URL they have specified does not match any routes.</p>
+<ol>
+<li><p>Create a <code>NotFound.vue</code> file that says something about the page not existing.</p>
+</li>
+<li><p>Add a <a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#catch-all-404-not-found-route">route that catches all other paths</a> and shows the <code>NotFound.vue</code> file.</p>
+</li>
+</ol>
+<h1 id="server-setup">Server Setup</h1>
+<p>Your server needs to be built to allow HTML 5 history mode routing.</p>
+<p>&lt;--</p>
+<p>Why can&#39;t the following server handle HTML 5 history mode routing?</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>)
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
+
+<span class="hljs-keyword">const</span> app = express()
+<span class="hljs-keyword">const</span> wwwFolder = path.resolve(__dirname, <span class="hljs-string">'../www'</span>)
+
+app.get(<span class="hljs-string">'*'</span>, express.static(wwwFolder))
+
+app.listen(<span class="hljs-number">3000</span>, err =&gt; {
+  <span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-built_in">console</span>.error(err);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server listening on port 3000'</span>)
+  }
+})</code></pre>
+<p>--</p>
+<p>There are a few important things to understand:</p>
+<ul>
+<li><p>As you navigate in the browser and the URL updates, you are not actually visiting that route on the server.</p>
+</li>
+<li><p>If you request one of those sub routes on the server it won&#39;t find that folder in it&#39;s directory structure.</p>
+</li>
+<li><p>If the browser requests an HTML page that doesn&#39;t exist then the server should send back the main <code>index.html</code> page.</p>
+</li>
+<li><p>When the browser loads the <code>index.html</code> page it will initialize the app and display the appropriate view for whatever the URL says.</p>
+</li>
+</ul>
+<p>--&gt;</p>
+<p>Check out the <a href="https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations">Vue HTML 5 Guide for NodeJS</a> for help on setting this up on your own server.</p>
+<h1 id="some-other-routing-topics">Some Other Routing Topics</h1>
 <ul>
 <li><p><a href="https://router.vuejs.org/guide/essentials/history-mode.html">HTML5 History Mode</a></p>
-</li>
-<li><p><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html">Route path parameters</a></p>
 </li>
 <li><p><a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#the-full-navigation-resolution-flow">Router guard middleware lifecycle</a></p>
 </li>
