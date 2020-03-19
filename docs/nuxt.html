@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Nuxt</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css">HTML and CSS</a></li><li><a href="/full-stack-dev/browser-events">Browser Events</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li><li><a href="/full-stack-dev/vue-cli">Vue CLI</a></li><li><a href="/full-stack-dev/vue-components">Vue Components</a></li><li><a href="/full-stack-dev/vue-router">Vue Router</a></li><li><a href="/full-stack-dev/vuex">Vuex</a></li><li><a href="/full-stack-dev/nuxt" class="current-page">Nuxt</a></li><li><a href="/full-stack-dev/css-pre-processors">CSS Pre-Processors</a></li><li><a href="/full-stack-dev/signup">Sign-up Queue</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Nuxt</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#isomorphic-web-apps">Isomorphic Web Apps</a></li><li><a href="#nuxt">Nuxt</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="isomorphic-web-apps">Isomorphic Web Apps</h1>
+<p>An isomorphic web application&#39;s code can run the on the server and on the browser.</p>
+<ul>
+<li><p>Possible with NodeJS and web browser JavaScript because they are both JavaScript.</p>
+</li>
+<li><p>Code needs to be written to run in both environments. </p>
+<p>  For example, NodeJS does not have an <code>alert</code> function and the browser does not have access to the file system.</p>
+</li>
+</ul>
+<h2 id="how-does-this-work">How does this work?</h2>
+<h3 id="initial-page-load">Initial Page Load</h3>
+<ol>
+<li><p>The web browser makes a request to the server to load the home page.</p>
+</li>
+<li><p>The server finds the home page and evaluates it on the server, loading the JavaScript files and running them.</p>
+</li>
+<li><p>Some JavaScript files make AJAX requests, so those will also be made server side.</p>
+</li>
+<li><p>Once all JavaScript has run, the server will send to the browser the complete page with AJAX requests completed and page manipulations completed.</p>
+</li>
+</ol>
+<h3 id="on-the-browser">On the Browser</h3>
+<ol>
+<li><p>The home page loads already fully rendered (CSS might still load).</p>
+</li>
+<li><p>The user interacts with the web application and...</p>
+<ul>
+<li><p>AJAX requests might be made</p>
+</li>
+<li><p>Additional HTML, JavaScript, etc. might be downloaded and run</p>
+</li>
+<li><p>JavaScript may manipulate the current view</p>
+</li>
+</ul>
+</li>
+<li><p>The browser will use the app now as if it were all a client side app.</p>
+</li>
+</ol>
+<h1 id="nuxt">Nuxt</h1>
+<p><a href="https://nuxtjs.org/">Nuxt</a>...</p>
+<ul>
+<li><p>Leverages Vue&#39;s built in server side render (SSR) technology.</p>
+</li>
+<li><p>Standardizes:</p>
+<ul>
+<li><p>Routing</p>
+</li>
+<li><p>Views</p>
+</li>
+<li><p>State management</p>
+</li>
+<li><p>Plugins</p>
+</li>
+<li><p>Middleware</p>
+</li>
+<li><p>etc.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="personal-note">Personal note:</h2>
+<p>This is awesome tech and I highly recommend it for the benefits it provides:</p>
+<ul>
+<li><p>Improved search engine optimization (SEO) for your site</p>
+</li>
+<li><p>Much faster initial page loads</p>
+</li>
+<li><p>Standardization</p>
+</li>
+</ul>
+<p>On the down side, it does require a paradigm shift that is not trivial:</p>
+<ul>
+<li><p>Your view works, &quot;Yay&quot;, except does it work when being rendered by the browser AND the server? </p>
+</li>
+<li><p>You need to know how to solve a problem the browser way and the server way.</p>
+</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li><p><a href="https://nuxtjs.org/guide/installation">Installation</a></p>
+</li>
+<li><p><a href="https://nuxtjs.org/guide/directory-structure">Directories</a></p>
+</li>
+<li><p><a href="https://nuxtjs.org/guide/routing">Routing</a></p>
+<ul>
+<li><p>By default it uses the folder and file structure.</p>
+</li>
+<li><p>It can support dynamic routes too.</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://nuxtjs.org/guide/views">Views</a></p>
+<ul>
+<li><p>Built from the app template, layouts, and pages</p>
+</li>
+<li><p>The app template is the HTML, CSS, and JavaScript that gets put on every page.</p>
+</li>
+<li><p>Layouts define reusable page layouts.</p>
+</li>
+<li><p>Pages define which layout to use and what the content is.</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://nuxtjs.org/guide/async-data">Async Data</a></p>
+</li>
+<li><p><a href="https://nuxtjs.org/guide/vuex-store">Vuex</a></p>
+</li>
+</ol>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/nuxt.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
