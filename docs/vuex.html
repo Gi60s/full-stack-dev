@@ -196,7 +196,7 @@ Vue.use(Vuex)
     save ({ commit, dispatch, getters, state }, message) {
       commit(<span class="hljs-string">'setLoading'</span>, <span class="hljs-literal">true</span>)
       commit(<span class="hljs-string">'setLoadingMessage'</span>, message)
-      saveToDatabase(state.todoItems)   <span class="hljs-comment">// pseudo code</span>
+      makeRestCallToSaveToDatabase(state.todoItems)   <span class="hljs-comment">// pseudo code</span>
       commit(<span class="hljs-string">'setLoading'</span>, <span class="hljs-literal">false</span>)
     }
   }
@@ -232,7 +232,7 @@ Vue.use(Vuex)
   },
   <span class="hljs-attr">methods</span>: {
     save () {
-      <span class="hljs-keyword">this</span>.$store.commit(<span class="hljs-string">'save'</span>)
+      <span class="hljs-keyword">this</span>.$store.dispatch(<span class="hljs-string">'save'</span>)
     }
   }
 }
