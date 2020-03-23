@@ -182,7 +182,7 @@ export default {
   },
   methods: {
     save () {
-      this.$store.dispatch('save')
+      this.$store.dispatch('save', 'Saving now...')
     }
   }
 }
