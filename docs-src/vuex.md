@@ -144,7 +144,7 @@ export default new Vuex.Store({
     save ({ commit, dispatch, getters, state }, message) {
       commit('setLoading', true)
       commit('setLoadingMessage', message)
-      saveToDatabase(state.todoItems)   // pseudo code
+      makeRestCallToSaveToDatabase(state.todoItems)   // pseudo code
       commit('setLoading', false)
     }
   }
@@ -182,7 +182,7 @@ export default {
   },
   methods: {
     save () {
-      this.$store.commit('save')
+      this.$store.dispatch('save')
     }
   }
 }
