@@ -287,22 +287,14 @@ Vue.use(Vuex)
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <h1 id="exercise">Exercise</h1>
+<p>The following exercise is a revisit to the number picker app we&#39;ve built in Vue previously, but this time we use Vuex instead of properties and events to share data between components.</p>
+<p>While working on this project you can use the <a href="https://www.npmjs.com/package/http-server">http-server</a> to view your app in the browser. See the docs on the <a href="https://www.npmjs.com/package/http-server">http-server page</a> for installation and usage. You will probably want to disable caching. </p>
 <ol>
-<li><p>Get the latest version of the <code>ContactsKeeper</code> app from <a href="https://github.com/Gi60s/it410-2019-in-class-app">https://github.com/Gi60s/it410-2019-in-class-app</a></p>
+<li><p>Clone the github repository found at <a href="https://github.com/Gi60s/it410-resources">https://github.com/Gi60s/it410-resources</a>.</p>
 </li>
-<li><p>We need some user state that tells us who the authenticated user is:</p>
-<ul>
-<li><p>Create user state object that will be null when there is no user or will be a plain object with <code>username</code>, <code>name</code>, <code>email</code>, and <code>phone</code> properties when there is a user.</p>
+<li><p>Navigate into the <code>vue</code> and then <code>vuex</code> directory.</p>
 </li>
-<li><p>Create a mutation to set (or unset) the current user.</p>
-</li>
-<li><p>Create an action to perform a login request that on success will call the mutation to set the current user. For now this won&#39;t actually hit an API.</p>
-</li>
-</ul>
-</li>
-<li><p>Update which links are visible based on authenticated state.</p>
-</li>
-<li><p>Enable updates of profile information.</p>
+<li><p>Work on the <code>index.html</code>, <code>components/number-selector.js</code>, and <code>js/app.js</code> files to make this project work with Vuex. Instructions on what to do for each of these files are included in the files as comments.</p>
 </li>
 </ol>
 </div>
