@@ -240,16 +240,12 @@ export default {
 
 # Exercise
 
-1. Get the latest version of the `ContactsKeeper` app from https://github.com/Gi60s/it410-2019-in-class-app
+The following exercise is a revisit to the number picker app we've built in Vue previously, but this time we use Vuex instead of properties and events to share data between components.
 
-2. We need some user state that tells us who the authenticated user is:
+While working on this project you can use the [http-server](https://www.npmjs.com/package/http-server) to view your app in the browser. See the docs on the [http-server page](https://www.npmjs.com/package/http-server) for installation and usage. You will probably want to disable caching. 
 
-    - Create user state object that will be null when there is no user or will be a plain object with `username`, `name`, `email`, and `phone` properties when there is a user.
-    
-    - Create a mutation to set (or unset) the current user.
-    
-    - Create an action to perform a login request that on success will call the mutation to set the current user. For now this won't actually hit an API.
-    
-3. Update which links are visible based on authenticated state.
+1. Clone the github repository found at https://github.com/Gi60s/it410-resources.
 
-4. Enable updates of profile information.
+2. Navigate into the `vue` and then `vuex` directory.
+
+3. Work on the `index.html`, `components/number-selector.js`, and `js/app.js` files to make this project work with Vuex. Instructions on what to do for each of these files are included in the files as comments.
