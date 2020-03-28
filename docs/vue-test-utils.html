@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Testing Vue</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css">HTML and CSS</a></li><li><a href="/full-stack-dev/browser-events">Browser Events</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li><li><a href="/full-stack-dev/vue-cli">Vue CLI</a></li><li><a href="/full-stack-dev/vue-components">Vue Components</a></li><li><a href="/full-stack-dev/vue-router">Vue Router</a></li><li><a href="/full-stack-dev/nuxt">Nuxt</a></li><li><a href="/full-stack-dev/vuex">Vuex</a></li><li><a href="/full-stack-dev/css-pre-processors">CSS Pre-Processors</a></li><li><a href="/full-stack-dev/web-sockets">Web Sockets</a></li><li><a href="/full-stack-dev/vue-test-utils" class="current-page">Testing Vue</a></li><li><a href="/full-stack-dev/the-cloud">The Cloud</a></li><li><a href="/full-stack-dev/signup">Sign-up Queue</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Testing Vue</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#unit-testing">Unit Testing</a></li><li><a href="#end-to-end-tests">End to End Tests</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><p>It is easy to create a new project with the <a href="https://www.npmjs.com/package/@vue/cli">Vue CLI</a> that has testing enabled. Run the command <code>vue create &lt;app-dir&gt;</code> and follow the prompts.</p>
+<ul>
+<li><p>Install the <a href="https://www.npmjs.com/package/@vue/cli">Vue CLI</a>: <code>npm install -g @vue/cli</code></p>
+</li>
+<li><p>Create a new app: <code>vue create &lt;app-dir&gt;</code></p>
+</li>
+<li><p>Follow the prompts and include testing.</p>
+</li>
+</ul>
+<h1 id="unit-testing">Unit Testing</h1>
+<p>If you choose to use unit tests in your app setup then you will have the <a href="https://vue-test-utils.vuejs.org/">Vue Test Utils</a> library installed.</p>
+<p><a href="https://vue-test-utils.vuejs.org/guides/#getting-started">Getting Started</a></p>
+<p><a href="https://vue-test-utils.vuejs.org/api/">API</a></p>
+<p><strong>Quick Tips</strong></p>
+<ul>
+<li><p>Become familiar with <a href="https://vue-test-utils.vuejs.org/api/#shallowmount"><code>shallowMount</code></a></p>
+</li>
+<li><p>Understand the <a href="https://vue-test-utils.vuejs.org/api/wrapper/#properties"><code>wrapper</code></a></p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Check out the github repo <a href="https://github.com/Gi60s/it410-resources">https://github.com/Gi60s/it410-resources</a> and look inside the <code>vue/test-utils/tests/unit</code> directory.</p>
+<p>Run the tests with: <code>npm run test:unit</code></p>
+<p>&lt;--</p>
+<p>How do we know what to test in a component?</p>
+<p>--</p>
+<p>We should test the functionality that we gave to this component, but generally we wouldn&#39;t test much of the functionality of it&#39;s child components other than some integration tests.</p>
+<p>--&gt;</p>
+<p>&lt;--</p>
+<p>So what are some things we need to test for the NumberPicker component?</p>
+<p>--</p>
+<ul>
+<li><p>Does setting the &quot;value&quot; attribute cause the value indicated to be set?</p>
+</li>
+<li><p>If we omit the value does it have zero has the default?</p>
+</li>
+<li><p>Does clicking the buttons work?</p>
+</li>
+<li><p>Can we go beyond the max and min values?</p>
+</li>
+<li><p>Does the slot work for changing the label?</p>
+</li>
+<li><p>... and so on</p>
+</li>
+</ul>
+<p>--&gt;</p>
+<h1 id="end-to-end-tests">End to End Tests</h1>
+<p>The Vue CLI project creation has two options for e2e tests:</p>
+<ul>
+<li><p>Cyprus (a Chrome based test runner with a nice graphical UI)</p>
+</li>
+<li><p>Nighthawk (a Selenium based test runner that tests multiple browsers)</p>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<p>Check out the github repo <a href="https://github.com/Gi60s/it410-resources">https://github.com/Gi60s/it410-resources</a> and look inside the <code>vue/test-utils/tests/e2e</code> directory.</p>
+<p>Run the tests with: <code>npm run test:e2e</code></p>
+<ul>
+<li><p>The Cyprus library borrows a lot from jQuery. It is similar to how jQuery works.</p>
+</li>
+<li><p>The UI allows you to click on all of the steps of a test and see the UI at each step.</p>
+</li>
+<li><p>Opening the Chrome dev tools and stepping through the test shows additional info in the console.</p>
+</li>
+<li><p>Setting breakpoints wont work.</p>
+</li>
+</ul>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/vue-test-utils.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
