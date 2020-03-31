@@ -87,8 +87,6 @@ Build a full stack (client and server) web application using [JavaScript](javasc
 
 - A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.
 
-- Use Vue/Nuxt.
-
 - Allow the user to provide input to your application.
 
 - Content must be catered to the user.
@@ -104,6 +102,8 @@ Build a full stack (client and server) web application using [JavaScript](javasc
 - Must manage user sessions.
 
 - Users must be able to provide input and have a dynamic experience.
+
+- REST API endpoints must be used to get data from the server and to update data on the server.
 
 **Environment**
 
@@ -137,7 +137,7 @@ The presentation should include a demonstration of the web application as well a
 
 - **Project Scope (15%)** - Don't make your project too small. If you have questions about what is too small be sure to ask me. (Show through demonstration.)
 
-- **Environment (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities. It also must accept a configuration to enable it to be deployed to other servers or even the cloud.
+- **Environment (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities. It also must accept a configuration (example: environment variables) to enable it to be deployed to other servers or even the cloud. (Show some code.)
 
 - **Reward and Challenge (5%)** - Share with the class what the most rewarding part of the project was as well as the most challenging.
 
