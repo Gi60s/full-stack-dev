@@ -1,6 +1,6 @@
 ---
 title: Home 
-navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management html-css browser-events vue vue-cli vue-components vue-router nuxt vuex css-pre-processors web-sockets vue-test-utils the-cloud
+navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management html-css browser-events vue vue-cli vue-components vue-router nuxt vuex css-pre-processors web-sockets vue-test-utils the-cloud iac
 toc: 1
 ---
 
@@ -131,7 +131,7 @@ The presentation should include a demonstration of the web application as well a
 
 - **Single Page Application (15%)** - You're application should have the ability to navigate without reloading the page. You need to have at least three views (more if you have a team). (Show through demonstration.)
 
-- **Session Management (15%)** - Users must be able to log into your system and remain logged in while navigating the site and during page reloads. Logout must also be available. (Show through demonstration.)
+- **Session Management (15%)** - Users must be able to create an account, log into your system, and remain logged in while navigating the site and during page reloads. Logout must also be available. (Show through demonstration.)
 
 - **Polish (5%)** - I don't expect you to be a UI or UX expert, but I do expect the front end application to make sense and be usable without special instruction. (Show through demonstration.)
 
