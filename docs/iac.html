@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Full Stack Web Development | Infrastructure as Code</title>
+  
+
+  <link rel="icon" href="/full-stack-dev/favicon.png">
+
+  <link rel="stylesheet" href="/full-stack-dev/template-files/styles/main.css" media="all">
+  
+  
+  <link rel="stylesheet" href="/full-stack-dev/css/main.css" media="all">
+  
+  
+  
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="/full-stack-dev">
+        Full Stack Web Development
+      </a>
+
+      
+      <nav class="site-nav">
+        <a href="#" class="menu-icon" aria-label="Menu">
+          <svg viewBox="0 0 18 15">
+            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+<div class="page-content">
+  <div class="wrapper">
+
+    
+    <div class="nav-screen"></div>
+    <nav class="nav-list"><ul><li><a href="/full-stack-dev">Home</a></li><li><a href="/full-stack-dev/history">History of the Web</a></li><li><a href="/full-stack-dev/domain-driven-design">Domain Driven Design</a></li><li><a href="/full-stack-dev/git">Git</a></li><li><a href="/full-stack-dev/rest">REST</a></li><li><a href="/full-stack-dev/javascript">JavaScript Fundamentals</a></li><li><a href="/full-stack-dev/node-and-npm">NodeJS and NPM</a></li><li><a href="/full-stack-dev/express">Express</a></li><li><a href="/full-stack-dev/testing-intro">Testing Introduction</a></li><li><a href="/full-stack-dev/testing-nodejs">Testing NodeJS</a></li><li><a href="/full-stack-dev/async-javascript">Asynchronous JavaScript</a></li><li><a href="/full-stack-dev/events">Events</a></li><li><a href="/full-stack-dev/docker-part-1">Docker (Part 1)</a></li><li><a href="/full-stack-dev/docker-part-2">Docker (Part 2)</a></li><li><a href="/full-stack-dev/sql">SQL Databases</a></li><li><a href="/full-stack-dev/nosql">NoSQL Databases</a></li><li><a href="/full-stack-dev/session-management">Session Management</a></li><li><a href="/full-stack-dev/html-css">HTML and CSS</a></li><li><a href="/full-stack-dev/browser-events">Browser Events</a></li><li><a href="/full-stack-dev/vue">Vue Introduction</a></li><li><a href="/full-stack-dev/vue-cli">Vue CLI</a></li><li><a href="/full-stack-dev/vue-components">Vue Components</a></li><li><a href="/full-stack-dev/vue-router">Vue Router</a></li><li><a href="/full-stack-dev/nuxt">Nuxt</a></li><li><a href="/full-stack-dev/vuex">Vuex</a></li><li><a href="/full-stack-dev/css-pre-processors">CSS Pre-Processors</a></li><li><a href="/full-stack-dev/web-sockets">Web Sockets</a></li><li><a href="/full-stack-dev/vue-test-utils">Testing Vue</a></li><li><a href="/full-stack-dev/the-cloud">The Cloud</a></li><li><a href="/full-stack-dev/iac" class="current-page">Infrastructure as Code</a></li><li><a href="/full-stack-dev/signup">Sign-up Queue</a></li></ul></li></nav>
+    
+
+    <div class="page-content-main">
+      <article class="post">
+        <header class="post-header">
+          
+          <h1 class="post-title">Infrastructure as Code</h1>
+        </header>
+
+        
+        <div>
+          <p><strong>Page Content</strong></p>
+          <div class="section-nav"><ul class="toc"><li><a href="#what-is-infrastructure-as-code">What is Infrastructure as Code</a></li><li><a href="#popular-infrastructure-as-code-tools">Popular Infrastructure as Code Tools</a></li><li><a href="#terraform">Terraform</a></li></ul></div>
+        </div>
+        
+
+        <div class="post-content"><h1 id="what-is-infrastructure-as-code">What is Infrastructure as Code</h1>
+<p>From <a href="https://en.wikipedia.org/w/index.php?title=Infrastructure_as_code">Wikipedia</a>:</p>
+<blockquote>
+<p>Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.</p>
+</blockquote>
+<p>Break that down:</p>
+<ul>
+<li><p><strong>Managing and provisioning</strong> - set up, configuration, and allocation of computer resources.</p>
+</li>
+<li><p><strong>Interactive configuration tools</strong> - a web interface where you can manually allocate and configure your infrastructure by clicking buttons, filling in forms, etc.</p>
+</li>
+<li><p><strong>Machine-readable definition files</strong> - some code</p>
+</li>
+</ul>
+<h1 id="popular-infrastructure-as-code-tools">Popular Infrastructure as Code Tools</h1>
+<ul>
+<li><p><a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> - built by Amazon to be run on AWS.</p>
+</li>
+<li><p><a href="https://azure.microsoft.com/en-us/features/resource-manager/">Azure Resource Manager</a> - built by Microsoft to run on Azure.</p>
+</li>
+<li><p><a href="https://cloud.google.com/deployment-manager/">Google Cloud Deployment Manager</a> - built by Google to run on Google Cloud.</p>
+</li>
+<li><p><a href="https://www.terraform.io/">Terraform</a> - built by HashiCorp to run on AWS, Azure, and Google Cloud.</p>
+</li>
+</ul>
+<p>There are others also.</p>
+<h1 id="terraform">Terraform</h1>
+<p><a href="https://www.terraform.io/">https://www.terraform.io/</a></p>
+<ul>
+<li><p>Just because it runs on all three big cloud providers does not mean that you can write one configuration that works on all three providers.</p>
+</li>
+<li><p>Each provider still requires provider specific configurations.</p>
+</li>
+<li><p>The syntax and logic is the same despite the cloud provider being written for.</p>
+</li>
+<li><p>Configurations are idempotent.</p>
+</li>
+</ul>
+<h2 id="terraform-components">Terraform Components</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><p>Resources are the different part of the infrastructure you want to set up.</p>
+</li>
+<li><p>Every resource has a defined resource type, name, and inputs.</p>
+</li>
+<li><p>Resources also often have outputs that other resources can read from.</p>
+</li>
+<li><p>Generally you put your resources into a file called <code>main.tf</code>.</p>
+</li>
+</ul>
+<p><strong>Resource Structure</strong></p>
+<pre><code class="language-ruby">resource <span class="hljs-string">"&lt;resource_type&gt;"</span> <span class="hljs-string">"&lt;resource_name&gt;"</span> {
+    &lt;key_1&gt; = <span class="hljs-string">"&lt;value&gt;"</span>
+    &lt;key_2&gt; = <span class="hljs-string">"&lt;value&gt;"</span>
+}</code></pre>
+<p><strong>Resource Example</strong></p>
+<p>This example provisions two AWS S3 buckets (data storage). One of these keeps track of who accesses the bucket and stores those logs into the other bucket.</p>
+<pre><code class="language-ruby">resource <span class="hljs-string">"aws_s3_bucket"</span> <span class="hljs-string">"log_bucket"</span> {
+  bucket = <span class="hljs-string">"my-tf-log-bucket"</span>
+  acl    = <span class="hljs-string">"log-delivery-write"</span>
+}
+
+resource <span class="hljs-string">"aws_s3_bucket"</span> <span class="hljs-string">"b"</span> {
+  bucket = <span class="hljs-string">"my-tf-test-bucket"</span>
+  acl    = <span class="hljs-string">"private"</span>
+
+  logging {
+    <span class="hljs-comment"># for the target bucket we reference the output id from the log_bucket</span>
+    target_bucket = <span class="hljs-string">"${aws_s3_bucket.log_bucket.id}"</span>
+    target_prefix = <span class="hljs-string">"log/"</span>
+  }
+}</code></pre>
+<p><strong>Learn More About the aws_s3_bucket Resource</strong></p>
+<ol>
+<li><p>Check out the <a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html">aws_s3_bucket resource type documentation</a>.</p>
+</li>
+<li><p>Look at some of the examples: <a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#example-usage">https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#example-usage</a></p>
+</li>
+<li><p>Look at the input values: <a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#argument-reference">https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#argument-reference</a></p>
+</li>
+<li><p>Look at the exported values: <a href="https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#attributes-reference">https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#attributes-reference</a></p>
+</li>
+</ol>
+<h3 id="variables">Variables</h3>
+<p><a href="https://www.terraform.io/docs/configuration/variables.html">https://www.terraform.io/docs/configuration/variables.html</a></p>
+<ul>
+<li><p>Variables are used to provide input for sets of resource definitions.</p>
+</li>
+<li><p>Variables can be provided through command line flags or through prompts.</p>
+</li>
+<li><p>Variables can be required or optional.</p>
+</li>
+<li><p>A common practice is to create a <code>variables.tf</code> files for these inputs.</p>
+</li>
+<li><p>Every variable has a name and a type. The description and default value are optional.</p>
+</li>
+<li><p>Variable types here: <a href="https://www.terraform.io/docs/configuration/variables.html#type-constraints">https://www.terraform.io/docs/configuration/variables.html#type-constraints</a></p>
+</li>
+</ul>
+<p><strong>Variable Structure</strong></p>
+<pre><code class="language-ruby">variable <span class="hljs-string">"&lt;variable_name&gt;"</span> {
+    type        = <span class="hljs-string">"&lt;value&gt;"</span>
+    description = <span class="hljs-string">"A description of what this variable is"</span>
+    default     = <span class="hljs-string">"An optional default value"</span>
+}</code></pre>
+<p><strong>Variable Example</strong></p>
+<pre><code class="language-ruby">variable <span class="hljs-string">"environment"</span> {
+    type        = <span class="hljs-string">"string"</span>
+    description = <span class="hljs-string">"The environment being provisioned for. Ex: dev, stage, prod"</span>
+    default     = <span class="hljs-string">"dev
+}
+
+resource "</span>aws_s3_bucket<span class="hljs-string">" "</span>b<span class="hljs-string">" {
+  bucket = "</span>my-tf-test-bucket<span class="hljs-string">"
+  acl    = "</span>private<span class="hljs-string">"
+
+  tags = {
+    Name        = "</span>My bucket<span class="hljs-string">"
+    Environment = var.environment
+  }
+}</span></code></pre>
+<h3 id="output">Output</h3>
+<p><a href="https://www.terraform.io/docs/configuration/outputs.html">https://www.terraform.io/docs/configuration/outputs.html</a></p>
+<ul>
+<li><p>All resources produce some output values.</p>
+</li>
+<li><p>Your terraform configuration can also output properties to be used by other terraform configurations.</p>
+</li>
+<li><p>A common practice is to create an <code>output.tf</code> file for your outputs.</p>
+</li>
+</ul>
+<p><strong>Output Structure</strong></p>
+<pre><code class="language-ruby">output <span class="hljs-string">"my-output-value"</span> {
+  value = &lt;resource_type&gt;.&lt;resource_name&gt;.&lt;resource_property&gt;
+}</code></pre>
+<p><strong>Output Example</strong></p>
+<pre><code class="language-ruby">resource <span class="hljs-string">"aws_s3_bucket"</span> <span class="hljs-string">"b"</span> {
+  bucket = <span class="hljs-string">"my-tf-test-bucket"</span>
+  acl    = <span class="hljs-string">"private"</span>
+}
+
+<span class="hljs-comment"># Other terraform files that use this as a module can read this output</span>
+output <span class="hljs-string">"my-s3-bucket-id"</span> {
+    value = aws_s3_bucket.b.id
+}</code></pre>
+<h3 id="modules">Modules</h3>
+<ul>
+<li><p>A module is a directory with terraform files.</p>
+</li>
+<li><p>Modules are intended to create reusable resource definitions.</p>
+</li>
+<li><p>Generally a module will accept inputs.</p>
+</li>
+<li><p>You can define in a terraform file what modules you want to use and what inputs you want to provide it.</p>
+</li>
+</ul>
+<p><strong>Module Usage Syntax</strong></p>
+<pre><code class="language-ruby"><span class="hljs-class"><span class="hljs-keyword">module</span> "&lt;module_name&gt;" {</span>
+    <span class="hljs-comment"># The path to the module</span>
+    source      = <span class="hljs-string">"./path/to/module/directory"</span>
+
+    <span class="hljs-comment"># Module variable inputs</span>
+    var-x       = <span class="hljs-string">"foo"</span>
+}</code></pre>
+<h2 id="terraform-state">Terraform State</h2>
+<ul>
+<li><p>Terraform needs to keep track of the state of deployments.</p>
+</li>
+<li><p>You may have a local terraform state file <code>terraform.tfstate</code> after applying a terraform configuration.</p>
+</li>
+<li><p>It is bad practice to push your terraform state file to github, instead configure state to be stored to a central location that is readable and writable. Terraform has ways to do this easily with the major cloud providers.</p>
+</li>
+</ul>
+<h2 id="terraform-commands">Terraform Commands</h2>
+<p>Run each of these commands in the directory with your <code>main.tf</code> file.</p>
+<ul>
+<li><p><code>terraform plan</code> - Gives you a plan on what changes would occur.</p>
+</li>
+<li><p><code>terraform apply</code> - Gives you a plan and requires verification, then provisions the infrastructure in the cloud.</p>
+</li>
+<li><p><code>terraform destroy</code> - Destroy the infrastructure that was previously provisioned.</p>
+</li>
+</ul>
+<h2 id="full-example">Full Example</h2>
+<p>There is a working terraform example at <a href="https://github.com/Gi60s/it410-resources">https://github.com/Gi60s/it410-resources</a> in the <code>terraform</code> directory.</p>
+</div>
+      </article>
+
+      <footer class="site-footer">
+
+        
+        <p>
+          Caught a mistake or want to contribute to the documentation?
+          <a href="https://github.com/Gi60s/full-stack-dev/tree/master/docs-src/iac.md" target="_blank" rel="noopener">Edit this page on Github</a>
+        </p>
+        
+
+        
+
+        
+        <div class="footer-links">
+          
+        </div>
+        
+
+      </footer>
+    </div>
+
+  </div>
+</div>
+
+<script src="/full-stack-dev/template-files/js/main.js"></script>
+
+
+<script src="/full-stack-dev/js/main.js"></script>
+
+
+
+</body>
+
+</html>
