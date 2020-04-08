@@ -1,6 +1,6 @@
 ---
 title: Home 
-navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management html-css browser-events vue vue-cli vue-components vue-router nuxt vuex css-pre-processors web-sockets vue-test-utils the-cloud iac
+navOrder: history domain-driven-design git rest javascript node-and-npm express testing-intro testing-nodejs async-javascript events docker-part-1 docker-part-2 sql nosql session-management html-css browser-events vue vue-cli vue-components vue-router nuxt vuex css-pre-processors web-sockets vue-test-utils the-cloud iac event-sourcing-cqrs
 toc: 1
 ---
 
