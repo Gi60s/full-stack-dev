@@ -1,16 +1,24 @@
 {
-  "name": "it410-2020",
+  "name": "website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "docs:build": "markdown-docs build docs-src docs",
-    "docs:dev": "markdown-docs dev docs-src"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@gi60s/markdown-docs": "^0.1.1"
-  }
+  "dependencies": {
+    "@nuxt/content": "^1.8.1",
+    "@nuxtjs/axios": "^5.12.2",
+    "element-ui": "^2.13.2",
+    "marked": "^1.1.1",
+    "nuxt": "^2.14.4",
+    "prism-themes": "^1.4.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2"
+  },
+  "devDependencies": {}
 }
