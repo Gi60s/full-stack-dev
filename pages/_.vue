@@ -51,12 +51,12 @@
             <div class="mobile-menu-group-content">
               <ul>
                 <li v-for="navItem in navigation.menu[navigation.mode]" :key="navItem.path">
-                  <nuxt-link v-if="!navItem.children" :to="'/' + navItem.path">{{ navItem.title }}</nuxt-link>
+                  <nuxt-link v-if="!navItem.children" :to="navItem.path">{{ navItem.title }}</nuxt-link>
                   <div class="nav-group" v-else>
                     <div class="nav-group-title">{{ navItem.title }}</div>
                     <ul v-if="navItem.children">
                       <li v-for="child in navItem.children" :key="child.path">
-                        <nuxt-link :to="'/' + child.path">{{ child.title }}</nuxt-link>
+                        <nuxt-link :to="child.path">{{ child.title }}</nuxt-link>
                       </li>
                     </ul>
                   </div>
@@ -97,12 +97,12 @@
             ></el-switch>
           </div>
           <li v-for="(navItem, i) in navigation.menu[navigation.mode]" :key="i">
-            <nuxt-link v-if="!navItem.children" :to="'/' + navItem.path">{{ navItem.title }}</nuxt-link>
+            <nuxt-link v-if="!navItem.children" :to="navItem.path">{{ navItem.title }}</nuxt-link>
             <div class="nav-group" v-else>
               <div class="nav-group-title">{{ navItem.title }}</div>
               <ul v-if="navItem.children">
                 <li v-for="child in navItem.children" :key="child.path">
-                  <nuxt-link :to="'/' + child.path">{{ child.title }}</nuxt-link>
+                  <nuxt-link :to="child.path">{{ child.title }}</nuxt-link>
                 </li>
               </ul>
             </div>
@@ -261,6 +261,7 @@ export default {
           result = Object.assign({}, result)
           let score = 0
           let realPath = result.path
+          let breadcrumbs = [ result.title ]
 
           // default the blurb to the description
           result.blurb = result.description
@@ -289,16 +290,18 @@ export default {
 
             if (text === q) {
               results.push({
-                title: toc.depth === 2 ? toc.text : h2 + ' > ' + toc.text,
-                blurb: 'Page: ' + result.title,
+                title: toc.text,
+                crumbs: result.title + (toc.depth > 2 ? ' > ' + h2 : ''),
+                blurb: getTocBlurb(result.body.children, toc.id),
                 realPath: result.path + '#' + toc.id,
                 score: 5 + toc.depth
               })
               tocMatch = true
             } else if (index !== -1) {
               results.push({
-                title: toc.depth === 2 ? toc.text : h2 + ' > ' + toc.text,
-                blurb: 'Page: ' + result.title,
+                title: toc.text,
+                crumbs: result.title + (toc.depth > 2 ? ' > ' + h2 : ''),
+                blurb: getTocBlurb(result.body.children, toc.id),
                 realPath: result.path + '#' + toc.id,
                 score: (index === 0 || text[index - 1] === ' ' ? 1 : 0) + 3 + toc.depth
               })
@@ -308,12 +311,28 @@ export default {
 
           // if a result was not already added for this page then add one now
           if (!tocMatch) {
-            results.push({
-              title: result.title,
-              blurb: result.description,
-              realPath: result.path,
-              score: 0
-            })
+            const matches = searchContent(result.body.children || [], query)
+            if (matches.length) {
+              matches.forEach(match => {
+                results.push({
+                  title: match.title || result.title,
+                  crumbs: result.title + (match.crumbs ? ' > ' + match.crumbs : ''),
+                  blurb: match.content,
+                  realPath: result.path + (match.id ? '#' + match.id : ''),
+                  score: 1
+                })
+              })
+            } else {
+              results.push({
+                title: result.title,
+                crumbs: result.title,
+                blurb: result.description,
+                realPath: result.path,
+                score: 0
+              })
+            }
+            
+            
           }
         })
 
@@ -346,6 +365,96 @@ export default {
   }
 }
 
+function compareArray (ar1, ar2) {
+  const length = ar1.length
+  for (let i = 0; i < length; i++) {
+    if (ar1[i] !== ar2[i]) return false
+  }
+  return true
+}
+
+function getNodeText (node) {
+  if (node.children) {
+    return node.children.reduce((p, n) => p + getNodeText(n), '')
+  } else if (node.type === 'text') {
+    return node.value
+  }
+}
+
+function getTocBlurb (children, id) {
+  const length = children.length
+  for (let i = 0; i < length; i++) {
+    const node = children[i]
+    if (node.type === 'element' && /h\d/i.test(node.tag) && node.props.id === id) {
+      for (let j = i + 1; j < length; j++) {
+        const text = getNodeText(children[j])
+        if (/[a-z]+/i.test(text)) {
+          const content = text.split(/ +/)
+          return content.slice(0, 20).join(' ')
+        }
+      }
+      return ''
+    }
+  }
+}
+
+function searchContent (children, text) {
+  const matches = []
+  const query = text.toLowerCase()
+    .replace(/ {2,}/g, ' ')
+    .replace(/[^a-z ]/g, '')
+    .split(' ')
+  const queryLength = query.length
+  let lastHeading
+  let h2
+
+  children.forEach(node => {
+    if (node.type === 'element' && /h\d/i.test(node.tag)) {
+      lastHeading = {
+        id: node.props.id,
+        text: getNodeText(node)
+      }
+      if (node.tag === 'h2') h2 = lastHeading
+    } else {
+      const content = getNodeText(node).replace(/ {2,}/g, ' ').split(' ')
+      const data = content.map(c => c.replace(/[^a-z ]/g, ''))
+      const length = content.length + 1 - queryLength
+
+      // find the first text match
+      for (let i = 0; i < length; i++) {
+        const value = data.slice(i, i + queryLength)
+        if (compareArray(query, value)) {
+          let start = 0
+          let end = content.length
+          for (let j = i - 1; j >= 0; j--) {
+            const word = content[j]
+            if (/[.!?\n\r]$/.test(word)) {
+              start = j
+              break
+            }
+          }
+          for (let j = i; i < length; i++) {
+            const word = content[j]
+            if (/[.!?\n\r]$/.test(word)) {
+              end = j
+              break
+            }
+          }
+
+          matches.push({
+            id: lastHeading ? lastHeading.id : '',
+            title: lastHeading ? lastHeading.text : '',
+            crumbs: h2 && h2 !== lastHeading ? h2.text : '',
+            content: content.slice(start, end).join(' ')
+          })
+          break
+        }
+      }
+    }
+  })
+
+  return matches
+}
 // function getCookie(cname) {
 //   const name = cname + "=";
 //   const decodedCookie = decodeURIComponent(document.cookie);

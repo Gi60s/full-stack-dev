@@ -99,12 +99,12 @@ You can read more about ES module [imports](https://developer.mozilla.org/en-US/
 
 ```json
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
-
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
-    "sourceRoot": "./src",
+
+    "lib": ["es2019", "es2020.bigint", "es2020.string", "es2020.symbol.wellknown"],
+    "module": "commonjs",
+    "target": "es2019",
 
     "noImplicitAny": true,
     "preserveConstEnums": true,
@@ -113,7 +113,15 @@ You can read more about ES module [imports](https://developer.mozilla.org/en-US/
 
     "declaration": true,
     "sourceMap": true
-  }
+  },
+
+  "include": [
+    "./src/**/*"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ]
 }
 ```
 
@@ -129,3 +137,4 @@ You can read more about ES module [imports](https://developer.mozilla.org/en-US/
 - When code is run, it runs the transpiled JavaScript, not the TypeScript.
 - When debugging your code don't want to step through transpiled code because it's hard to read and relate to what you wrote in TypeScript.
 - A source map tells the debugger how to translate from the location of code in the JavaScript to the location of that same code in TypeScript.
+- If not properly configured then debugging with breakpoints will be inconsistent.

@@ -27,7 +27,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: 'IT&C 410', // process.env.npm_package_name || '',
+    title: 'Full Stack Web', // process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -27,12 +27,13 @@ You are not an impostor here. You belong.
 
 This class will cover how to:
 
-- Create a dynamic web app within the client (browser)
-- Create a custom server on NodeJS
-- Manage user sessions
-- Communicate with databases and understand at the basic level how to organize them
-- Write tests for your code
-- Package your code into micro services
+- Organize and implement a full stack web application.
+- Create a dynamic web app within the client (browser).
+- Develop a REST API using NodeJS.
+- Manage user authentication and authorization.
+- Communicate with databases and understand at the basic level how to organize them.
+- Write tests for your code.
+- Package your code for deployment.
 
 ### About the Instructor
 
@@ -41,45 +42,43 @@ This class will cover how to:
     - Bachelors of Science at BYU in Information Technology with an emphasis in User Interface Design.
     - Masters of Science at BYU in Information Technology with an emphasis in User Experience.
 - **Work:**
-    - Currently working for BYU's Office of Information Technology as an architect and engineering manager.
+    - Currently working for BYU's Office of Information Technology as a developer.
 - **Office Hours**
     - I don't have an office or set hours, but if you need some one on one time we can set up a time to meet.
-    - I plan to have free time at the end of every class to answer questions too.
+    - Any free time after class I can answer questions too.
     - I am also available on the IT&C Slack (byuitcrowd.slack.com) and can answer questions there.
     
 ## Homework
 
 Homework assignments will be posted to [Learning Suite](https://learningsuite.byu.edu).
 
-Homework will be due in class and by the end of class (6:50 PM).
-
-When it comes to answering questions about homework vs passing off assignments, those who need a pass off will take first priority.
+Some homework will need to be submitted and some will require an in-class pass off.
 
 Late assignments will loose 5% per class late (not per day late) up to 50%.
 
-Most homework assignments will be toward building the final project and will build one upon another. Falling behind will compound difficulties.
+Homework assignments will be toward building the semester project and will build one upon another. Don't fall behind. If you need help, please reach out.
 
-## Final Project
+## Semester Project
 
-- You will build throughout the semester a final project of your choosing.
-- You may choose to build your Final Project while we work in class on our in class application. The two will use a lot of the same technology.
-- Worth about 25% of your final grade.
+- Throughout the semester you will build a web app of your choosing.
+- You should plan on using the homework assignments to build your semester project.
+- You will need to present your semester project on the last day of class.
 
 ### Requirements
 
-Build a full stack (client and server) web application using [JavaScript](javascript/introduction.md) and [NodeJS](nodejs-and-npm.md).
+Build a full stack (client and server) web application using [JavaScript](/fundamentals/javascript) and [NodeJS](/nodejs/nodejs-and-npm).
 
 **Client (browser)**
 
-- Client application must be built on [Vue](vue.md). Using [Nuxt](nuxt.md) is acceptable because it is built on Vue.
+- Using [Nuxt](nuxt.md) and [Vue](/vue/into), built a client side application.
 - A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.
 - Allow the user to provide input to your application.
 - Content must be catered to the user.
     
 **Server**
 
-- Write a custom server using [NodeJS](nodejs-and-npm.md).
-- Use either a [NoSQL](nosql.md) or [SQL](sql.md) database (or both).
+- Write a [REST API using NodeJS](/fundamentals/rest).
+- Use either a [NoSQL](/databases/no-sql) or [SQL](/databases/sql) database (or both).
 - Users must be able to create and use a login.
 - Must manage user sessions.
 - Users must be able to provide input and have a dynamic experience.
@@ -87,31 +86,25 @@ Build a full stack (client and server) web application using [JavaScript](javasc
 
 **Environment**
 
-- Must use docker containers for local development, including it's own containerized database. It must be easy to transfer your app from one computer to another for development work.
+- Must use docker containers for local development, including it's own containerized database.
 - It must provide a way via environment variables or other configuration settings to let your app run in multiple environments. For example, develop locally but deploy to the cloud.
 
 ### Alone or with a Group
 
 - You can work alone or in pairs.
-- If you have two people working on the project then more will be expected of your final project. I will also expect and look for an equal amount of contribution from each person.
+- If you have two people working on the project then more will be expected of your semester project. I will also expect and look for an equal amount of contribution from each person.
 
 ### Grading Criteria
 
-The grade for your final project is based on a presentation that will occur on one of the last two days of class. There is no extra credit for presenting the first day. If any team fails to present they will receive a 0% on their final project.
+The grade for your semester project is based on a presentation that will occur on the last day of class. If anyone fails to present they will receive a 0% on their semester project.
 
-The presentation should include a demonstration of the web application as well as some code examples. The following criteria will be used to grade your final project.
+The presentation should include the following:
 
-- **Attendance (5%)** - You must be there both days (one day to present, the other to see presentations).
-- **Database Usage (10%)** - You must have your own database for storing data and your web application should read from and write to that database. (Show some code.)
-- **REST API (15%)** - You must have several REST endpoints for sending data to the server and getting data back from the server. (Show some code.)
-- **Single Page Application (15%)** - You're application should have the ability to navigate without reloading the page. You need to have at least three views (more if you have a team). (Show through demonstration.)
-- **Session Management (15%)** - Users must be able to create an account, log into your system, and remain logged in while navigating the site and during page reloads. Logout must also be available. (Show through demonstration.)
-- **Polish (5%)** - I don't expect you to be a UI or UX expert, but I do expect the front end application to make sense and be usable without special instruction. (Show through demonstration.)
-- **Project Scope (15%)** - Don't make your project too small. If you have questions about what is too small be sure to ask me. (Show through demonstration.)
-- **Environment (15%)** - You application needs to use Docker Compose so that it can be easily run from any computer that has container management capabilities. It also must accept a configuration (example: environment variables) to enable it to be deployed to other servers or even the cloud. (Show some code.)
-- **Reward and Challenge (5%)** - Share with the class what the most rewarding part of the project was as well as the most challenging.
+- An explanation of what you built and why you choose to build it.
+- A demonstration of the working application.
+- What you learned from building the application.
 
-### Example Final Projects from the Past
+### Example Semester Projects from the Past
 
 - A calendar application that helps multiple users schedule on their own calendars or on a shared calendar.
 - A recipe website where recipes can be submitted, categorized, searched by ingredients available, etc.

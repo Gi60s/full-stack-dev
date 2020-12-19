@@ -229,7 +229,7 @@ You can create an express router instance that allows you define routes that are
 
 **my-router.js**
 
-```
+```js
 const Router = require('express').Router;
 const router = new Router();
 
