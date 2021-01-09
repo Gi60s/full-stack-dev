@@ -8,6 +8,7 @@
     { "title": "REST API Design", "path": "/fundamentals/rest" },
     { "title": "OpenAPI Document", "path": "/fundamentals/openapi" },
     { "title": "JavaScript", "path": "/fundamentals/javascript" },
+    { "title": "IDE", "path": "/misc/ide" },
 
     { "title": "NodeJS and NPM", "path": "/nodejs/nodejs-and-npm" },
     { "title": "Testing Introduction", "path":  "/testing/intro" },
@@ -25,17 +26,15 @@
     { "title": "SQL", "path":  "/databases/sql" },
     { "title": "NoSQL", "path":  "/databases/nosql" },
 
-    { "title": "Authentication & Authorization", "path":  "/auth" },
-    { "title": "Cookies", "path":  "/auth/cookies" },
-    { "title": "JWT", "path":  "/auth/jwt" },
+    { "title": "Sessions", "path":  "/nodejs/sessions" },
 
     { "title": "Vue", "path":  "/vue/intro" },
     { "title": "Vue Pages", "path":  "/vue/pages" },
-    { "title": "CSS Pre-Processors", "path":  "/misc/stylus" },
+    { "title": "CSS Pre-Processors", "path":  "/misc/css-pre-processors" },
     { "title": "Vue Components", "path":  "/vue/components" },
-    { "title": "Component Testing", "path":  "/testing/component-testing" },
+    { "title": "Component Testing", "path":  "/testing/vue-components" },
     { "title": "State Management", "path":  "/vue/vuex" },
-    { "title": "AJAX and File Uploads", "path":  "/vue/ajax" },
+    { "title": "AJAX and File Uploads", "path":  "/fundamentals/ajax" },
 
     { "title": "AWS", "path": "/cloud/aws" },
     { "title": "Infrastructure as Code", "path": "/cloud/infrastructure-as-code" },
@@ -57,14 +56,6 @@
   ],
   "topics": [
     { "title": "Home", "path": "/" },
-    {
-      "title": "Authentication & Authorization",
-      "children": [
-        { "title": "Introduction", "path":  "/sessions" },
-        { "title": "Cookies", "path":  "/sessions/cookies" },
-        { "title": "JWT", "path":  "/sessions/jwt" }
-      ]
-    },
     {
       "title": "The Cloud",
       "children": [
@@ -104,14 +95,16 @@
         { "title": "OpenAPI Spec", "path": "/fundamentals/openapi" },
         { "title": "JavaScript", "path": "/fundamentals/javascript" },
         { "title": "JavaScript Event Loop", "path":  "/fundamentals/event-loop" },
-        { "title": "TypeScript", "path": "/fundamentals/typescript" }
+        { "title": "TypeScript", "path": "/fundamentals/typescript" },
+        { "title": "AJAX and File Uploads", "path":  "/fundamentals/ajax" }
       ]
     },
     {
       "title": "Miscellaneous",
       "children": [
+        { "title": "IDE", "path": "/misc/ide" },
         { "title": "Browser Events", "path":  "/misc/browser-events" },
-        { "title": "CSS Pre-processors", "path":  "/vue/stylus" },
+        { "title": "CSS Pre-processors", "path":  "/vue/css-pre-processors" },
         { "title": "Web Sockets", "path":  "/misc/web-sockets" },
         { "title": "Microservices", "path":  "/misc/microservices" },
         { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" }
@@ -124,6 +117,7 @@
         { "title": "Express", "path":  "/nodejs/express" },
         { "title": "Nuxt Intro", "path":  "/vue/nuxt-intro" },
         { "title": "OpenAPI Enforcer", "path":  "/nodejs/openapi-enforcer" },
+        { "title": "Sessions", "path": "/nodejs/sessions" },
         { "title": "NodeJS Events", "path":  "/nodejs/events" }
       ]
     },
@@ -132,17 +126,17 @@
       "children": [
         { "title": "Testing Introduction", "path":  "/testing/intro" },
         { "title": "NodeJS Testing", "path":  "/testing/nodejs" },
-        { "title": "Vue Component Testing", "path":  "/testing/component-testing" }
+        { "title": "Vue Component Testing", "path":  "/testing/vue-components" }
       ]
     },
     {
       "title": "Vue",
       "children": [
-        { "title": "Introduction", "path":  "/vue/intro" },
+        { "title": "Nuxt Intro", "path":  "/vue/nuxt-intro" },
+        { "title": "Vue Intro", "path":  "/vue/intro" },
         { "title": "Pages and Routing", "path":  "/vue/pages" },
         { "title": "Components", "path":  "/vue/components" },
-        { "title": "State Management", "path":  "/vue/vuex" },
-        { "title": "AJAX and File Uploads", "path":  "/vue/ajax" }
+        { "title": "State Management", "path":  "/vue/vuex" }
       ]
     }
   ]

@@ -13,6 +13,14 @@ NuxtJS is a standardization tool that is built off of VueJS. The official [NuxtJ
 
 These three items may not seem like much, but in reality they can greatly simplify the process of building a web application.
 
+<question-answer q="What is a build process and why do we use it?">
+
+A build process looks at your code and performs some operations on it to prepare it for consumption and production use. Most often a build process is used for transpilation, converting your code from one state to the next.
+
+For example, TypeScript must be converted to JavaScript before it will run.
+
+</question-answer>
+
 ## Getting Started
 
 For the latest, see https://nuxtjs.org/docs/2.x/get-started/installation.

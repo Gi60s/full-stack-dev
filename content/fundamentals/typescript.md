@@ -95,6 +95,8 @@ You can read more about ES module [imports](https://developer.mozilla.org/en-US/
 - [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 - A [base configuration](https://github.com/tsconfig/bases/) can be used to adopt common settings.
 
+[Documentation on all TypeScript configuration options](https://www.typescriptlang.org/tsconfig)
+
 **Example `tsconfig.json` file for NodeJS v14**
 
 ```json
