@@ -1,20 +1,7 @@
-# website
+# Full Stack Dev Website
 
-## Build Setup
+This website is configured to auto build whenever a pushed to the master branch.
 
-```bash
-# install dependencies
-$ npm install
+The static website can be accessed at:
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## https://gi60s.github.io/full-stack-dev
