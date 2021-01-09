@@ -190,7 +190,7 @@ export default {
   async asyncData({$content, $router, params}) {
 
     if (!navigationMenu) {
-      const { data } = await axios.get('/navigation.json')
+      const { data } = await axios.get(process.env.baseUrl + 'navigation.json')
       navigationMenu = data
     }
 

@@ -22,8 +22,14 @@ export default {
     routes: generateRoutes(basePath, basePath)
   },
 
+  // set router to change base URL for Nuxt build process
   router: {
     base: '/full-stack-dev/'
+  },
+
+  // set environment variables
+  env: {
+    baseUrl: process.env.BASE_URL || '/'
   },
 
   /*
