@@ -1,0 +1,170 @@
+{
+  "ordered": [
+    { "title": "Home", "path": "/" },
+
+    { "title": "History of the Web", "path": "/fundamentals/history-of-the-web" },
+    { "title": "Domain Driven Design", "path": "/fundamentals/domain-driven-design" },
+    { "title": "Git", "path": "/fundamentals/git" },
+    { "title": "REST API Design", "path": "/fundamentals/rest" },
+    { "title": "OpenAPI Spec", "path": "/fundamentals/openapi" },
+    { "title": "JavaScript", "path": "/fundamentals/javascript" },
+
+    { "title": "NodeJS and NPM", "path": "/nodejs/nodejs-and-npm" },
+    { "title": "Testing Introduction", "path":  "/testing" },
+    { "title": "NodeJS Testing", "path":  "/testing/nodejs" },
+    { "title": "TypeScript", "path": "/fundamentals/typescript" },
+    { "title": "Express", "path":  "/nodejs/express" },
+
+    { "title": "Nuxt Server Middleware", "path":  "/nodejs/nuxt-server" },
+    { "title": "JavaScript Event Loop", "path":  "/fundamentals/event-loop" },
+    { "title": "OpenAPI Enforcer", "path":  "/nodejs/openapi-enforcer" },
+
+    { "title": "Containers", "path":  "/containers/intro" },
+    { "title": "Docker", "path":  "/containers/docker" },
+    { "title": "Docker Compose", "path":  "/containers/docker-compose" },
+
+    { "title": "Databases", "path":  "/databases/intro" },
+    { "title": "SQL", "path":  "/databases/sql" },
+    { "title": "NoSQL", "path":  "/databases/no-sql" },
+
+    { "title": "Authn and Authz", "path":  "/auth" },
+    { "title": "Cookies", "path":  "/auth/cookies" },
+    { "title": "JWT", "path":  "/auth/jwt" },
+
+    { "title": "Vue Pages", "path":  "/vue/pages" },
+    { "title": "CSS Pre-Processors", "path":  "/misc/stylus" },
+    { "title": "Vue Components", "path":  "/vue/components" },
+    { "title": "State Management", "path":  "/vue/vuex" },
+    { "title": "AJAX and File Uploads", "path":  "/vue/ajax" },
+
+    { "title": "AWS", "path": "/cloud/aws" },
+    { "title": "Infrastructure as Code", "path": "/cloud/infrastructure-as-code" },
+
+    { "title": "NodeJS Events", "path":  "/nodejs/events" },
+    { "title": "Browser Events", "path":  "/browser/events" },
+    { "title": "Web Sockets", "path":  "/misc/web-sockets" },
+    { "title": "Microservices", "path":  "/misc/microservices" },
+    { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" },
+
+    { "title": "HTML, CSS, and Stylus", "path":  "/browser/html-css" },
+    { "title": "Browser JavaScript", "path":  "/browser/javascript" },
+    
+    { "title": "Vue", "path":  "/vue" },
+    { "title": "Nuxt", "path":  "/vue/nuxt" },
+    { "title": "Vue Components", "path":  "/vue/components" },
+    { "title": "Vue State Management", "path":  "/vue/vuex" },
+    { "title": "Vue Testing", "path":  "/vue/testing" },
+    { "title": "File Uploads", "path":  "/file-uploads" },
+
+    { "title": "Web Sockets", "path":  "/async/sockets" },
+    { "title": "Event Sourcing", "path":  "/event-sourcing" },
+    { "title": "AWS", "path": "/aws" },
+    { "title": "Infrastructure as Code", "path": "/infrastructure-as-code" },
+    { "title": "AWS Lambda", "path": "/aws/lambda" },
+    { "title": "AWS API Gateway", "path": "/aws/api-gateway" },
+    { "title": "AWS Fargate", "path": "/aws/fargate" },
+    { "title": "AWS Dynamo DB", "path": "/aws/dynamodb" },
+
+    {
+      "title": "Examples",
+      "children": [
+        { "title": "DDD Document", "path": "/examples/ddd-document" },
+        { "title": "REST API Design", "path": "/examples/rest-api-design" },
+        { "title": "OpenAPI Document", "path": "/examples/openapi" }
+      ]
+    }
+  ],
+  "topics": [
+    { "title": "Home", "path": "/" },
+    {
+      "title": "Fundamentals",
+      "children": [
+        { "title": "History of the Web", "path": "/history-of-the-web" },
+        { "title": "Domain Driven Design", "path": "/domain-driven-design" },
+        { "title": "Git", "path": "/git" },
+        { "title": "REST", "path": "/rest" },
+        { "title": "OpenAPI Spec", "path": "/openapi" },
+        { "title": "JavaScript", "path": "/javascript" },
+        { "title": "Asynchronous JavaScript", "path":  "/javascript/event-loop" }
+      ]
+    },
+    {
+      "title": "NodeJS",
+      "children": [
+        { "title": "NodeJS and NPM", "path": "/nodejs-and-npm" },
+        { "title": "Automated Testing", "path":  "/testing/nodejs" },
+        { "title": "TypeScript", "path": "/typescript" },
+        { "title": "Express", "path":  "/express" },
+        { "title": "Express in Nuxt", "path": "/express-nuxt" },
+        { "title": "OpenAPI Enforcer", "path": "/openapi-enforcer" }
+      ]
+    },
+    {
+      "title": "Containers",
+      "children": [
+        { "title": "Introduction", "path":  "/containers" },
+        { "title": "Docker", "path":  "/containers/Docker" },
+        { "title": "Docker Compose", "path":  "/containers/docker-compose" }
+      ]
+    },
+    {
+      "title": "Databases",
+      "children": [
+        { "title": "Introduction", "path":  "/databases" },
+        { "title": "SQL", "path":  "/databases/sql" },
+        { "title": "NoSQL", "path":  "/databases/no-sql" }
+      ]
+    },
+    {
+      "title": "Session Management",
+      "children": [
+        { "title": "Introduction", "path":  "/sessions" },
+        { "title": "Cookies", "path":  "/sessions/cookies" },
+        { "title": "JWT", "path":  "/sessions/jwt" }
+      ]
+    },
+
+    {
+      "title": "Web Browser",
+      "children": [
+        { "title": "HTML", "path":  "/browser/html" },
+        { "title": "JavaScript", "path":  "/browser/javascript" },
+        { "title": "Events", "path":  "/browser/events" }
+      ]
+    },
+    {
+      "title": "Vue",
+      "children": [
+        { "title": "Introduction", "path":  "/vue" },
+        { "title": "Nuxt", "path":  "/vue/nuxt" },
+        { "title": "Pages and Routing", "path":  "/vue/pages" },
+        { "title": "CSS Pre-processors", "path":  "/vue/stylus" },
+        { "title": "Components", "path":  "/vue/components" },
+        { "title": "Component Testing", "path":  "/vue/component-testing" },
+        { "title": "State Management", "path":  "/vue/vuex" },
+        { "title": "AJAX and Uploads", "path":  "/vue/ajax" }
+      ]
+    },
+    {
+      "title": "The AWS Cloud",
+      "children": [
+        { "title": "Introduction", "path": "/aws" },
+        { "title": "Lambda", "path": "/aws/lambda" },
+        { "title": "API Gateway", "path": "/aws/api-gateway" },
+        { "title": "Fargate", "path": "/aws/fargate" },
+        { "title": "Dynamo DB", "path": "/aws/dynamodb" },
+        { "title": "Terraform", "path": "/terraform" }
+      ]
+    },
+
+
+    {
+      "title": "Events",
+      "children": [
+        { "title":  "Introduction", "path":  "/events" },
+        { "title": "NodeJS Events", "path":  "/nodejs-events" },
+        { "title": "Browser Events", "path":  "/browser/javascript" }
+      ]
+    }
+  ]
+}
