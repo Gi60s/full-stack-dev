@@ -1,0 +1,143 @@
+{
+  "ordered": [
+    { "title": "Home", "path": "/" },
+
+    { "title": "History of the Web", "path": "/fundamentals/history-of-the-web" },
+    { "title": "Domain Driven Design", "path": "/fundamentals/domain-driven-design" },
+    { "title": "Git", "path": "/fundamentals/git" },
+    { "title": "REST API Design", "path": "/fundamentals/rest" },
+    { "title": "OpenAPI Document", "path": "/fundamentals/openapi" },
+    { "title": "JavaScript", "path": "/fundamentals/javascript" },
+    { "title": "IDE", "path": "/misc/ide" },
+
+    { "title": "NodeJS and NPM", "path": "/nodejs/nodejs-and-npm" },
+    { "title": "Testing Introduction", "path":  "/testing/intro" },
+    { "title": "NodeJS Testing", "path":  "/testing/nodejs" },
+    { "title": "TypeScript", "path": "/fundamentals/typescript" },
+    { "title": "Express", "path":  "/nodejs/express" },
+
+    { "title": "Nuxt Intro", "path":  "/vue/nuxt-intro" },
+    { "title": "JavaScript Event Loop", "path":  "/fundamentals/event-loop" },
+    { "title": "OpenAPI Enforcer", "path":  "/nodejs/openapi-enforcer" },
+
+    { "title": "Containers", "path":  "/containers/intro" },
+    { "title": "Docker", "path":  "/containers/docker" },
+
+    { "title": "SQL", "path":  "/databases/sql" },
+    { "title": "NoSQL", "path":  "/databases/nosql" },
+
+    { "title": "Sessions", "path":  "/nodejs/sessions" },
+
+    { "title": "Vue", "path":  "/vue/intro" },
+    { "title": "Vue Pages", "path":  "/vue/pages" },
+    { "title": "CSS Pre-Processors", "path":  "/misc/css-pre-processors" },
+    { "title": "Vue Components", "path":  "/vue/components" },
+    { "title": "Component Testing", "path":  "/testing/vue-components" },
+    { "title": "State Management", "path":  "/vue/vuex" },
+    { "title": "AJAX and File Uploads", "path":  "/fundamentals/ajax" },
+
+    { "title": "AWS", "path": "/cloud/aws" },
+    { "title": "Infrastructure as Code", "path": "/cloud/infrastructure-as-code" },
+
+    { "title": "NodeJS Events", "path":  "/nodejs/events" },
+    { "title": "Browser Events", "path":  "/misc/browser-events" },
+    { "title": "Web Sockets", "path":  "/misc/web-sockets" },
+    { "title": "Microservices", "path":  "/misc/microservices" },
+    { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" },
+
+    {
+      "title": "Examples",
+      "children": [
+        { "title": "DDD Document", "path": "/examples/ddd-document" },
+        { "title": "REST API Design", "path": "/examples/rest-api-design" },
+        { "title": "OpenAPI Document", "path": "/examples/openapi" }
+      ]
+    }
+  ],
+  "topics": [
+    { "title": "Home", "path": "/" },
+    {
+      "title": "The Cloud",
+      "children": [
+        { "title": "AWS", "path": "/cloud/aws" },
+        { "title": "Infrastructure as Code", "path": "/cloud/infrastructure-as-code" }
+      ]
+    },
+    {
+      "title": "Containers",
+      "children": [
+        { "title": "Introduction", "path":  "/containers/intro" },
+        { "title": "Docker", "path":  "/containers/docker" }
+      ]
+    },
+    {
+      "title": "Databases",
+      "children": [
+        { "title": "SQL", "path":  "/databases/sql" },
+        { "title": "NoSQL", "path":  "/databases/nosql" }
+      ]
+    },
+    {
+      "title": "Examples",
+      "children": [
+        { "title": "DDD Document", "path": "/examples/ddd-document" },
+        { "title": "REST API Design", "path": "/examples/rest-api-design" },
+        { "title": "OpenAPI Document", "path": "/examples/openapi" }
+      ]
+    },
+    {
+      "title": "Fundamentals",
+      "children": [
+        { "title": "History of the Web", "path": "/fundamentals/history-of-the-web" },
+        { "title": "Domain Driven Design", "path": "/fundamentals/domain-driven-design" },
+        { "title": "Git", "path": "/fundamentals/git" },
+        { "title": "REST API Design", "path": "/fundamentals/rest" },
+        { "title": "OpenAPI Spec", "path": "/fundamentals/openapi" },
+        { "title": "JavaScript", "path": "/fundamentals/javascript" },
+        { "title": "JavaScript Event Loop", "path":  "/fundamentals/event-loop" },
+        { "title": "TypeScript", "path": "/fundamentals/typescript" },
+        { "title": "AJAX and File Uploads", "path":  "/fundamentals/ajax" }
+      ]
+    },
+    {
+      "title": "Miscellaneous",
+      "children": [
+        { "title": "IDE", "path": "/misc/ide" },
+        { "title": "Browser Events", "path":  "/misc/browser-events" },
+        { "title": "CSS Pre-processors", "path":  "/vue/css-pre-processors" },
+        { "title": "Web Sockets", "path":  "/misc/web-sockets" },
+        { "title": "Microservices", "path":  "/misc/microservices" },
+        { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" }
+      ]
+    },
+    {
+      "title": "NodeJS",
+      "children": [
+        { "title": "NodeJS and NPM", "path": "/nodejs-and-npm" },
+        { "title": "Express", "path":  "/nodejs/express" },
+        { "title": "Nuxt Intro", "path":  "/vue/nuxt-intro" },
+        { "title": "OpenAPI Enforcer", "path":  "/nodejs/openapi-enforcer" },
+        { "title": "Sessions", "path": "/nodejs/sessions" },
+        { "title": "NodeJS Events", "path":  "/nodejs/events" }
+      ]
+    },
+    {
+      "title": "Testing",
+      "children": [
+        { "title": "Testing Introduction", "path":  "/testing/intro" },
+        { "title": "NodeJS Testing", "path":  "/testing/nodejs" },
+        { "title": "Vue Component Testing", "path":  "/testing/vue-components" }
+      ]
+    },
+    {
+      "title": "Vue",
+      "children": [
+        { "title": "Nuxt Intro", "path":  "/vue/nuxt-intro" },
+        { "title": "Vue Intro", "path":  "/vue/intro" },
+        { "title": "Pages and Routing", "path":  "/vue/pages" },
+        { "title": "Components", "path":  "/vue/components" },
+        { "title": "State Management", "path":  "/vue/vuex" }
+      ]
+    }
+  ]
+}

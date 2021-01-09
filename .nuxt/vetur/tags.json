@@ -1,0 +1,32 @@
+{
+  "BlockQuote": {
+    "description": "Auto imported from components/global/block-quote.vue"
+  },
+  "LazyBlockQuote": {
+    "description": "Auto imported from components/global/block-quote.vue"
+  },
+  "ImageZoom": {
+    "description": "Auto imported from components/global/image-zoom.vue"
+  },
+  "LazyImageZoom": {
+    "description": "Auto imported from components/global/image-zoom.vue"
+  },
+  "QuestionAnswer": {
+    "description": "Auto imported from components/global/question-answer.vue"
+  },
+  "LazyQuestionAnswer": {
+    "description": "Auto imported from components/global/question-answer.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Search": {
+    "description": "Auto imported from components/Search.vue"
+  },
+  "LazySearch": {
+    "description": "Auto imported from components/Search.vue"
+  }
+}
