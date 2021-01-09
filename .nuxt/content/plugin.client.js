@@ -21,7 +21,7 @@ export default (ctx, inject) => {
       path = `/${path}`
     }
 
-    return new QueryBuilder(`/_content${path}`, options)
+    return new QueryBuilder(`/full-stack-dev/_content${path}`, options)
   }
 
   inject('content', $content)
@@ -79,7 +79,7 @@ export default (ctx, inject) => {
           return
         }
         const protocol = location.protocol === 'https:' ? 'wss' : 'ws'
-        const wsPath = '/_content/ws'
+        const wsPath = '/full-stack-dev/_content/ws'
         const wsURL = `${protocol}://${location.hostname}:${location.port}${wsPath}`
         logger.log(`WS connect to ${wsURL}`)
         ws = new WebSocket(wsURL)

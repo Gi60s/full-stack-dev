@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     fileUrl () {
-      return `/_content${this.document.path}${this.document.extension}`
+      return `/full-stack-dev/_content${this.document.path}${this.document.extension}`
     }
   },
   mounted () {

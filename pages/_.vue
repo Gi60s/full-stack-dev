@@ -190,11 +190,16 @@ export default {
   async asyncData({$content, $router, params}) {
 
     if (!navigationMenu) {
-      const { data } = await axios.get(process.env.baseUrl + 'navigation.json')
+      const { data } = await axios.get('/full-stack-dev/navigation.json')
       navigationMenu = data
     }
 
-    const path = params.pathMatch || '/'
+    console.log('init')
+    let path = params.pathMatch || ''
+    console.log('Path: ' + path)
+    path = path.replace(/\/+$/, '')
+    if (!path.length) path = '/'
+
     let doc = null
     let isIndex = path === '/'
     try {

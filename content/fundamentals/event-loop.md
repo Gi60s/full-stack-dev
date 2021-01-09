@@ -21,7 +21,7 @@ Here is how JavaScript runs:
 2. Check to see if there is anything ready on the event loop. If so run the next item on the loop (go back to step 1).
 3. If there is something on the event loop but its not ready then wait until something is ready.
 
-<image-zoom alt="Event Loop Diagram" src="/images/javascript-event-loop.png"></image-zoom>
+<image-zoom alt="Event Loop Diagram" src="/full-stack-dev/images/javascript-event-loop.png"></image-zoom>
 
 
 ## An Introduction to the NodeJS FS Core Module

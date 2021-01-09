@@ -27,11 +27,6 @@ export default {
     base: '/full-stack-dev/'
   },
 
-  // set environment variables
-  env: {
-    baseUrl: process.env.BASE_URL || '/'
-  },
-
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -44,7 +39,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/full-stack-dev/favicon.png' }
     ]
   },
   /*

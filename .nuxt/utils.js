@@ -149,7 +149,7 @@ export async function setContext (app, context) {
 
       payload: context.payload,
       error: context.error,
-      base: '/',
+      base: '/full-stack-dev/',
       env: {}
     }
     // Only set once

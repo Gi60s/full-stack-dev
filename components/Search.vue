@@ -32,7 +32,7 @@ export default {
 
   methods: {
     handleSelect (item) {
-      this.$router.push(item.path)
+      this.$router.push(item.realPath)
     },
     async querySearch (query, callback) {
       this.searchFunction(query, callback)
