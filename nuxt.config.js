@@ -22,6 +22,10 @@ export default {
     routes: generateRoutes(basePath, basePath)
   },
 
+  router: {
+    base: '/full-stack-dev/'
+  },
+
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
