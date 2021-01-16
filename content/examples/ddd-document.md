@@ -3,6 +3,8 @@ title: DDD Document
 description: Example DDD DOcument
 ---
 
+This is an example DDD document that was built following the principles found in the [Domain Driven Design page](../fundamentals/domain-driven-design).
+
 ## Events
 
 ### User Account Events
