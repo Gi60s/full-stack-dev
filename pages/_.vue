@@ -133,13 +133,11 @@
 
     <div class="footer">
       <div>
-        <a href="https://www.npmjs.com/package/openapi-enforcer-middleware" target="_blank">NPM</a>
-        |
-        <a href="https://github.com/byu-oit/openapi-enforcer-middleware" target="_blank">Github</a>
+        <a href="https://github.com/gi60s/full-stack-dev" target="_blank">Github</a>
       </div>
       <div class="edit-this-page">
         Caught a mistake or want to contribute to the documentation?
-        <a :href="'https://github.com/byu-oit/openapi-enforcer-middleware/tree/master/website/content' + editPath" target="_blank">
+        <a :href="'https://github.com/Gi60s/full-stack-dev/tree/master/content/' + editPath" target="_blank">
           Edit this page on Github.
         </a>
       </div>
