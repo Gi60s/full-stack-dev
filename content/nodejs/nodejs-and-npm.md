@@ -326,4 +326,4 @@ And you execute the scripts from the terminal like this:
 - `npm test`
 - `npm run debug`
 
-Note that scripts named `start` and `test` are the only scripts that can be run without the `run` command and all other tests must use the `run` command.
+Note that scripts named `start` and `test` are the only scripts that can be run without the `run` command and all other scripts must use the `run` command.
