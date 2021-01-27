@@ -27,10 +27,11 @@
     { "title": "NoSQL", "path":  "/databases/nosql" },
 
     { "title": "Sessions", "path":  "/nodejs/sessions" },
+    
+    { "title": "HTML & CSS", "path": "/fundamentals/html-css" },
 
     { "title": "Vue", "path":  "/vue/intro" },
     { "title": "Vue Pages", "path":  "/vue/pages" },
-    { "title": "CSS Pre-Processors", "path":  "/misc/css-pre-processors" },
     { "title": "Vue Components", "path":  "/vue/components" },
     { "title": "Component Testing", "path":  "/testing/vue-components" },
     { "title": "State Management", "path":  "/vue/vuex" },
@@ -91,6 +92,7 @@
         { "title": "History of the Web", "path": "/fundamentals/history-of-the-web" },
         { "title": "Domain Driven Design", "path": "/fundamentals/domain-driven-design" },
         { "title": "Git", "path": "/fundamentals/git" },
+        { "title": "HTML & CSS", "path": "/fundamentals/html-css" },
         { "title": "REST API Design", "path": "/fundamentals/rest" },
         { "title": "OpenAPI Spec", "path": "/fundamentals/openapi" },
         { "title": "JavaScript", "path": "/fundamentals/javascript" },
@@ -104,7 +106,6 @@
       "children": [
         { "title": "IDE", "path": "/misc/ide" },
         { "title": "Browser Events", "path":  "/misc/browser-events" },
-        { "title": "CSS Pre-processors", "path":  "/vue/css-pre-processors" },
         { "title": "Web Sockets", "path":  "/misc/web-sockets" },
         { "title": "Microservices", "path":  "/misc/microservices" },
         { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" }
