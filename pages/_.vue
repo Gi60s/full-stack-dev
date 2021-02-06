@@ -12,6 +12,10 @@
         </div>
         <div class="spacer"></div>
 
+        <div class="queue-button">
+          <el-button icon="el-icon-chat-line-round" circle @click="openQueueForm()"></el-button>
+        </div>
+
         <!-- mobile view menu button -->
         <el-button class="mobile-menu-button" icon="el-icon-menu" @click="overlay = !overlay"></el-button>
 
@@ -240,6 +244,9 @@ export default {
   },
 
   methods: {
+    openQueueForm () {
+      window.open('https://forms.gle/J1CCHSWpFPkEN5ms7')
+    },
     setMobileMenu(key) {
       this.mobileMenu = key
       if (key === 'Search') {

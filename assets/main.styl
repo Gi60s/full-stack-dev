@@ -143,6 +143,29 @@ html, body, #__nuxt, #__layout, #__layout > div
         }
       }
 
+      > .queue-button {
+        button {
+          margin-top: 3px;
+          margin-right: 3px;
+          border: none;
+
+          &:focus {
+            background-color: transparent;
+          }
+
+          i {
+            font-size: 200%;
+          }
+        }
+
+        @media only screen and (max-width: media-mobile)  {
+          button {
+            margin-top: 0;
+            background-color: transparent;
+          }
+        }
+      }
+
       > .site-navigation {
         .el-autocomplete {
           width: 250px;
