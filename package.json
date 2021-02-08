@@ -14,7 +14,7 @@
     "@nuxt/content": "^1.8.1",
     "@nuxtjs/axios": "^5.12.2",
     "element-ui": "^2.13.2",
-    "marked": "^1.1.1",
+    "marked": "^2.0.0",
     "nuxt": "^2.14.4",
     "prism-themes": "^1.4.0",
     "stylus": "^0.54.8",
