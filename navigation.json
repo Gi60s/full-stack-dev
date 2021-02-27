@@ -43,7 +43,6 @@
     { "title": "NodeJS Events", "path":  "/nodejs/events" },
     { "title": "Browser Events", "path":  "/misc/browser-events" },
     { "title": "Web Sockets", "path":  "/misc/web-sockets" },
-    { "title": "Microservices", "path":  "/misc/microservices" },
     { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" },
 
     {
@@ -107,7 +106,6 @@
         { "title": "IDE", "path": "/misc/ide" },
         { "title": "Browser Events", "path":  "/misc/browser-events" },
         { "title": "Web Sockets", "path":  "/misc/web-sockets" },
-        { "title": "Microservices", "path":  "/misc/microservices" },
         { "title": "Event Sourcing and CQRS", "path":  "/misc/event-source-cqrs" }
       ]
     },
