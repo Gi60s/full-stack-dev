@@ -44,65 +44,35 @@ This class will cover how to:
 - **Work:**
     - Currently working for BYU's Office of Information Technology as a developer.
 - **Office Hours**
-    - I don't have an office or set hours, but if you need some one on one time we can set up a time to meet.
+    - I don't have an office or set hours, but if you need someone on one time we can set up a time to meet.
     - Any free time after class I can answer questions too.
     - I am also available on the IT&C Slack (byuitcrowd.slack.com) and can answer questions there.
     
-## Homework
+## Homework and the Semester Project
 
-Homework assignments will be posted to [Learning Suite](https://learningsuite.byu.edu).
+Throughout the semester we will be building a full-stack web application. Homework assignments are based on milestones that need to be reached for you to be successful with your semester project.
 
-Some homework will need to be submitted and some will require an in-class pass off.
+Homework assignments will be posted to [Learning Suite](https://learningsuite.byu.edu) and passed off in class.
 
-Late assignments will loose 5% per class late (not per day late) up to 50%.
+Late assignments will lose 5% per class late (not per day late) up to 50%.
 
-Homework assignments will be toward building the semester project and will build one upon another. Don't fall behind. If you need help, please reach out.
+You get to choose your own semester project.
 
-## Semester Project
+The semester project is worth 30% of your overall grade.
 
-- Throughout the semester you will build a web app of your choosing.
-- You should plan on using the homework assignments to build your semester project.
-- You will need to present your semester project on the last day of class.
+### Schedule
 
-### Requirements
+The following is a visual overview of the assignments, when you should be working on them, and when they are due.
 
-Build a full stack (client and server) web application using [JavaScript](/fundamentals/javascript) and [NodeJS](/nodejs/nodejs-and-npm).
+The schedule may have some flexibility depending on how quickly we get through things.
 
-**Client (browser)**
+**Legend**
 
-- Using [Nuxt](nuxt.md) and [Vue](/vue/into), built a client side application.
-- A single page app. Although the look of the screen and the URL may change, it should never load the whole page after the first page load.
-- Allow the user to provide input to your application.
-- Content must be catered to the user.
-    
-**Server**
+- Light Green - You should be working on this assignment.
+- Orange - Team review.
+- Dark Green - Assignment due, to be passed of in class.
 
-- Write a [REST API using NodeJS](/fundamentals/rest).
-- Use either a [NoSQL](/databases/no-sql) or [SQL](/databases/sql) database (or both).
-- Users must be able to create and use a login.
-- Must manage user sessions.
-- Users must be able to provide input and have a dynamic experience.
-- REST API endpoints must be used to get data from the server and to update data on the server.
-
-**Environment**
-
-- Must use docker containers for local development, including it's own containerized database.
-- It must provide a way via environment variables or other configuration settings to let your app run in multiple environments. For example, develop locally but deploy to the cloud.
-
-### Alone or with a Group
-
-- You can work alone or in pairs.
-- If you have two people working on the project then more will be expected of your semester project. I will also expect and look for an equal amount of contribution from each person.
-
-### Grading Criteria
-
-The grade for your semester project is based on a presentation that will occur on the last day of class. If anyone fails to present they will receive a 0% on their semester project.
-
-The presentation should include the following:
-
-- An explanation of what you built and why you choose to build it.
-- A demonstration of the working application.
-- What you learned from building the application.
+![Semester Project Timeline](/images/schedule.png)
 
 ### Example Semester Projects from the Past
 
