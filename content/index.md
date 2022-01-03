@@ -72,7 +72,7 @@ The schedule may have some flexibility depending on how quickly we get through t
 - Orange - Team review.
 - Dark Green - Assignment due, to be passed of in class.
 
-![Semester Project Timeline](/images/schedule.png)
+![Semester Project Timeline](./images/schedule.png)
 
 ### Example Semester Projects from the Past
 
