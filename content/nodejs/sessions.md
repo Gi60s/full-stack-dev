@@ -266,10 +266,11 @@ Usually you want to tie your session to your database. This is critical if your 
 
 - [express-mongo-session](https://www.npmjs.com/package/express-mongo-session)
 - [express-mysql-session](https://www.npmjs.com/package/express-mysql-session)
+- [connect-pg-simple](https://www.npmjs.com/package/connect-pg-simple)
 
 ## JWT
 
-A JWT can allow you to skip sessions. The advantage of this is that you don't need a database but the disadvantage is that you cannot store as much information.
+A JWT is an encoded and signed set of data about the client who is accessing the service.
 
 <block-quote attribution="https://en.wikipedia.org/wiki/JSON_Web_Token">
 
