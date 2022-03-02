@@ -101,6 +101,38 @@ aωb
 -----------------------------735323031399963166993862150--
 ```
 
+### Upload a File with Vue and Axios
+
+```html
+<template>
+    <div>
+        <input type="file" @change="setFile()" ref="file" accept="image/*"></input>
+        <button @click="submit()">Upload</button>
+    </div>
+</template>
+
+<script>
+    export default {
+        data () {
+            return {
+                file: null
+            }
+        },
+        methods: {
+            setFile () {
+                this.file = this.$refs.file.files[0]
+            },
+            async submit () {
+                const formData = new FormData()
+                formData.append('file', this.file);
+                const headers = { 'Content-Type': 'multipart/form-data' };
+                await axios.post('https://httpbin.org/post', formData, { headers })
+            }
+        }
+    }
+</script>
+```
+
 ### File Reader API
 
 It is also possible to base64 encode the browser's uploaded files prior to sending using the [File Reader API](https://developer.mozilla.org/en-US/docs/Web/API/FileReader).
