@@ -99,8 +99,16 @@ The following table is a summary of what you need to maintain vs what is maintai
 | Servers        | X       | -    | -    | -    |
 | Storage        | X       | -    | -    | -    |
 | Networking     | X       | -    | -    | -    |
+
+## AWS Services
+
+AWS provides many services that range from On-Prem to SAAS, allowing you to do what works for your products.
+
+Some AWS services fall within a free tier, allowing you to use them without cost so long as you are within specific limits: https://aws.amazon.com/free
+
+For those services that are not free, the cost depends on what you run and for how long you run it. You can use the AWS pricing calculator to calculate your expected costs: https://calculator.aws/
  
-## Cloud Functions
+### AWS Lambda
 
 A cloud function is a function that will run on demand in the cloud.
 
@@ -111,7 +119,7 @@ A cloud function is a function that will run on demand in the cloud.
 - Easy on-demand scaling.
 - Can be very inexpensive.
 
-### AWS Lambda
+Because it is on demand you only pay for what you use. If it's running all day every day then a cloud function is probably not a good choice.
 
 Lambda is what AWS calls its cloud functions.
 
@@ -126,5 +134,22 @@ exports.handler =  async function(event, context) {
   // run some code
 }
 ```
+
+### AWS Fargate
+
+Fargate is AWS's docker solution. You build containers and AWS will deploy them. This includes auto scaling and self healing.
+
+You can run your entire app within this, including a database, although running a database in docker is not recommended for production.
+
+The cost of a fargate instance is a little high compared to other services.
+
+### AWS EC2
+
+EC2 is used for general computing. You can set up a server on it and ssh into the server and set it up however you'd like. Most EC2s will require some maintenance from you.
+
+### AWS RDS
+
+RDS is Amazon's relational database offering. They offer MySQL, Postgres, and a few other options. These are managed database instances and are maintained by AWS.
+
 
 
