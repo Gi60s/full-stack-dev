@@ -1,6 +1,13 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 name: cd
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   cd:
